@@ -8,3 +8,34 @@ editor: visual
 ## Q1a
 
 -   Provide a link for your Github repository <https://github.com/OwenEllick/OwenEllick.github.io>
+
+-   Add a URL for your website (https://YOUR_GITHUB_USERNAME.github.io/) in the About section in your GitHub repository webpage by clicking the setting.
+
+## Q1b
+
+-   Make sure that your GitHub repository, named YOUR_GITHUB_USERNAME.github.io, is set to public.
+
+-   Update your website at https://YOUR_GITHUB_USERNAME.github.io/index.html to:
+
+-   Include links to (1) your LinkedIn page, (2) GitHub page (https://github.com/YOUR_GITHUB_USERNAME), and (3) a PDF file of your Rèsume (https://YOUR_GITHUB_USERNAME.github.io/YOUR_RESUME.pdf). Offer a description of yourself, detailing your education background and professional experience. Display your own profile picture with your face, not the one shown below.
+
+## Q1c
+
+-   Change the title of your blog.
+
+-   That is, to replace Insightful Analytics with your own blog name.
+
+-   Remove the blog posts Post With Code, Starwars, and Beer Markets.
+
+-   Revise the Welcome To My Blog post.
+
+-   Post three different blog articles based on data analysis using the following three CSV files:
+
+1.  https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv
+2.  https://bcdanl.github.io/data/spotify_all.csv
+3.  https://bcdanl.github.io/data/beer_markets.csv
+
+-   Make sure that each blog post has categories and is associated with a proper image file that is displayed as a thumbnail at the list page of the blog.
+-   Make sure that each blog post uses emojis properly. (E.g., 😄 🍺 🎶 🍕)
+-   Make sure that each blog post includes its thumbnail image and at least three ggplot figures.
+-   You can refer to the previous DANL 200 Homework Assignments and Exams for your blog posts.
