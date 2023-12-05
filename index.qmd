@@ -15,10 +15,10 @@ about:
       href: https://www.instagram.com/owenel2/
     - icon: github
       text: GitHub
-      href: https://github.com/OwenEllick/OwenEllick2.github.io
+      href: https://github.com/OwenEllick/OwenEllick.github.io
     - icon: file-earmark-pdf
       text: Resume
-      href: https://OwenEllick2.github.io/Resume.pdf
+      href: https://OwenEllick.github.io/Resume.pdf
     - icon: mailbox
       text: Email
       href: mailto:ome1@geneseo.edu
