@@ -22,9 +22,6 @@ billboard <- read_csv('https://bcdanl.github.io/data/billboard.csv')
 
 -   Describe how the distribution of rating varies across week 1, week 2, and week 3 using the faceted histogram.
 
-```{r}
-
-```
 
 ### Q1b
 
