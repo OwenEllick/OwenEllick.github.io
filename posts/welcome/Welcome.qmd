@@ -12,6 +12,7 @@ execute:
 toc: true
 ---
 
+![](Aboutme.png)
 This is the first post in my Quarto blog. Welcome!
 
 I am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men's Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.
