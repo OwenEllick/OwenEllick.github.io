@@ -187,6 +187,7 @@ q2g <- restaurant %>%
   select(DBA, prop_crit) %>% 
   filter(!is.na(prop_crit)) %>% 
   arrange(-prop_crit)
+
 ```
 
 -   Among popular franchises/chains, subway is most likely to commit Critical violation in NYC. 🥪
