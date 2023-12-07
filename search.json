@@ -173,5 +173,12 @@
     "title": "Homework 5",
     "section": "",
     "text": "Change the title of your blog.\nThat is, to replace Insightful Analytics with your own blog name.\nRemove the blog posts Post With Code, Starwars, and Beer Markets.\nRevise the Welcome To My Blog post.\nPost three different blog articles based on data analysis using the following three CSV files:\n\n\nhttps://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv\nhttps://bcdanl.github.io/data/spotify_all.csv\nhttps://bcdanl.github.io/data/beer_markets.csv\n\n\nMake sure that each blog post has categories and is associated with a proper image file that is displayed as a thumbnail at the list page of the blog.\nMake sure that each blog post uses emojis properly. (E.g., 😄 🍺 🎶 🍕)\nMake sure that each blog post includes its thumbnail image and at least three ggplot figures.\nYou can refer to the previous DANL 200 Homework Assignments and Exams for your blog posts."
+  },
+  {
+    "objectID": "posts/welcome/Welcome.html",
+    "href": "posts/welcome/Welcome.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in my Quarto blog. Welcome!\nI am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men’s Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.\n\n Picture of my favorite football team! Being of fan of this team has its ups and downs. It allows you to be apart of a culture and fanbase that is bigger than yourself. However recent struggles make being a fan of this team rough, but I know in the end one day they will get it done.\n The photo above is me playing in a lacrosse game for SUNY Geneseo against Nazareth University on February 25,2023. It was really cold and snowy, but we managed to come out with the win 13-11.\nI hope you learned a little bit about me!"
   }
 ]
