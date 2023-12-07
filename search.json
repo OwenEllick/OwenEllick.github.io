@@ -102,7 +102,7 @@
     "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
     "title": "Restaurant Inspection",
     "section": "Q1f",
-    "text": "Q1f\n\nFind the 3 most common names of restaurants (DBA) in each BORO.\n\nIf the third most common DBA values are multiple, please include all the DBA values.\n\nOverall, which DBA value is most common in NYC?\n\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\n`summarise()` has grouped output by 'BORO'. You can override using the\n`.groups` argument.\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)\n\n\nNote that chipotle mexican grill and subway are both the third most popular franchise/chain in Manhattan. 🌯\nOverall, dunkin is the most popular franchise/chain in NYC. 🍩"
+    "text": "Q1f\n\nFind the 3 most common names of restaurants (DBA) in each BORO.\n\nIf the third most common DBA values are multiple, please include all the DBA values.\n\nOverall, which DBA value is most common in NYC?\n\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)\n\n\nNote that chipotle mexican grill and subway are both the third most popular franchise/chain in Manhattan. 🌯\nOverall, dunkin is the most popular franchise/chain in NYC. 🍩"
   },
   {
     "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
