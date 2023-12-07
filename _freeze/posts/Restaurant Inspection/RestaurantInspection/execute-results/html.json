@@ -1,0 +1,14 @@
+{
+  "hash": "5461a770f1a3d3c2b67db1345046650a",
+  "result": {
+    "markdown": "---\ntitle: \"Restaurant Inspection\"\nauthor: \"Owen Ellick\"\ndate: \"2023-12-6\"\ncategories: [Data Analysis]\n---\n\n\n![](/Users/owenellick/Documents/OwenEllick.github.io/img/Restaurant%20inspection.png)\n\n# Question 1\n\nLoad the data.frame for Question 1.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nrestaurant <- read.csv('https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv')\n```\n:::\n\n\n## Variable Description\n\n-   CAMIS:\n    -   his is an unique identifier for the entity (restaurant);\n    -   10-digit integer\n-   DBA:\n    -   This field represents the name (doing business as) of the entity (restaurant); + Public business name, may change at discretion of restaurant owner\n-   BORO:\n    -   Borough in which the entity (restaurant) is located.;\n    -   • 1 = MANHATTAN\n    -   • 2 = BRONX\n    -   • 3 = BROOKLYN\n    -   • 4 = QUEENS\n    -   • 5 = STATEN ISLAND\n    -   • 0 = Missing;\n-   CUISINE DESCRIPTION:\n    -   This field describes the entity (restaurant) cuisine.\n-   ACTION:\n    -   This field represents the actions that is associated with each restaurant inspection. ;\n    -   • Violations were cited in the following area(s).\n    -   • No violations were recorded at the time of this inspection.\n    -   • Establishment re-opened by DOHMH\n    -   • Establishment re-closed by DOHMH\n    -   • Establishment Closed by DOHMH.\n    -   • Violations were cited in the following area(s) and those requiring immediate action were addressed.\n-   VIOLATION CODE:\n    -   Violation code associated with an establishment (restaurant) inspection\n-   VIOLATION DESCRIPTION:\n    -   Violation description associated with an establishment (restaurant) inspection\n-   CRITICAL FLAG:\n    -   Indicator of critical violation;\n    -   • Critical\n    -   • Not Critical\n    -   • Not Applicable;\n    -   Critical violations are those most likely to contribute to food-borne illness\n-   SCORE:\n    -   Total score for a particular inspection;\n-   GRADE:\n    -   Grade associated with the inspection;\n    -   • N = Not Yet Graded\n    -   • A = Grade A\n    -   • B = Grade B\n    -   • C = Grade C\n    -   • Z = Grade Pending\n    -   • P = Grade Pending issued on re-opening following an initial inspection that resulted in a closure\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

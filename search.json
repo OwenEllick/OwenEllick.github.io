@@ -25,7 +25,7 @@
     "href": "blog-listing.html",
     "title": "Owen’s Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -180,5 +180,19 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in my Quarto blog. Welcome!\nI am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men’s Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.\n\n Picture of my favorite football team! Being of fan of this team has its ups and downs. It allows you to be apart of a culture and fanbase that is bigger than yourself. However recent struggles make being a fan of this team rough, but I know in the end one day they will get it done.\n The photo above is me playing in a lacrosse game for SUNY Geneseo against Nazareth University on February 25,2023. It was really cold and snowy, but we managed to come out with the win 13-11.\nI hope you learned a little bit about me!"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html",
+    "title": "Restaurant Inspection",
+    "section": "",
+    "text": "## Question 1\nLoad the data.frame for Question 1.\nrestaurant &lt;- read.csv('https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv')"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
+    "title": "Restaurant Inspection",
+    "section": "Variable Description",
+    "text": "Variable Description\n\nCAMIS:\n\nhis is an unique identifier for the entity (restaurant);\n10-digit integer\n\nDBA:\n\nThis field represents the name (doing business as) of the entity (restaurant); + Public business name, may change at discretion of restaurant owner\n\nBORO:\n\nBorough in which the entity (restaurant) is located.;\n• 1 = MANHATTAN\n• 2 = BRONX\n• 3 = BROOKLYN\n• 4 = QUEENS\n• 5 = STATEN ISLAND\n• 0 = Missing;\n\nCUISINE DESCRIPTION:\n\nThis field describes the entity (restaurant) cuisine.\n\nACTION:\n\nThis field represents the actions that is associated with each restaurant inspection. ;\n• Violations were cited in the following area(s).\n• No violations were recorded at the time of this inspection.\n• Establishment re-opened by DOHMH\n• Establishment re-closed by DOHMH\n• Establishment Closed by DOHMH.\n• Violations were cited in the following area(s) and those requiring immediate action were addressed.\n\nVIOLATION CODE:\n\nViolation code associated with an establishment (restaurant) inspection\n\nVIOLATION DESCRIPTION:\n\nViolation description associated with an establishment (restaurant) inspection\n\nCRITICAL FLAG:\n\nIndicator of critical violation;\n• Critical\n• Not Critical\n• Not Applicable;\nCritical violations are those most likely to contribute to food-borne illness\n\nSCORE:\n\nTotal score for a particular inspection;\n\nGRADE:\n\nGrade associated with the inspection;\n• N = Not Yet Graded\n• A = Grade A\n• B = Grade B\n• C = Grade C\n• Z = Grade Pending\n• P = Grade Pending issued on re-opening following an initial inspection that resulted in a closure"
   }
 ]
