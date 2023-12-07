@@ -39,3 +39,5 @@ editor: visual
 -   Make sure that each blog post uses emojis properly. (E.g., 😄 🍺 🎶 🍕)
 -   Make sure that each blog post includes its thumbnail image and at least three ggplot figures.
 -   You can refer to the previous DANL 200 Homework Assignments and Exams for your blog posts.
+
+# Question 2. NFL in 2022

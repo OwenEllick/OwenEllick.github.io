@@ -49,60 +49,67 @@
     "text": "Experience\nTown of Smithtown | Beach Laborer | May 2023 - Present Nassau/Suffolk P.A.l Long Island Lacrosse League | Referee | March 2022- Present"
   },
   {
-    "objectID": "posts/beer-markets/beer-markets.html",
-    "href": "posts/beer-markets/beer-markets.html",
-    "title": "Beer Markets",
-    "section": "",
-    "text": "Let’s analyze the beer_data data:\nbeer_data &lt;- read_csv(\"https://bcdanl.github.io/data/beer_markets.csv\")"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#variable-description-for-beer_data-data.frame",
-    "href": "posts/beer-markets/beer-markets.html#variable-description-for-beer_data-data.frame",
-    "title": "Beer Markets",
-    "section": "Variable Description for beer_data data.frame",
-    "text": "Variable Description for beer_data data.frame\nThe following describes the variables in the beer_data data.frame.\n\nhh: Household identifier\n_purchase_desc: Description of the purchase\nquantity: The quantity of beer purchased\nbrand: The brand of beer\ndollar_spent: The amount spent\nbeer_floz: Fluid ounces of beer\nprice_per_floz: Price per fluid ounce\ncontainer: Type of container\npromo: Whether the purchase was on promotion\nmarket: The market where the purchase was made\nDemographics: age, employment status, degree, class of worker (cow), race, and household information like microwave, dishwasher, tvcable, singlefamilyhome, and npeople (number of people in the household)"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#purchase-patterns",
-    "href": "posts/beer-markets/beer-markets.html#purchase-patterns",
-    "title": "Beer Markets",
-    "section": "Purchase Patterns",
-    "text": "Purchase Patterns\nWe’ll explore the purchase patterns in the dataset. This includes understanding the most popular brands, the average quantity purchased, and spending habits across different markets. Here are some specific analyses we can perform:\n\nCalculate the total quantity and spending for each brand.\nFind the average quantity purchased and average spending per purchase.\nCompare the total spending across different markets.\n\nI’ll begin with these analyses and create visualizations to help us understand the data better. Let’s start by calculating the total quantity and spending for each brand.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Reading the CSV file\nbeer_data = pd.read_csv(\"https://bcdanl.github.io/data/beer_markets.csv\")\n\n# Setting up the visualisation settings\nsns.set(style=\"whitegrid\")\n\n# Calculate total quantity and spending for each brand\nbrand_summary = beer_data.groupby('brand').agg({'quantity':'sum', 'dollar_spent':'sum'}).reset_index()\n\n# Sort by total quantity and spending\nbrand_summary_sorted_quantity = brand_summary.sort_values('quantity', ascending=False)\nbrand_summary_sorted_spent = brand_summary.sort_values('dollar_spent', ascending=False)\n\n\n# Plotting total quantity for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='quantity', y='brand', data=brand_summary_sorted_quantity, palette='viridis')\nplt.title('Total Quantity of Beer Purchased by Brand')\nplt.xlabel('Total Quantity')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n# Plotting total spending for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='dollar_spent', y='brand', data=brand_summary_sorted_spent, palette='viridis')\nplt.title('Total Spending on Beer by Brand')\nplt.xlabel('Total Spending')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n\nThe bar charts above display the total quantity of beer purchased and the total spending by brand. From the looks of it, certain brands dominate in terms of quantity sold and total spending, indicating their popularity.\nNow, let’s calculate the average quantity purchased and average spending per purchase. For this, we’ll consider each row in the dataset as a separate purchase and compute the averages accordingly.\n\n# Calculate average quantity purchased and average spending per purchase\naverage_purchase = beer_data.groupby('brand').agg({\n    'quantity': 'mean', \n    'dollar_spent': 'mean'\n}).reset_index()\n\n# Sort by average quantity and average spending\naverage_purchase_sorted_quantity = average_purchase.sort_values('quantity', ascending=False)\naverage_purchase_sorted_spent = average_purchase.sort_values('dollar_spent', ascending=False)\n\n# Plotting average quantity for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='quantity', y='brand', data=average_purchase_sorted_quantity, palette='viridis')\nplt.title('Average Quantity of Beer Purchased by Brand')\nplt.xlabel('Average Quantity')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n# Plotting average spending for each brand\nplt.figure(figsize=(10, 8))\nsns.barplot(x='dollar_spent', y='brand', data=average_purchase_sorted_spent, palette='viridis')\nplt.title('Average Spending on Beer by Brand')\nplt.xlabel('Average Spending')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n\nThe visualizations above depict the average quantity of beer purchased per brand and the average spending per brand. This shows which brands tend to be bought in larger quantities on average and which brands tend to have higher spending per purchase, which could be indicative of their price point or the purchase of premium products.\nNext, we’ll look at the total spending across different markets to see if there are any notable differences in spending habits geographically. To do this, we’ll sum up the spending in each market and visualize it.\n\n# Calculate total spending in each market\nmarket_spending_summary = beer_data.groupby('market').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nmarket_spending_summary_sorted = market_spending_summary.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending in each market\nplt.figure(figsize=(12, 10))\nsns.barplot(x='dollar_spent', y='market', data=market_spending_summary_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Market')\nplt.xlabel('Total Spending')\nplt.ylabel('Market')\nplt.show()\n\n\n\n\nThe bar chart illustrates the total spending on beer by market, showcasing the differences in spending habits across various regions. Some markets have significantly higher spending, which could be due to a variety of factors including market size, consumer preferences, or economic factors.\nNow, let’s move on to the second analysis:"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#demographic-analysis",
-    "href": "posts/beer-markets/beer-markets.html#demographic-analysis",
-    "title": "Beer Markets",
-    "section": "Demographic Analysis",
-    "text": "Demographic Analysis\nWe will examine which demographics are buying what kind of beer and whether spending habits vary by demographics such as age, employment, and race. For this, we could look at:\n\nSpending by age group\nSpending by employment status\nSpending by race\n\nI’ll start by analyzing spending by age group.\n\n# Calculate total spending by age group\nage_group_spending = beer_data.groupby('age').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nage_group_spending_sorted = age_group_spending.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending by age group\nplt.figure(figsize=(10, 6))\nsns.barplot(x='dollar_spent', y='age', data=age_group_spending_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Age Group')\nplt.xlabel('Total Spending')\nplt.ylabel('Age Group')\nplt.show()\n\n\n\n\nThe bar chart demonstrates the total spending on beer segmented by age group, highlighting which age groups spend the most on beer. It appears that certain age groups are more dominant in beer spending, which may align with the purchasing power or preferences of those groups.\nNext, we will examine spending by employment status.\n\n# Calculate total spending by employment status\nemployment_spending = beer_data.groupby('employment').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nemployment_spending_sorted = employment_spending.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending by employment status\nplt.figure(figsize=(10, 6))\nsns.barplot(x='dollar_spent', y='employment', data=employment_spending_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Employment Status')\nplt.xlabel('Total Spending')\nplt.ylabel('Employment Status')\nplt.show()\n\n\n\n\nThe visualization shows the total spending on beer by employment status. We can see that certain employment groups, such as full-time workers, are spending more on beer, which might be related to their disposable income.\nFinally, let’s look at spending by race to complete the demographic analysis.\n\n# Calculate total spending by race\nrace_spending = beer_data.groupby('race').agg({'dollar_spent':'sum'}).reset_index()\n\n# Sort by total spending\nrace_spending_sorted = race_spending.sort_values('dollar_spent', ascending=False)\n\n# Plotting total spending by race\nplt.figure(figsize=(10, 6))\nsns.barplot(x='dollar_spent', y='race', data=race_spending_sorted, palette='viridis')\nplt.title('Total Spending on Beer by Race')\nplt.xlabel('Total Spending')\nplt.ylabel('Race')\nplt.show()\n\n\n\n\nThe bar chart above indicates the total spending on beer broken down by race, highlighting which racial groups account for the most beer spending within the dataset. This could reflect both the demographics of the regions where the data was collected and cultural preferences regarding beer.\nNow, let’s proceed to the third analysis:"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#price-sensitivity",
-    "href": "posts/beer-markets/beer-markets.html#price-sensitivity",
-    "title": "Beer Markets",
-    "section": "Price Sensitivity",
-    "text": "Price Sensitivity\nWe’ll look at the price per fluid ounce and see if there are any trends or correlations with the quantity purchased or the brand popularity. To do this, we’ll calculate the average price per fluid ounce for each brand and then visualize how this relates to the average quantity purchased and the total quantity purchased by brand.\nFirst, let’s calculate the average price per fluid ounce for each brand.\n\n# Calculate average price per fluid ounce for each brand\nbrand_price_sensitivity = beer_data.groupby('brand').agg({\n    'price_per_floz': 'mean', \n    'quantity': 'sum'\n}).reset_index()\n\n# Sort by price per fluid ounce\nbrand_price_sensitivity_sorted = brand_price_sensitivity.sort_values('price_per_floz', ascending=True)\n\n# Plotting average price per fluid ounce for each brand and the total quantity purchased\nfig, ax1 = plt.subplots(figsize=(12, 10))\n\ncolor = 'tab:red'\nax1.set_xlabel('Brand')\nax1.set_ylabel('Average Price per Fluid Ounce', color=color)\nax1.bar(brand_price_sensitivity_sorted['brand'], brand_price_sensitivity_sorted['price_per_floz'], color=color)\nax1.tick_params(axis='y', labelcolor=color)\nax1.set_xticklabels(brand_price_sensitivity_sorted['brand'], rotation=90)\n\nax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis\ncolor = 'tab:blue'\nax2.set_ylabel('Total Quantity Purchased', color=color)  # we already handled the x-label with ax1\nax2.plot(brand_price_sensitivity_sorted['brand'], brand_price_sensitivity_sorted['quantity'], color=color)\nax2.tick_params(axis='y', labelcolor=color)\n\nfig.tight_layout()  # otherwise the right y-label is slightly clipped\nplt.title('Average Price per Fluid Ounce & Total Quantity Purchased by Brand')\nplt.show()\n\n\n\n\nIn the visualization, we have a bar graph showing the average price per fluid ounce for each brand (in red) and a line graph showing the total quantity purchased for each brand (in blue). This gives us a sense of whether there’s a relationship between the price and the quantity purchased. The x-axis labels are quite compressed due to the number of brands, but we can still observe trends such as whether lower-priced beers tend to be purchased in larger quantities.\nLastly, let’s move to the fourth analysis:"
-  },
-  {
-    "objectID": "posts/beer-markets/beer-markets.html#promotional-impact",
-    "href": "posts/beer-markets/beer-markets.html#promotional-impact",
-    "title": "Beer Markets",
-    "section": "Promotional Impact",
-    "text": "Promotional Impact\nWe’ll assess the impact of promotions on the quantity of beer purchased. For this analysis, we can calculate the average quantity purchased with and without promotions and visualize the difference. We’ll do this for each brand to see which brands are most affected by promotions.\nLet’s begin this analysis by looking at the average quantity purchased with and without promotions for each brand.\n\n# Calculate average quantity purchased with and without promotions for each brand\npromo_impact = beer_data.groupby(['brand', 'promo']).agg({'quantity':'mean'}).reset_index()\n\n# Pivot the data to have promo and non-promo side by side for each brand\npromo_impact_pivot = promo_impact.pivot(index='brand', columns='promo', values='quantity').reset_index()\npromo_impact_pivot.columns = ['brand', 'non_promo', 'promo']\n\n# Calculate the difference in average quantity purchased between promo and non-promo\npromo_impact_pivot['promo_impact'] = promo_impact_pivot['promo'] - promo_impact_pivot['non_promo']\n\n# Sort by the impact of promo\npromo_impact_pivot_sorted = promo_impact_pivot.sort_values('promo_impact', ascending=False)\n\n# Plotting the difference in average quantity purchased between promo and non-promo for each brand\nplt.figure(figsize=(12, 10))\nsns.barplot(x='promo_impact', y='brand', data=promo_impact_pivot_sorted, palette='viridis')\nplt.title('Impact of Promotions on Average Quantity Purchased by Brand')\nplt.xlabel('Difference in Average Quantity Purchased (Promo - Non-Promo)')\nplt.ylabel('Brand')\nplt.show()\n\n\n\n\nThe bar chart illustrates the impact of promotions on the average quantity of beer purchased by brand. A positive value indicates that, on average, more beer is purchased when there is a promotion compared to when there isn’t. Some brands appear to be significantly more influenced by promotions, with customers buying more when the products are on sale or promotion.\nThis comprehensive analysis has provided insights into purchase patterns, demographic preferences, price sensitivity, and the impact of promotions on beer purchases."
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
+    "objectID": "posts/welcome/Welcome.html",
+    "href": "posts/welcome/Welcome.html",
     "title": "Welcome To My Blog",
     "section": "",
-    "text": "This is the first post in my Quarto blog. Welcome!\nI am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men’s Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.\n\n Picture of my favorite football team! Being of fan of this team has its ups and downs. It allows you to be apart of a culture and fanbase that is bigger than yourself. However recent struggles make being a fan of this team rought, but I know in the end one day they will get it done.\n The photo above is me playing in a lacrosse game for SUNY Geneseo against Nazareth University on February 25,2023. It was really cold and snowy, but we managed to come out with the win 13-11.\nI hope you learned a little bit about me!"
+    "text": "This is the first post in my Quarto blog. Welcome!\nI am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men’s Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.\n\n\nPicture of my favorite football team! Being of fan of this team has its ups and downs. It allows you to be apart of a culture and fanbase that is bigger than yourself. However recent struggles make being a fan of this team rough, but I know in the end one day they will get it done.\n The photo above is me playing in a lacrosse game for SUNY Geneseo against Nazareth University on February 25,2023. It was really cold and snowy, but we managed to come out with the win 13-11.\nI hope you learned a little bit about me!"
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
+    "title": "Restaurant Inspection",
+    "section": "Variable Description",
+    "text": "Variable Description\n\nCAMIS:\n\nhis is an unique identifier for the entity (restaurant);\n10-digit integer\n\nDBA:\n\nThis field represents the name (doing business as) of the entity (restaurant); + Public business name, may change at discretion of restaurant owner\n\nBORO:\n\nBorough in which the entity (restaurant) is located.;\n• 1 = MANHATTAN\n• 2 = BRONX\n• 3 = BROOKLYN\n• 4 = QUEENS\n• 5 = STATEN ISLAND\n• 0 = Missing;\n\nCUISINE DESCRIPTION:\n\nThis field describes the entity (restaurant) cuisine.\n\nACTION:\n\nThis field represents the actions that is associated with each restaurant inspection. ;\n• Violations were cited in the following area(s).\n• No violations were recorded at the time of this inspection.\n• Establishment re-opened by DOHMH\n• Establishment re-closed by DOHMH\n• Establishment Closed by DOHMH.\n• Violations were cited in the following area(s) and those requiring immediate action were addressed.\n\nVIOLATION CODE:\n\nViolation code associated with an establishment (restaurant) inspection\n\nVIOLATION DESCRIPTION:\n\nViolation description associated with an establishment (restaurant) inspection\n\nCRITICAL FLAG:\n\nIndicator of critical violation;\n• Critical\n• Not Critical\n• Not Applicable;\nCritical violations are those most likely to contribute to food-borne illness\n\nSCORE:\n\nTotal score for a particular inspection;\n\nGRADE:\n\nGrade associated with the inspection;\n• N = Not Yet Graded\n• A = Grade A\n• B = Grade B\n• C = Grade C\n• Z = Grade Pending\n• P = Grade Pending issued on re-opening following an initial inspection that resulted in a closure"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
+    "title": "Restaurant Inspection",
+    "section": "Q1a",
+    "text": "Q1a\nWhat are the mean, standard deviation, first quartile, median, third quartile, and maximum of SCORE for each GRADE of restaurants?\n\nrestaurant %&gt;% group_by(GRADE) %&gt;% skim(SCORE) %&gt;% select(-n_missing)\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n17633\n\n\nNumber of columns\n12\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n1\n\n\n________________________\n\n\n\nGroup variables\nGRADE\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nGRADE\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nSCORE\nA\n1\n9.26\n3.42\n0\n7\n10\n12\n13\n▁▂▂▅▇\n\n\nSCORE\nB\n1\n21.03\n4.16\n0\n18\n21\n24\n36\n▁▁▇▇▁\n\n\nSCORE\nC\n1\n38.56\n10.83\n0\n31\n36\n44\n86\n▁▇▇▂▁"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
+    "title": "Restaurant Inspection",
+    "section": "Q1b",
+    "text": "Q1b\n\nHow many restaurants with a GRADE of A are there in NYC?\nHow much percentage of restaurants in NYC are a GRADE of C?\n\n\nfreq &lt;- as.data.frame( table(restaurant$GRADE) )\n\nprop &lt;- as.data.frame( 100 * prop.table(table(restaurant$GRADE)) )"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
+    "title": "Restaurant Inspection",
+    "section": "Q1c",
+    "text": "Q1c\nProvide both (1) ggplot code and (2) a simple comment to describe how the distribution of SCORE varies by GRADE and CRITICAL FLAG.\n\nBoxplots\n\n\nggplot(restaurant) +\n  geom_boxplot(aes(x = SCORE, y = GRADE, fill = GRADE) ) +\n  facet_grid( CRITICAL.FLAG ~ . )\n\n\n\n\n\nHistograms\n\n\nggplot(restaurant) +\n  geom_histogram(aes(x = SCORE), binwidth = 1 ) +\n  facet_grid( CRITICAL.FLAG ~ GRADE )\n\n\n\n\n\nMostly,\n\nThe values of SCORE for GRADE A ranges from 0 to 13.\nThe values of SCORE for GRADE B ranges 13 to 27.\nThe values of SCORE for GRADE C ranges 24 to 75.\n\nFor Not Critical type, two SCORE values around 1 and 12 are most common, while 12 is the single most common SCORE value for Critical type."
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
+    "title": "Restaurant Inspection",
+    "section": "Q1d",
+    "text": "Q1d\nProvide both (1) ggplot code and (2) a simple comment to describe how the proportion of CRITICAL FLAG varies by GRADE and BORO.\n\nggplot(restaurant) +\n  geom_bar(aes(x = CRITICAL.FLAG,\n               y = after_stat(prop), group = 1)) +\n  facet_grid( GRADE ~ BORO )\n\n\n\n\n\nFor GRADE A, the probability distribution of CRITICAL FLAG are similar across BOROs.\nFor GRADE B, the restaurants in Staten Island are more likely to be Critical than in other BOROs.\nFor GRADE C, the restaurants in Bronx are more likely to be Critical than in other BOROs."
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
+    "title": "Restaurant Inspection",
+    "section": "Q1e",
+    "text": "Q1e\nFor the 10 most common CUISINE DESCRIPTION values, find the CUISINE DESCRIPTION value that has the highest proportion of GRADE A.\n\nq2e &lt;- restaurant %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(n = n()) %&gt;% \n  ungroup() %&gt;% \n  filter(dense_rank(-n) &lt;= 10) %&gt;% \n  group_by(CUISINE.DESCRIPTION, GRADE) %&gt;% \n  count() %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(prop_A = n / sum(n)) %&gt;% \n  filter(GRADE == 'A') %&gt;% \n  arrange(-prop_A)"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
+    "title": "Restaurant Inspection",
+    "section": "Q1f",
+    "text": "Q1f\n\nFind the 3 most common names of restaurants (DBA) in each BORO.\n\nIf the third most common DBA values are multiple, please include all the DBA values.\n\nOverall, which DBA value is most common in NYC?\n\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\n`summarise()` has grouped output by 'BORO'. You can override using the\n`.groups` argument.\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)\n\n\nNote that chipotle mexican grill and subway are both the third most popular franchise/chain in Manhattan. 🌯\nOverall, dunkin is the most popular franchise/chain in NYC. 🍩"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
+    "title": "Restaurant Inspection",
+    "section": "Q1g",
+    "text": "Q1g\nFor all the DBA values that appear in the result of Q1f, find the DBA value that is most likely to commit critical violation.\n\nq2g &lt;- restaurant %&gt;% \n  filter(DBA %in% q2f$DBA) %&gt;% \n  group_by(DBA, CRITICAL.FLAG) %&gt;% \n  count() %&gt;% \n  group_by(DBA) %&gt;% \n  mutate(lag_n = lag(n),\n         tot = sum(n),\n         prop_crit = lag_n / tot) %&gt;% \n  select(DBA, prop_crit) %&gt;% \n  filter(!is.na(prop_crit)) %&gt;% \n  arrange(-prop_crit)\n\n\nAmong popular franchises/chains, subway is most likely to commit Critical violation in NYC. 🥪"
   },
   {
     "objectID": "danl-200-cw-10.html",
@@ -173,75 +180,5 @@
     "title": "Homework 5",
     "section": "",
     "text": "Change the title of your blog.\nThat is, to replace Insightful Analytics with your own blog name.\nRemove the blog posts Post With Code, Starwars, and Beer Markets.\nRevise the Welcome To My Blog post.\nPost three different blog articles based on data analysis using the following three CSV files:\n\n\nhttps://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv\nhttps://bcdanl.github.io/data/spotify_all.csv\nhttps://bcdanl.github.io/data/beer_markets.csv\n\n\nMake sure that each blog post has categories and is associated with a proper image file that is displayed as a thumbnail at the list page of the blog.\nMake sure that each blog post uses emojis properly. (E.g., 😄 🍺 🎶 🍕)\nMake sure that each blog post includes its thumbnail image and at least three ggplot figures.\nYou can refer to the previous DANL 200 Homework Assignments and Exams for your blog posts."
-  },
-  {
-    "objectID": "posts/welcome/Welcome.html",
-    "href": "posts/welcome/Welcome.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in my Quarto blog. Welcome!\nI am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men’s Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.\n\n\nPicture of my favorite football team! Being of fan of this team has its ups and downs. It allows you to be apart of a culture and fanbase that is bigger than yourself. However recent struggles make being a fan of this team rough, but I know in the end one day they will get it done.\n The photo above is me playing in a lacrosse game for SUNY Geneseo against Nazareth University on February 25,2023. It was really cold and snowy, but we managed to come out with the win 13-11.\nI hope you learned a little bit about me!"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html",
-    "title": "Restaurant Inspection",
-    "section": "",
-    "text": "## Question 1\nLoad the data.frame for Question 1.\nrestaurant &lt;- read.csv('https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv')"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
-    "title": "Restaurant Inspection",
-    "section": "Variable Description",
-    "text": "Variable Description\n\nCAMIS:\n\nhis is an unique identifier for the entity (restaurant);\n10-digit integer\n\nDBA:\n\nThis field represents the name (doing business as) of the entity (restaurant); + Public business name, may change at discretion of restaurant owner\n\nBORO:\n\nBorough in which the entity (restaurant) is located.;\n• 1 = MANHATTAN\n• 2 = BRONX\n• 3 = BROOKLYN\n• 4 = QUEENS\n• 5 = STATEN ISLAND\n• 0 = Missing;\n\nCUISINE DESCRIPTION:\n\nThis field describes the entity (restaurant) cuisine.\n\nACTION:\n\nThis field represents the actions that is associated with each restaurant inspection. ;\n• Violations were cited in the following area(s).\n• No violations were recorded at the time of this inspection.\n• Establishment re-opened by DOHMH\n• Establishment re-closed by DOHMH\n• Establishment Closed by DOHMH.\n• Violations were cited in the following area(s) and those requiring immediate action were addressed.\n\nVIOLATION CODE:\n\nViolation code associated with an establishment (restaurant) inspection\n\nVIOLATION DESCRIPTION:\n\nViolation description associated with an establishment (restaurant) inspection\n\nCRITICAL FLAG:\n\nIndicator of critical violation;\n• Critical\n• Not Critical\n• Not Applicable;\nCritical violations are those most likely to contribute to food-borne illness\n\nSCORE:\n\nTotal score for a particular inspection;\n\nGRADE:\n\nGrade associated with the inspection;\n• N = Not Yet Graded\n• A = Grade A\n• B = Grade B\n• C = Grade C\n• Z = Grade Pending\n• P = Grade Pending issued on re-opening following an initial inspection that resulted in a closure"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
-    "title": "Restaurant Inspection",
-    "section": "Q1a",
-    "text": "Q1a\nWhat are the mean, standard deviation, first quartile, median, third quartile, and maximum of SCORE for each GRADE of restaurants?\n\nrestaurant %&gt;% group_by(GRADE) %&gt;% skim(SCORE) %&gt;% select(-n_missing)\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n17633\n\n\nNumber of columns\n12\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n1\n\n\n________________________\n\n\n\nGroup variables\nGRADE\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nGRADE\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nSCORE\nA\n1\n9.26\n3.42\n0\n7\n10\n12\n13\n▁▂▂▅▇\n\n\nSCORE\nB\n1\n21.03\n4.16\n0\n18\n21\n24\n36\n▁▁▇▇▁\n\n\nSCORE\nC\n1\n38.56\n10.83\n0\n31\n36\n44\n86\n▁▇▇▂▁"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
-    "title": "Restaurant Inspection",
-    "section": "Q1b",
-    "text": "Q1b\n\nHow many restaurants with a GRADE of A are there in NYC?\nHow much percentage of restaurants in NYC are a GRADE of C?\n\n\nfreq &lt;- as.data.frame( table(restaurant$GRADE) )\n\nprop &lt;- as.data.frame( 100 * prop.table(table(restaurant$GRADE)) )"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
-    "title": "Restaurant Inspection",
-    "section": "Q1c",
-    "text": "Q1c\nProvide both (1) ggplot code and (2) a simple comment to describe how the distribution of SCORE varies by GRADE and CRITICAL FLAG.\n\nBoxplots\n\n\nggplot(restaurant) +\n  geom_boxplot(aes(x = SCORE, y = GRADE, fill = GRADE) ) +\n  facet_grid( CRITICAL.FLAG ~ . )\n\n\n\n\n\nHistograms\n\n\nggplot(restaurant) +\n  geom_histogram(aes(x = SCORE), binwidth = 1 ) +\n  facet_grid( CRITICAL.FLAG ~ GRADE )\n\n\n\n\n\nMostly,\n\nThe values of SCORE for GRADE A ranges from 0 to 13.\nThe values of SCORE for GRADE B ranges 13 to 27.\nThe values of SCORE for GRADE C ranges 24 to 75.\n\nFor Not Critical type, two SCORE values around 1 and 12 are most common, while 12 is the single most common SCORE value for Critical type."
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
-    "title": "Restaurant Inspection",
-    "section": "Q1d",
-    "text": "Q1d\nProvide both (1) ggplot code and (2) a simple comment to describe how the proportion of CRITICAL FLAG varies by GRADE and BORO.\n\nggplot(restaurant) +\n  geom_bar(aes(x = CRITICAL.FLAG,\n               y = after_stat(prop), group = 1)) +\n  facet_grid( GRADE ~ BORO )\n\n\n\n\n\nFor GRADE A, the probability distribution of CRITICAL FLAG are similar across BOROs.\nFor GRADE B, the restaurants in Staten Island are more likely to be Critical than in other BOROs.\nFor GRADE C, the restaurants in Bronx are more likely to be Critical than in other BOROs."
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
-    "title": "Restaurant Inspection",
-    "section": "Q1e",
-    "text": "Q1e\nFor the 10 most common CUISINE DESCRIPTION values, find the CUISINE DESCRIPTION value that has the highest proportion of GRADE A.\n\nq2e &lt;- restaurant %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(n = n()) %&gt;% \n  ungroup() %&gt;% \n  filter(dense_rank(-n) &lt;= 10) %&gt;% \n  group_by(CUISINE.DESCRIPTION, GRADE) %&gt;% \n  count() %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(prop_A = n / sum(n)) %&gt;% \n  filter(GRADE == 'A') %&gt;% \n  arrange(-prop_A)"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
-    "title": "Restaurant Inspection",
-    "section": "Q1f",
-    "text": "Q1f\n\nFind the 3 most common names of restaurants (DBA) in each BORO.\n\nIf the third most common DBA values are multiple, please include all the DBA values.\n\nOverall, which DBA value is most common in NYC?\n\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\n`summarise()` has grouped output by 'BORO'. You can override using the\n`.groups` argument.\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)\n\n\nNote that chipotle mexican grill and subway are both the third most popular franchise/chain in Manhattan. 🌯\nOverall, dunkin is the most popular franchise/chain in NYC. 🍩"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
-    "title": "Restaurant Inspection",
-    "section": "Q1g",
-    "text": "Q1g\nFor all the DBA values that appear in the result of Q1f, find the DBA value that is most likely to commit critical violation.\n\nq2g &lt;- restaurant %&gt;% \n  filter(DBA %in% q2f$DBA) %&gt;% \n  group_by(DBA, CRITICAL.FLAG) %&gt;% \n  count() %&gt;% \n  group_by(DBA) %&gt;% \n  mutate(lag_n = lag(n),\n         tot = sum(n),\n         prop_crit = lag_n / tot) %&gt;% \n  select(DBA, prop_crit) %&gt;% \n  filter(!is.na(prop_crit)) %&gt;% \n  arrange(-prop_crit)\n\n\nAmong popular franchises/chains, subway is most likely to commit Critical violation in NYC. 🥪"
   }
 ]
