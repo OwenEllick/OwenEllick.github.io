@@ -25,7 +25,7 @@
     "href": "blog-listing.html",
     "title": "Owen’s Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -194,5 +194,54 @@
     "title": "Restaurant Inspection",
     "section": "Variable Description",
     "text": "Variable Description\n\nCAMIS:\n\nhis is an unique identifier for the entity (restaurant);\n10-digit integer\n\nDBA:\n\nThis field represents the name (doing business as) of the entity (restaurant); + Public business name, may change at discretion of restaurant owner\n\nBORO:\n\nBorough in which the entity (restaurant) is located.;\n• 1 = MANHATTAN\n• 2 = BRONX\n• 3 = BROOKLYN\n• 4 = QUEENS\n• 5 = STATEN ISLAND\n• 0 = Missing;\n\nCUISINE DESCRIPTION:\n\nThis field describes the entity (restaurant) cuisine.\n\nACTION:\n\nThis field represents the actions that is associated with each restaurant inspection. ;\n• Violations were cited in the following area(s).\n• No violations were recorded at the time of this inspection.\n• Establishment re-opened by DOHMH\n• Establishment re-closed by DOHMH\n• Establishment Closed by DOHMH.\n• Violations were cited in the following area(s) and those requiring immediate action were addressed.\n\nVIOLATION CODE:\n\nViolation code associated with an establishment (restaurant) inspection\n\nVIOLATION DESCRIPTION:\n\nViolation description associated with an establishment (restaurant) inspection\n\nCRITICAL FLAG:\n\nIndicator of critical violation;\n• Critical\n• Not Critical\n• Not Applicable;\nCritical violations are those most likely to contribute to food-borne illness\n\nSCORE:\n\nTotal score for a particular inspection;\n\nGRADE:\n\nGrade associated with the inspection;\n• N = Not Yet Graded\n• A = Grade A\n• B = Grade B\n• C = Grade C\n• Z = Grade Pending\n• P = Grade Pending issued on re-opening following an initial inspection that resulted in a closure"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
+    "title": "Restaurant Inspection",
+    "section": "Q1a",
+    "text": "Q1a\nWhat are the mean, standard deviation, first quartile, median, third quartile, and maximum of SCORE for each GRADE of restaurants?\n\nrestaurant %&gt;% group_by(GRADE) %&gt;% skim(SCORE) %&gt;% select(-n_missing)\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n17633\n\n\nNumber of columns\n12\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n1\n\n\n________________________\n\n\n\nGroup variables\nGRADE\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nGRADE\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nSCORE\nA\n1\n9.26\n3.42\n0\n7\n10\n12\n13\n▁▂▂▅▇\n\n\nSCORE\nB\n1\n21.03\n4.16\n0\n18\n21\n24\n36\n▁▁▇▇▁\n\n\nSCORE\nC\n1\n38.56\n10.83\n0\n31\n36\n44\n86\n▁▇▇▂▁"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
+    "title": "Restaurant Inspection",
+    "section": "Q1b",
+    "text": "Q1b\n\nHow many restaurants with a GRADE of A are there in NYC?\nHow much percentage of restaurants in NYC are a GRADE of C?\n\n\nfreq &lt;- as.data.frame( table(restaurant$GRADE) )\n\nprop &lt;- as.data.frame( 100 * prop.table(table(restaurant$GRADE)) )"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
+    "title": "Restaurant Inspection",
+    "section": "Q1c",
+    "text": "Q1c\nProvide both (1) ggplot code and (2) a simple comment to describe how the distribution of SCORE varies by GRADE and CRITICAL FLAG.\n\nBoxplots\n\n\nggplot(restaurant) +\n  geom_boxplot(aes(x = SCORE, y = GRADE, fill = GRADE) ) +\n  facet_grid( CRITICAL.FLAG ~ . )\n\n\n\n\n\nHistograms\n\n\nggplot(restaurant) +\n  geom_histogram(aes(x = SCORE), binwidth = 1 ) +\n  facet_grid( CRITICAL.FLAG ~ GRADE )\n\n\n\n\n\nMostly,\n\nThe values of SCORE for GRADE A ranges from 0 to 13.\nThe values of SCORE for GRADE B ranges 13 to 27.\nThe values of SCORE for GRADE C ranges 24 to 75.\n\nFor Not Critical type, two SCORE values around 1 and 12 are most common, while 12 is the single most common SCORE value for Critical type."
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
+    "title": "Restaurant Inspection",
+    "section": "Q1d",
+    "text": "Q1d\nProvide both (1) ggplot code and (2) a simple comment to describe how the proportion of CRITICAL FLAG varies by GRADE and BORO.\n\nggplot(restaurant) +\n  geom_bar(aes(x = CRITICAL.FLAG,\n               y = after_stat(prop), group = 1)) +\n  facet_grid( GRADE ~ BORO )\n\n\n\n\n\nFor GRADE A, the probability distribution of CRITICAL FLAG are similar across BOROs.\nFor GRADE B, the restaurants in Staten Island are more likely to be Critical than in other BOROs.\nFor GRADE C, the restaurants in Bronx are more likely to be Critical than in other BOROs."
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
+    "title": "Restaurant Inspection",
+    "section": "Q1e",
+    "text": "Q1e\nFor the 10 most common CUISINE DESCRIPTION values, find the CUISINE DESCRIPTION value that has the highest proportion of GRADE A.\n\nq2e &lt;- restaurant %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(n = n()) %&gt;% \n  ungroup() %&gt;% \n  filter(dense_rank(-n) &lt;= 10) %&gt;% \n  group_by(CUISINE.DESCRIPTION, GRADE) %&gt;% \n  count() %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(prop_A = n / sum(n)) %&gt;% \n  filter(GRADE == 'A') %&gt;% \n  arrange(-prop_A)"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
+    "title": "Restaurant Inspection",
+    "section": "Q1f",
+    "text": "Q1f\n\nFind the 3 most common names of restaurants (DBA) in each BORO.\n\nIf the third most common DBA values are multiple, please include all the DBA values.\n\nOverall, which DBA value is most common in NYC?\n\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\n`summarise()` has grouped output by 'BORO'. You can override using the\n`.groups` argument.\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)\n\n\nNote that chipotle mexican grill and subway are both the third most popular franchise/chain in Manhattan. 🌯\nOverall, dunkin is the most popular franchise/chain in NYC. 🍩"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
+    "title": "Restaurant Inspection",
+    "section": "Q1g",
+    "text": "Q1g\nFor all the DBA values that appear in the result of Q1f, find the DBA value that is most likely to commit critical violation.\n\nq2g &lt;- restaurant %&gt;% \n  filter(DBA %in% q2f$DBA) %&gt;% \n  group_by(DBA, CRITICAL.FLAG) %&gt;% \n  count() %&gt;% \n  group_by(DBA) %&gt;% \n  mutate(lag_n = lag(n),\n         tot = sum(n),\n         prop_crit = lag_n / tot) %&gt;% \n  select(DBA, prop_crit) %&gt;% \n  filter(!is.na(prop_crit)) %&gt;% \n  arrange(-prop_crit)\n\n\nAmong popular franchises/chains, subway is most likely to commit Critical violation in NYC. 🥪"
   }
 ]
