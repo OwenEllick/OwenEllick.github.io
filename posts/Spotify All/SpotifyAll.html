@@ -181,12 +181,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#variable-description" id="toc-variable-description" class="nav-link" data-scroll-target="#variable-description">Variable Description</a>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a>
   <ul class="collapse">
-  <li><a href="#q1a" id="toc-q1a" class="nav-link" data-scroll-target="#q1a">Q1a</a></li>
-  <li><a href="#q1b" id="toc-q1b" class="nav-link" data-scroll-target="#q1b">Q1b</a></li>
-  <li><a href="#q1c" id="toc-q1c" class="nav-link" data-scroll-target="#q1c">Q1c</a></li>
+  <li><a href="#variable-description" id="toc-variable-description" class="nav-link" data-scroll-target="#variable-description">Variable Description</a></li>
+  <li><a href="#q1a" id="toc-q1a" class="nav-link" data-scroll-target="#q1a">Q1a 🎶</a></li>
+  <li><a href="#q1b" id="toc-q1b" class="nav-link" data-scroll-target="#q1b">Q1b 🎼</a></li>
+  <li><a href="#q1c" id="toc-q1c" class="nav-link" data-scroll-target="#q1c">Q1c 🎹</a></li>
+  <li><a href="#q1d" id="toc-q1d" class="nav-link" data-scroll-target="#q1d">Q1d 🎵</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -221,11 +222,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The data.frame spotify_all includes information about Spotify users’ playlists.</p>
 <ul>
-<li>The unit of observation in spotify_all is a track in a music playlist.</li>
+<li>The unit of observation in spotify_all is a track in a music playlist. 🎶</li>
 </ul>
-</section>
-<section id="variable-description" class="level1">
-<h1>Variable Description</h1>
+<section id="variable-description" class="level2">
+<h2 class="anchored" data-anchor-id="variable-description">Variable Description</h2>
 <ul>
 <li><p>pid: playlist ID; unique ID for playlist</p></li>
 <li><p>playlist_name: a name of playlist</p></li>
@@ -235,10 +235,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>duration_ms: duration of the track in milliseconds</p></li>
 <li><p>album_name: name of the track’s album</p></li>
 </ul>
+</section>
 <section id="q1a" class="level2">
-<h2 class="anchored" data-anchor-id="q1a">Q1a</h2>
+<h2 class="anchored" data-anchor-id="q1a">Q1a 🎶</h2>
 <ul>
-<li>Find the ten most popular song.
+<li>Find the ten most popular song. 🎵
 <ul>
 <li>A value of a song is defined as a combination of a artist_name value and a track_name value.</li>
 <li>Who are artists for those ten most popular song?</li>
@@ -267,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="q1b" class="level2">
-<h2 class="anchored" data-anchor-id="q1b">Q1b</h2>
+<h2 class="anchored" data-anchor-id="q1b">Q1b 🎼</h2>
 <ul>
 <li>Find the five most popular artist in terms of the number of occurrences in the data.frame, spotify_all.</li>
 <li>What is the most popular song for each of the five most popular artist?</li>
@@ -309,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="q1c" class="level2">
-<h2 class="anchored" data-anchor-id="q1c">Q1c</h2>
+<h2 class="anchored" data-anchor-id="q1c">Q1c 🎹</h2>
 <p>Provide both (1) ggplot codes and (2) a couple of sentences to describe the relationship between pos and the ten most popular artists.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Q1c <span class="ot">&lt;-</span> spotify_all <span class="sc">%&gt;%</span> </span>
@@ -350,7 +351,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The distribution of pos does not seem to vary a lot across the ten most popular artists.</p></li>
 <li><p>Anything noticeable can be mentioned.</p></li>
 </ul>
-<p>##Q1d</p>
+</section>
+<section id="q1d" class="level2">
+<h2 class="anchored" data-anchor-id="q1d">Q1d 🎵</h2>
 <p>Create the data.frame with pid-artist level of observations with the following four variables:</p>
 <ul>
 <li>pid: playlist id</li>

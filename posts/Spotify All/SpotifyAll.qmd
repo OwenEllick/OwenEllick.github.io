@@ -10,8 +10,8 @@ execute:
 
 toc: true
 ---
-![](Spotify.png)
 
+![](Spotify.png)
 
 # Question 1
 
@@ -22,40 +22,40 @@ library(tidyverse)
 library(skimr)
 ```
 
-
 ```{r}
 spotify_all <- read.csv('https://bcdanl.github.io/data/spotify_all.csv')
 ```
+
 ```{r}
 rmarkdown::paged_table(spotify_all)
 ```
 
-The data.frame spotify_all includes information about Spotify users’ playlists.
+The data.frame spotify_all includes information about Spotify users' playlists.
 
-* The unit of observation in spotify_all is a track in a music playlist.
+-   The unit of observation in spotify_all is a track in a music playlist. 🎶
 
-# Variable Description
+## Variable Description
 
-* pid: playlist ID; unique ID for playlist
+-   pid: playlist ID; unique ID for playlist
 
-* playlist_name: a name of playlist
+-   playlist_name: a name of playlist
 
-* pos: a position of the track within a playlist (starting from 0)
+-   pos: a position of the track within a playlist (starting from 0)
 
-* artist_name: name of the track’s primary artist
+-   artist_name: name of the track's primary artist
 
-* track_name: name of the track
+-   track_name: name of the track
 
-* duration_ms: duration of the track in milliseconds
+-   duration_ms: duration of the track in milliseconds
 
-* album_name: name of the track’s album
+-   album_name: name of the track's album
 
-## Q1a
+## Q1a 🎶
 
-* Find the ten most popular song.
-  + A value of a song is defined as a combination of a artist_name value and a track_name value.
-  + Who are artists for those ten most popular song?
-  
+-   Find the ten most popular song. 🎵
+    -   A value of a song is defined as a combination of a artist_name value and a track_name value.
+    -   Who are artists for those ten most popular song?
+
 ```{r}
 Q1a <- spotify_all %>% 
   count(artist_name, track_name) %>% 
@@ -65,10 +65,10 @@ Q1a <- spotify_all %>%
 Q1a
 ```
 
-## Q1b
+## Q1b 🎼
 
-* Find the five most popular artist in terms of the number of occurrences in the data.frame, spotify_all.
-* What is the most popular song for each of the five most popular artist?
+-   Find the five most popular artist in terms of the number of occurrences in the data.frame, spotify_all.
+-   What is the most popular song for each of the five most popular artist?
 
 ```{r}
 Q1b <- spotify_all %>% 
@@ -89,7 +89,7 @@ Q1b <- spotify_all %>%
 Q1b
 ```
 
-## Q1c
+## Q1c 🎹
 
 Provide both (1) ggplot codes and (2) a couple of sentences to describe the relationship between pos and the ten most popular artists.
 
@@ -121,22 +121,22 @@ ggplot(Q1c) +
   theme(strip.text.y.left = element_text(angle = 0))
 ```
 
-* All are skewed right.
+-   All are skewed right.
 
-  + Users tend to locate these popular artists’ songs early in their playlist.
+    -   Users tend to locate these popular artists' songs early in their playlist.
 
-* The distribution of pos does not seem to vary a lot across the ten most popular artists.
+-   The distribution of pos does not seem to vary a lot across the ten most popular artists.
 
-* Anything noticeable can be mentioned.
+-   Anything noticeable can be mentioned.
 
-##Q1d
+## Q1d 🎵
 
 Create the data.frame with pid-artist level of observations with the following four variables:
 
-* pid: playlist id
-* playlist_name: name of playlist
-* artist: name of the track’s primary artist, which appears only once within a playlist
-* n_artist: number of occurrences of artist within a playlist
+-   pid: playlist id
+-   playlist_name: name of playlist
+-   artist: name of the track's primary artist, which appears only once within a playlist
+-   n_artist: number of occurrences of artist within a playlist
 
 ```{r}
 Q1d <- spotify_all %>% 
@@ -148,4 +148,3 @@ Q1d <- spotify_all %>%
 ```{r}
 rmarkdown::paged_table(Q1d)
 ```
-
