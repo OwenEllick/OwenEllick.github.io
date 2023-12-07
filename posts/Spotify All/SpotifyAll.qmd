@@ -1,0 +1,13 @@
+---
+title: "Spotify All"
+author: "Owen Ellick"
+date: "2023-12-7"
+categories: [Data Analysis]
+image: "Spotify.png"
+execute: 
+  warning: false
+  message: false
+
+toc: true
+---
+![](Spotify.png)
