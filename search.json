@@ -180,5 +180,12 @@
     "title": "Homework 5",
     "section": "",
     "text": "Change the title of your blog.\nThat is, to replace Insightful Analytics with your own blog name.\nRemove the blog posts Post With Code, Starwars, and Beer Markets.\nRevise the Welcome To My Blog post.\nPost three different blog articles based on data analysis using the following three CSV files:\n\n\nhttps://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv\nhttps://bcdanl.github.io/data/spotify_all.csv\nhttps://bcdanl.github.io/data/beer_markets.csv\n\n\nMake sure that each blog post has categories and is associated with a proper image file that is displayed as a thumbnail at the list page of the blog.\nMake sure that each blog post uses emojis properly. (E.g., 😄 🍺 🎶 🍕)\nMake sure that each blog post includes its thumbnail image and at least three ggplot figures.\nYou can refer to the previous DANL 200 Homework Assignments and Exams for your blog posts."
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html",
+    "title": "Restaurant Inspection",
+    "section": "",
+    "text": "{width= 200}"
   }
 ]

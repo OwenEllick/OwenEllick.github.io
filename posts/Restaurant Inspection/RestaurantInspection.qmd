@@ -5,7 +5,7 @@ date: "2023-12-6"
 categories: [Data Analysis]
 ---
 
-![](/Users/owenellick/Documents/OwenEllick.github.io/img/Restaurant%20inspection.png)
+![](/Users/owenellick/Documents/OwenEllick.github.io/img/restaurantinspection.png) {width= 200}
 
 # Question 1
 
