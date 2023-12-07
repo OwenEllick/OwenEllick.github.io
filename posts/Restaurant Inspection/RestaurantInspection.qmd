@@ -4,8 +4,7 @@ author: "Owen Ellick"
 date: "2023-12-6"
 categories: [Data Analysis]
 ---
-
-![](/Users/owenellick/Documents/OwenEllick.github.io/img/restaurantinspection.png) {width= 200}
+![](/Users/owenellick/Documents/OwenEllick.github.io/img/restaurantinspection.png)
 
 # Question 1
 
