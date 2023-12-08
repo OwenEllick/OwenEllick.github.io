@@ -102,8 +102,6 @@ Comments:
 
 ```{r}
 NFL2022_epa <- read.csv('https://bcdanl.github.io/data/NFL2022_epa.csv')
-
-NFL2022_epa
 ```
 
 -   Variable description for NFL2022_epa
@@ -126,9 +124,6 @@ NFL2022_stuffs_EPA <- left_join(NFL2022_stuffs, NFL2022_epa, by = c("play_id", "
 
 NFL2022_stuffs_EPA <- NFL2022_stuffs_EPA %>%
   filter(!is.na(passer))
-
-NFL2022_stuffs_EPA
-
 ```
 
 ## Q2e 🏈
