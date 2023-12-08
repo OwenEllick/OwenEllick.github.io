@@ -11,7 +11,7 @@ execute:
 toc: true
 ---
 
-![](patrickmahomes.png) 
+![](patrickmahomes.png)
 
 # Question 2. NFL in 2022 🏈
 
@@ -53,8 +53,6 @@ In data.frame, NFL2022_stuffs, remove observations for which values of posteam i
 ```{r}
 q2a <- NFL2022_stuffs %>% 
   filter(!is.na(posteam))
-
-q2a
 ```
 
 ## Q2b 🏈
