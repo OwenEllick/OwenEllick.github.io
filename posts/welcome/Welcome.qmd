@@ -2,7 +2,7 @@
 title: "Welcome To My Blog"
 author: "Owen Ellick"
 date: "2023-12-5"
-categories: [news]
+categories: [News]
 image: "Aboutme.png"
 
 execute: 
