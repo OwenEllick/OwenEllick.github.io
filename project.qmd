@@ -1,6 +1,6 @@
 ---
 title: DANL Project
-subtitle: "Data-Driven Mastery: Unlocking Business Potential"
+subtitle: "Slam Dunk Salaries: Analyzing NBA Player Earnings"
 author: 
   - Name 1
   - Name 2
