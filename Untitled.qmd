@@ -1,0 +1,49 @@
+---
+title: "Untitled"
+editor: visual
+---
+
+# #Section 1
+
+```{r}
+library(tidyverse)
+library(hrbrthemes)
+library(skimr)
+```
+
+option command I for mac
+
+command shift return to run code in r chunk
+
+```
+
+```{r}
+#| echo: false
+library(gapminder) # to load gapminder data.frame
+ggplot(gapminder) +
+  geom_point(aes(x = gdpPercap, y = lifeExp,
+                 color = continent), alpha = .25) +
+  labs(x = "GDP per capita",
+       y = "Life Expectancy",
+       color = "Continent") +
+  theme_minimal()
+```
+```{r}
+#| eval: false
+ggplot(gapminder) +
+  geom_point(aes(x = gdpPercap, y = lifeExp,
+                 color = continent), alpha = .25) +
+  labs(x = "GDP per capita",
+       y = "Life Expectancy",
+       color = "Continent")
+```
+```
+
+```{r}
+ggplot(diamonds)+
+  geom_bar(aes(x=price, color = clarity))
+```
+
+```{r}
+```
+
