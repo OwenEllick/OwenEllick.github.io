@@ -89,4 +89,4 @@ top_10_players
 
 Comments:
 
-* Joel Embiid, Damian Lillard, Shai Gilgeous-Alexander, Giannis Antetokounmpo, Jayson Tatum, Stephen Curry, Kevin Durant, Lebron James, Donovan Mitchell, and Devin Booker are the top 10 players based on point per game for the 2022-2023 NBA season
+* Joel Embiid, Damian Lillard, Shai Gilgeous-Alexander, Giannis Antetokounmpo, Jayson Tatum, Stephen Curry, Kevin Durant, Lebron James, Donovan Mitchell, and Devin Booker are the top 10 players based on points per game for the 2022-2023 NBA season
