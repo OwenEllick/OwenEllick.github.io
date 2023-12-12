@@ -2,11 +2,10 @@
 title: DANL Project
 subtitle: "Slam Dunk Salaries: Analyzing NBA Player Earnings"
 author: 
-  - Name 1
-  - Name 2
-  - Name 3
-  - Name 4
-  - Name 5
+  - Owen Ellick
+  - Jack Helrigel
+  - Jake Starkey
+  - Luca Schettino
 
 toc: true
 toc-title: "Table of Contents"
@@ -22,6 +21,7 @@ execute:
 
 from: markdown+emoji
 ---
+
 ```{r setup}
 #| include: false
 library(tidyverse)
@@ -43,50 +43,49 @@ theme_set(theme_ipsum()+
           )
 ```
 
-
-
 # Introduction
 
-About this project :clap:
+About this project :clap: Welcome to our Project, where we dive into the dynamic world of professional basketball through the lens of players salaries and performance statistics. We will analyzing a dataset with NBA Players Salaries and statistics from the 2022-2023 NBA season.
 
 ```{r}
-1 + 1
+library(tidyverse)
+library(skimr)
 ```
-
 
 # Data
 
-The data.frame `mpg` contains a subset of the fuel economy data that the EPA makes available on [https://fueleconomy.gov/](https://fueleconomy.gov/). It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car. :oncoming_automobile:
-
+The data.frame `NBAsal` contains a data from the 2022-2023 NBA season. It contains player per-game and advanced statistics for that season with player salary data. This allows us to create a comprehensive resource for understanding the performance and financial aspects of professional basketball players.
 
 ## Summary Statistics
 
 ```{r}
-mpg <- ggplot2::mpg
+NBAsal <-read_csv("NBA Salary Project/nba_salaries.csv")
 ```
 
 ```{r}
 #| results: asis
 #| echo: false
-rmarkdown::paged_table(mpg) 
+rmarkdown::paged_table(NBAsal) 
 ```
 
-
 ```{r}
-skim(mpg) %>% 
+skim(NBAsal) %>% 
   select(-n_missing)
 ```
 
+## Top Players and Points Per Game
 
-## MPG and a Type of Cars
-The following boxplot shows how the distribution of highway MPG (`hwy`) varies by a type of cars (`class`) :blue_car: :truck: :minibus:.
-
+The following shows the top 10 players during the NBA 2022-2023 season based on the number of points per game.
 
 ```{r}
-ggplot(data = mpg) +
-  geom_boxplot(aes(x = class, y = hwy, fill = class),
-               show.legend = F) +
-  labs(x = "Class", y = "Highway\nMPG") 
+top_10_players <- NBAsal %>% 
+  group_by(PTS) %>% 
+  arrange(desc(PTS)) %>% 
+  head(10)
+  
+top_10_players
 ```
 
+Comments:
 
+* Joel Embiid, Damian Lillard, Shai Gilgeous-Alexander, Giannis Antetokounmpo, Jayson Tatum, Stephen Curry, Kevin Durant, Lebron James, Donovan Mitchell, and Devin Booker are the top 10 players based on point per game for the 2022-2023 NBA season
