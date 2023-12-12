@@ -694,28 +694,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top_10_players <span class="ot">&lt;-</span> NBAsal <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PTS) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(PTS)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>top_10_players</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(PTS,<span class="at">.before =</span> Position)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>top_10_players</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 32
 # Groups:   PTS [10]
-    ...1 `Player Name` Salary Position   Age Team     GP    GS    MP    FG   FGA
-   &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1    27 Joel Embiid   3.36e7 C           28 PHI      66    66  34.6  11    20.1
- 2     9 Damian Lilla… 4.25e7 PG          32 POR      58    58  36.3   9.6  20.7
- 3    34 Shai Gilgeou… 3.09e7 PG          24 OKC      68    68  35.5  10.4  20.3
- 4     8 Giannis Ante… 4.25e7 PF          28 MIL      63    63  32.1  11.2  20.3
- 5    37 Jayson Tatum  3.04e7 SF          24 BOS      74    74  36.9   9.8  21.1
- 6     0 Stephen Curry 4.81e7 PG          34 GSW      56    56  34.7  10    20.2
- 7     4 Kevin Durant  4.41e7 PF          34 BRK/…    47    47  35.6  10.3  18.3
- 8     3 LeBron James  4.45e7 PF          38 LAL      55    54  35.5  11.1  22.2
- 9    33 Donovan Mitc… 3.09e7 SG          26 CLE      68    68  35.8  10    20.6
-10    25 Devin Booker  3.38e7 SG          26 PHO      53    53  34.6   9.9  20.1
-# ℹ 21 more variables: `FG%` &lt;dbl&gt;, `3P` &lt;dbl&gt;, `3PA` &lt;dbl&gt;, `3P%` &lt;dbl&gt;,
-#   `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, FT &lt;dbl&gt;, FTA &lt;dbl&gt;,
-#   `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;, DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;,
-#   BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;, PTS &lt;dbl&gt;, `Player-additional` &lt;chr&gt;</code></pre>
+    ...1 `Player Name` Salary   PTS Position   Age Team     GP    GS    MP    FG
+   &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1    27 Joel Embiid   3.36e7  33.1 C           28 PHI      66    66  34.6  11  
+ 2     9 Damian Lilla… 4.25e7  32.2 PG          32 POR      58    58  36.3   9.6
+ 3    34 Shai Gilgeou… 3.09e7  31.4 PG          24 OKC      68    68  35.5  10.4
+ 4     8 Giannis Ante… 4.25e7  31.1 PF          28 MIL      63    63  32.1  11.2
+ 5    37 Jayson Tatum  3.04e7  30.1 SF          24 BOS      74    74  36.9   9.8
+ 6     0 Stephen Curry 4.81e7  29.4 PG          34 GSW      56    56  34.7  10  
+ 7     4 Kevin Durant  4.41e7  29.1 PF          34 BRK/…    47    47  35.6  10.3
+ 8     3 LeBron James  4.45e7  28.9 PF          38 LAL      55    54  35.5  11.1
+ 9    33 Donovan Mitc… 3.09e7  28.3 SG          26 CLE      68    68  35.8  10  
+10    25 Devin Booker  3.38e7  27.8 SG          26 PHO      53    53  34.6   9.9
+# ℹ 21 more variables: FGA &lt;dbl&gt;, `FG%` &lt;dbl&gt;, `3P` &lt;dbl&gt;, `3PA` &lt;dbl&gt;,
+#   `3P%` &lt;dbl&gt;, `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, FT &lt;dbl&gt;,
+#   FTA &lt;dbl&gt;, `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;, DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;,
+#   STL &lt;dbl&gt;, BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;, `Player-additional` &lt;chr&gt;</code></pre>
 </div>
 </div>
 <p>Comments:</p>

@@ -81,7 +81,8 @@ The following shows the top 10 players during the NBA 2022-2023 season based on 
 top_10_players <- NBAsal %>% 
   group_by(PTS) %>% 
   arrange(desc(PTS)) %>% 
-  head(10)
+  head(10) %>% 
+  relocate(PTS,.before = Position)
   
 top_10_players
 ```
