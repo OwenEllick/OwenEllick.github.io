@@ -153,6 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">2.1</span> Summary Statistics</a></li>
   <li><a href="#top-players-and-points-per-game" id="toc-top-players-and-points-per-game" class="nav-link" data-scroll-target="#top-players-and-points-per-game"><span class="header-section-number">2.2</span> Top Players and Points Per Game</a></li>
+  <li><a href="#points-per-game-and-salary" id="toc-points-per-game-and-salary" class="nav-link" data-scroll-target="#points-per-game-and-salary"><span class="header-section-number">2.3</span> Points Per Game and Salary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -723,6 +724,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Joel Embiid, Damian Lillard, Shai Gilgeous-Alexander, Giannis Antetokounmpo, Jayson Tatum, Stephen Curry, Kevin Durant, Lebron James, Donovan Mitchell, and Devin Booker are the top 10 players based on points per game for the 2022-2023 NBA season</li>
 </ul>
+</section>
+<section id="points-per-game-and-salary" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="points-per-game-and-salary"><span class="header-section-number">2.3</span> Points Per Game and Salary</h2>
+<p>Provide both ggplot codes and a couple of sentences to describe the relationship between salary and points per game.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NBAsal, <span class="fu">aes</span>(<span class="at">x=</span> PTS, <span class="at">y=</span> Salary))<span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="project_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="864"></p>
+</div>
+</div>
+<p>Comments:</p>
+<p>*The plot above shows us that in the NBA for the 2022-2023 season players that had a higher average points per game generally got paid more than players that had a lower average points per game.</p>
 
 
 </section>
