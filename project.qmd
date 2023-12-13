@@ -102,4 +102,6 @@ ggplot(NBAsal, aes(x= PTS, y= Salary))+
 ```
 Comments:
 
-*The plot above shows us that in the NBA for the 2022-2023 season players that had a higher average points per game generally got paid more than players that had a lower average points per game.
+* The plot above shows us that during 2022-2023 season players that had a higher average points per game generally had a higher salary than players that had a lower average points per game.
+
+* This implies that players that score more points per game are generally considered more valuable to a franchise which is why they are paid more.

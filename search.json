@@ -389,6 +389,6 @@
     "href": "project.html#points-per-game-and-salary",
     "title": "DANL Project",
     "section": "2.3 Points Per Game and Salary",
-    "text": "2.3 Points Per Game and Salary\nProvide both ggplot codes and a couple of sentences to describe the relationship between salary and points per game.\n\nggplot(NBAsal, aes(x= PTS, y= Salary))+\n  geom_point()+\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\")\n\n\n\n\nComments:\n*The plot above shows us that in the NBA for the 2022-2023 season players that had a higher average points per game generally got paid more than players that had a lower average points per game."
+    "text": "2.3 Points Per Game and Salary\nProvide both ggplot codes and a couple of sentences to describe the relationship between salary and points per game.\n\nggplot(NBAsal, aes(x= PTS, y= Salary))+\n  geom_point()+\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\")\n\n\n\n\nComments:\n\nThe plot above shows us that during 2022-2023 season players that had a higher average points per game generally had a higher salary than players that had a lower average points per game.\nThis implies that players that score more points per game are generally considered more valuable to a franchise which is why they are paid more."
   }
 ]
