@@ -105,3 +105,32 @@ Comments:
 * The plot above shows us that during 2022-2023 season players that had a higher average points per game generally had a higher salary than players that had a lower average points per game.
 
 * This implies that players that score more points per game are generally considered more valuable to a franchise which is why they are paid more.
+
+## Top FG%
+
+* Find the ten highest FG% Values of players who have attmpted more than 15 Field Goal Attempts per game
+
+  + FG% is the ratio of field goals made to field goals attempted
+  + Generally a higher field goal percentage denotes higher efficiency.
+  + A FG% of .500 (50%) or above is considered a good percentage, although it depends on the position.
+
+* Who are the players for those top 10 FG% values?
+
+```{r}
+top_FG_Percentage <- NBAsal %>% 
+  group_by(`FG%`) %>%
+  filter(FGA > 15) %>% 
+  arrange(desc(`FG%`)) %>% 
+  head(10) %>% 
+  relocate(`FG%`, .before = Position) %>% 
+  relocate(FGA, .before = Position)
+
+top_FG_Percentage
+```
+
+Comments: 
+
+* Zion Williamson, Anthony Davis, Kevin Durant, Giannis Antetokounmpo, Joel Embiid, Kawhi Leonard, De'Aaron Fox, Shai Gilgeous-Alexander, Bradley Beal, Demar DeRozan have the highest FG% for players with more than 15 attempts per game. 
+
+* All these players have a FG% above a .50 which means they are considered highly efficient 
+
