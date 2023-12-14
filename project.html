@@ -148,14 +148,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction <span class="emoji" data-emoji="basketball">🏀</span></a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data <span class="emoji" data-emoji="basketball">🏀</span></a>
   <ul class="collapse">
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">2.1</span> Summary Statistics</a></li>
-  <li><a href="#top-players-and-points-per-game" id="toc-top-players-and-points-per-game" class="nav-link" data-scroll-target="#top-players-and-points-per-game"><span class="header-section-number">2.2</span> Top Players and Points Per Game</a></li>
-  <li><a href="#points-per-game-and-salary" id="toc-points-per-game-and-salary" class="nav-link" data-scroll-target="#points-per-game-and-salary"><span class="header-section-number">2.3</span> Points Per Game and Salary</a></li>
-  <li><a href="#top-fg" id="toc-top-fg" class="nav-link" data-scroll-target="#top-fg"><span class="header-section-number">2.4</span> Top FG%</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics"><span class="header-section-number">2.1</span> Summary Statistics <span class="emoji" data-emoji="basketball">🏀</span></a></li>
+  <li><a href="#top-players-and-points-per-game" id="toc-top-players-and-points-per-game" class="nav-link" data-scroll-target="#top-players-and-points-per-game"><span class="header-section-number">2.2</span> Top Players and Points Per Game <span class="emoji" data-emoji="basketball">🏀</span></a></li>
+  <li><a href="#points-per-game-and-salary" id="toc-points-per-game-and-salary" class="nav-link" data-scroll-target="#points-per-game-and-salary"><span class="header-section-number">2.3</span> Points Per Game and Salary <span class="emoji" data-emoji="basketball_man">⛹️‍♂️</span></a></li>
+  <li><a href="#top-fg" id="toc-top-fg" class="nav-link" data-scroll-target="#top-fg"><span class="header-section-number">2.4</span> Top FG% <span class="emoji" data-emoji="basketball_man">⛹️‍♂️</span></a></li>
+  <li><a href="#mp-minutes-per-game-vs-tov-turnovers" id="toc-mp-minutes-per-game-vs-tov-turnovers" class="nav-link" data-scroll-target="#mp-minutes-per-game-vs-tov-turnovers"><span class="header-section-number">2.5</span> MP (minutes per game) Vs TOV (turnovers) <span class="emoji" data-emoji="wastebasket">🗑️</span></a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3</span> Conclusion <span class="emoji" data-emoji="medal_sports">🏅</span><span class="emoji" data-emoji="basketball">🏀</span><span class="emoji" data-emoji="athletic_shoe">👟</span></a></li>
   </ul>
 </nav>
     </div>
@@ -190,18 +192,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>About this project <span class="emoji" data-emoji="clap">👏</span> Welcome to our Project, where we dive into the dynamic world of professional basketball through the lens of players salaries and performance statistics. We will analyzing a dataset with NBA Players Salaries and statistics from the 2022-2023 NBA season.</p>
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction <span class="emoji" data-emoji="basketball">🏀</span></h1>
+<p>Welcome to our Project, where we dive into the dynamic world of professional basketball through the lens of players salaries and performance statistics. We will analyzing a dataset with NBA Players Salaries and statistics from the 2022-2023 NBA season.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Data</h1>
+<h1 data-number="2"><span class="header-section-number">2</span> Data <span class="emoji" data-emoji="basketball">🏀</span></h1>
 <p>The data.frame <code>NBAsal</code> contains a data from the 2022-2023 NBA season. It contains player per-game and advanced statistics for that season with player salary data. This allows us to create a comprehensive resource for understanding the performance and financial aspects of professional basketball players.</p>
 <section id="summary-statistics" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="summary-statistics"><span class="header-section-number">2.1</span> Summary Statistics</h2>
+<h2 data-number="2.1" class="anchored" data-anchor-id="summary-statistics"><span class="header-section-number">2.1</span> Summary Statistics <span class="emoji" data-emoji="basketball">🏀</span></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>NBAsal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"nba_salaries.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -690,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="top-players-and-points-per-game" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="top-players-and-points-per-game"><span class="header-section-number">2.2</span> Top Players and Points Per Game</h2>
+<h2 data-number="2.2" class="anchored" data-anchor-id="top-players-and-points-per-game"><span class="header-section-number">2.2</span> Top Players and Points Per Game <span class="emoji" data-emoji="basketball">🏀</span></h2>
 <p>The following shows the top 10 players during the NBA 2022-2023 season based on the number of points per game.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top_10_players <span class="ot">&lt;-</span> NBAsal <span class="sc">%&gt;%</span> </span>
@@ -727,7 +729,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="points-per-game-and-salary" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="points-per-game-and-salary"><span class="header-section-number">2.3</span> Points Per Game and Salary</h2>
+<h2 data-number="2.3" class="anchored" data-anchor-id="points-per-game-and-salary"><span class="header-section-number">2.3</span> Points Per Game and Salary <span class="emoji" data-emoji="basketball_man">⛹️‍♂️</span></h2>
 <p>Provide both ggplot codes and a couple of sentences to describe the relationship between salary and points per game.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NBAsal, <span class="fu">aes</span>(<span class="at">x=</span> PTS, <span class="at">y=</span> Salary))<span class="sc">+</span></span>
@@ -744,7 +746,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="top-fg" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="top-fg"><span class="header-section-number">2.4</span> Top FG%</h2>
+<h2 data-number="2.4" class="anchored" data-anchor-id="top-fg"><span class="header-section-number">2.4</span> Top FG% <span class="emoji" data-emoji="basketball_man">⛹️‍♂️</span></h2>
 <ul>
 <li><p>Find the ten highest FG% Values of players who have attmpted more than 15 Field Goal Attempts per game</p>
 <ul>
@@ -790,9 +792,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Zion Williamson, Anthony Davis, Kevin Durant, Giannis Antetokounmpo, Joel Embiid, Kawhi Leonard, De’Aaron Fox, Shai Gilgeous-Alexander, Bradley Beal, Demar DeRozan have the highest FG% for players with more than 15 attempts per game.</p></li>
 <li><p>All these players have a FG% above a .50 which means they are considered highly efficient</p></li>
 </ul>
-
-
 </section>
+<section id="mp-minutes-per-game-vs-tov-turnovers" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="mp-minutes-per-game-vs-tov-turnovers"><span class="header-section-number">2.5</span> MP (minutes per game) Vs TOV (turnovers) <span class="emoji" data-emoji="wastebasket">🗑️</span></h2>
+<p>Provide both ggplot codes and a couple of sentences to describe the relationship between Minutes Played Per Game and Turnovers for the top 10 players based on Points Per Game.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_10_players, <span class="fu">aes</span>(<span class="at">x=</span> MP, <span class="at">y=</span> TOV))<span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="st">`</span><span class="at">Player Name</span><span class="st">`</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="project_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="864"></p>
+</div>
+</div>
+<p>Comments:</p>
+<ul>
+<li><p>Giannis Antetokounmpo played the least amount of minutes per game, but had the most turnovers per game. This makes sense as Giannis is the primary ball handler for his team, therfore there is more opportunity for him to turnover the ball</p></li>
+<li><p>Devin Booker, Donovan Mitchell, Jayson Tatum, and Shai Gilgeous-Alexander all play around 35-37 minutes per game and turnover the ball the least out of those 10 players</p></li>
+<li><p>Stephen Curry, Lebron James, and Kevin Durant all play similar minutes and turnover the ball at a similar rate</p>
+<ul>
+<li>They are all older in age and play similar minutes due to load management. They turnover the ball at an almost identical rate per game.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Conclusion <span class="emoji" data-emoji="medal_sports">🏅</span><span class="emoji" data-emoji="basketball">🏀</span><span class="emoji" data-emoji="athletic_shoe">👟</span></h1>
+<ul>
+<li><p>Our exploration of NBA player salaries and performance unveiled key insights, emphasizing the pivotal role of scoring in determining player value.</p></li>
+<li><p>Efficient players like Zion Williamson and Kevin Durant, with high field goal percentages, stood out.</p></li>
+<li><p>Analyzing minutes played and turnovers for the top 10 players highlighted patterns, revealing challenges for primary ball handlers and consistency among players like Devin Booker and Donovan Mitchell.</p></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
