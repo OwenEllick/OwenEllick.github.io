@@ -4,7 +4,7 @@
     "href": "project.html",
     "title": "DANL Project",
     "section": "",
-    "text": "Welcome to our Project, where we dive into the dynamic world of professional basketball through the lens of players salaries and performance statistics. We will analyzing a dataset with NBA Players Salaries and statistics from the 2022-2023 NBA season.\n\nlibrary(tidyverse)\nlibrary(skimr)"
+    "text": "Link to Written Report HERE"
   },
   {
     "objectID": "project.html#summary-statistics",

@@ -43,6 +43,8 @@ theme_set(theme_ipsum()+
           )
 ```
 
+Link to Written Report [HERE](https://docs.google.com/document/d/15lSao9eu4sIakEDE1oMMEuj2lYCMrK7q-sJo8HvwVjk/edit?usp=sharing)
+
 # Introduction :basketball:
 
 Welcome to our Project, where we dive into the dynamic world of professional basketball through the lens of players salaries and performance statistics. We will analyzing a dataset with NBA Players Salaries and statistics from the 2022-2023 NBA season.
