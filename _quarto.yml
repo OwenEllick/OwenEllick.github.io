@@ -11,6 +11,11 @@ website:
         href: project.qmd
       - text: Blog
         href: blog-listing.qmd
+        menu: Python Data Analysis
+          - text: Python Basics with ipynb
+            href: basic-python-intro.ipynb
+          - text: Pyhton Basics with qmd
+            href: danl-210-quarto-py-only.qmd
   page-footer: 
     center: "Powered with GitHub and Quarto<br>© Owen Ellick, 2023"
 

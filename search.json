@@ -404,5 +404,12 @@
     "title": "DANL Project",
     "section": "2.5 MP (minutes per game) Vs TOV (turnovers) 🗑️",
     "text": "2.5 MP (minutes per game) Vs TOV (turnovers) 🗑️\nProvide both ggplot codes and a couple of sentences to describe the relationship between Minutes Played Per Game and Turnovers for the top 10 players based on Points Per Game.\n\nggplot(top_10_players, aes(x= MP, y= TOV))+\n  geom_point()+\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\")+\n  facet_wrap(~`Player Name`, ncol = 2)\n\n\n\n\nComments:\n\nGiannis Antetokounmpo played the least amount of minutes per game, but had the most turnovers per game. This makes sense as Giannis is the primary ball handler for his team, therfore there is more opportunity for him to turnover the ball\nDevin Booker, Donovan Mitchell, Jayson Tatum, and Shai Gilgeous-Alexander all play around 35-37 minutes per game and turnover the ball the least out of those 10 players\nStephen Curry, Lebron James, and Kevin Durant all play similar minutes and turnover the ball at a similar rate\n\nThey are all older in age and play similar minutes due to load management. They turnover the ball at an almost identical rate per game."
+  },
+  {
+    "objectID": "Quartodoc1.html",
+    "href": "Quartodoc1.html",
+    "title": "Habits",
+    "section": "",
+    "text": "Here is my first Quarto document.\n\nSection 1. I do not know"
   }
 ]
