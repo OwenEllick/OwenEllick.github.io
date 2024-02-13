@@ -42,6 +42,48 @@
     "text": "2.5 MP (minutes per game) Vs TOV (turnovers) 🗑️\nProvide both ggplot codes and a couple of sentences to describe the relationship between Minutes Played Per Game and Turnovers for the top 10 players based on Points Per Game.\n\nggplot(top_10_players, aes(x= MP, y= TOV))+\n  geom_point()+\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\")+\n  facet_wrap(~`Player Name`, ncol = 2)\n\n\n\n\nComments:\n\nGiannis Antetokounmpo played the least amount of minutes per game, but had the most turnovers per game. This makes sense as Giannis is the primary ball handler for his team, therfore there is more opportunity for him to turnover the ball\nDevin Booker, Donovan Mitchell, Jayson Tatum, and Shai Gilgeous-Alexander all play around 35-37 minutes per game and turnover the ball the least out of those 10 players\nStephen Curry, Lebron James, and Kevin Durant all play similar minutes and turnover the ball at a similar rate\n\nThey are all older in age and play similar minutes due to load management. They turnover the ball at an almost identical rate per game."
   },
   {
+    "objectID": "danl-210-quarto-py-only.html",
+    "href": "danl-210-quarto-py-only.html",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "",
+    "text": "reticulate::use_condaenv(\"/Users/owenellick/anaconda3/\", required = TRUE)"
+  },
+  {
+    "objectID": "danl-210-quarto-py-only.html#variables-and-data-types",
+    "href": "danl-210-quarto-py-only.html#variables-and-data-types",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.1 Variables and Data Types",
+    "text": "1.1 Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\n\nCode\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n\n10.5"
+  },
+  {
+    "objectID": "danl-210-quarto-py-only.html#control-structures",
+    "href": "danl-210-quarto-py-only.html#control-structures",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.2 Control Structures",
+    "text": "1.2 Control Structures\nPython supports the usual logical conditions from mathematics:\n\n\nCode\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n\nCode\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')\n\n\nFive is greater than two!"
+  },
+  {
+    "objectID": "danl-210-quarto-py-only.html#functions",
+    "href": "danl-210-quarto-py-only.html#functions",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.3 Functions",
+    "text": "1.3 Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n\nCode\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()\n\n\nHello from a function"
+  },
+  {
+    "objectID": "danl-210-quarto-py-only.html#lists-and-dictionaries",
+    "href": "danl-210-quarto-py-only.html#lists-and-dictionaries",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.4 Lists and Dictionaries",
+    "text": "1.4 Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n\nCode\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
+  },
+  {
+    "objectID": "danl-210-quarto-py-only.html#import-python-libraries",
+    "href": "danl-210-quarto-py-only.html#import-python-libraries",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "2.1 Import Python libraries",
+    "text": "2.1 Import Python libraries\n\n\nCode\nimport pandas as pd\n\n\n\n\nCode\noj = pd.read_csv('https://bcdanl.github.io/data/dominick_oj.csv')\n\n\n\n\nCode!\noj\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\n0\n8256.0\n3.87\ntropicana\n0\n\n\n1\n6144.0\n3.87\ntropicana\n0\n\n\n2\n3840.0\n3.87\ntropicana\n0\n\n\n3\n8000.0\n3.87\ntropicana\n0\n\n\n4\n8896.0\n3.87\ntropicana\n0\n\n\n...\n...\n...\n...\n...\n\n\n28942\n2944.0\n2.00\ndominicks\n0\n\n\n28943\n4928.0\n1.94\ndominicks\n0\n\n\n28944\n13440.0\n1.59\ndominicks\n0\n\n\n28945\n55680.0\n1.49\ndominicks\n0\n\n\n28946\n7040.0\n1.75\ndominicks\n0\n\n\n\n\n28947 rows × 4 columns\n\n\n\n\n\nCode\noj.describe()\n\n\n\n\n\n\n\n\n\nsales\nprice\nad\n\n\n\n\ncount\n28947.000000\n28947.000000\n28947.000000\n\n\nmean\n17312.213356\n2.282488\n0.237261\n\n\nstd\n27477.660437\n0.648001\n0.425411\n\n\nmin\n64.000000\n0.520000\n0.000000\n\n\n25%\n4864.000000\n1.790000\n0.000000\n\n\n50%\n8384.000000\n2.170000\n0.000000\n\n\n75%\n17408.000000\n2.730000\n0.000000\n\n\nmax\n716416.000100\n3.870000\n1.000000\n\n\n\n\n\n\n\n\n2.1.1 Interactive DataFrame with itables library\nIn *.ipynb on Google Colab, we can use itables or just Google Colab’s default to print DataFrame.\n\n\nCode\n# !pip install itables\nfrom itables import init_notebook_mode, show\ninit_notebook_mode(all_interactive=False)\n\nshow(oj)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\nLoading... (need help?)"
+  },
+  {
     "objectID": "danl200-hw5-Ellick-Owen.html",
     "href": "danl200-hw5-Ellick-Owen.html",
     "title": "Homework 5",
@@ -397,5 +439,47 @@
     "title": "Python Basics",
     "section": "Import Python libraries",
     "text": "Import Python libraries\n!pip install dtale to install dtale library\n\n!pip install dtale\nimport pandas as pd\nimport dtale\n\nRequirement already satisfied: dtale in /Users/owenellick/anaconda3/lib/python3.11/site-packages (3.9.0)\nRequirement already satisfied: dash-colorscales in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.0.4)\nRequirement already satisfied: dash-daq in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.5.0)\nRequirement already satisfied: Flask-Compress in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.14)\nRequirement already satisfied: future&gt;=0.14.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.18.3)\nRequirement already satisfied: kaleido in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.2.1)\nRequirement already satisfied: missingno in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.5.2)\nRequirement already satisfied: pandas in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.3)\nRequirement already satisfied: squarify in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.4.3)\nRequirement already satisfied: strsimpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.2.1)\nRequirement already satisfied: six in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.16.0)\nRequirement already satisfied: xlrd in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.1)\nRequirement already satisfied: beautifulsoup4 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (4.12.2)\nRequirement already satisfied: certifi in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2023.11.17)\nRequirement already satisfied: flask-ngrok in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.0.25)\nRequirement already satisfied: lz4 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (4.3.2)\nRequirement already satisfied: cycler in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.11.0)\nRequirement already satisfied: dash-bootstrap-components&lt;=1.3.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.3.1)\nRequirement already satisfied: dash in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.14.2)\nRequirement already satisfied: seaborn in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.12.2)\nRequirement already satisfied: statsmodels in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.14.0)\nRequirement already satisfied: werkzeug in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.2.3)\nRequirement already satisfied: networkx in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.1)\nRequirement already satisfied: scikit-learn in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.3.0)\nRequirement already satisfied: numpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.24.3)\nRequirement already satisfied: openpyxl!=3.2.0b1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.0.10)\nRequirement already satisfied: xarray in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2023.6.0)\nRequirement already satisfied: et-xmlfile in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.1.0)\nRequirement already satisfied: plotly in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (5.9.0)\nRequirement already satisfied: Flask&lt;2.3 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.2.2)\nRequirement already satisfied: itsdangerous in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.1)\nRequirement already satisfied: requests in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.31.0)\nRequirement already satisfied: contourpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.0.5)\nRequirement already satisfied: matplotlib in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.7.2)\nRequirement already satisfied: scipy!=1.12.0rc1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.11.1)\nRequirement already satisfied: dash-html-components==2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (2.0.0)\nRequirement already satisfied: dash-core-components==2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (2.0.0)\nRequirement already satisfied: dash-table==5.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (5.0.0)\nRequirement already satisfied: typing-extensions&gt;=4.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (4.7.1)\nRequirement already satisfied: retrying in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.3.4)\nRequirement already satisfied: ansi2html in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.9.1)\nRequirement already satisfied: nest-asyncio in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.5.6)\nRequirement already satisfied: setuptools in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (68.0.0)\nRequirement already satisfied: importlib-metadata in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (6.0.0)\nRequirement already satisfied: Jinja2&gt;=3.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask&lt;2.3-&gt;dtale) (3.1.2)\nRequirement already satisfied: click&gt;=8.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask&lt;2.3-&gt;dtale) (8.0.4)\nRequirement already satisfied: tenacity&gt;=6.2.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from plotly-&gt;dtale) (8.2.2)\nRequirement already satisfied: MarkupSafe&gt;=2.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from werkzeug-&gt;dtale) (2.1.1)\nRequirement already satisfied: soupsieve&gt;1.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from beautifulsoup4-&gt;dtale) (2.4)\nRequirement already satisfied: brotli in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask-Compress-&gt;dtale) (1.1.0)\nRequirement already satisfied: fonttools&gt;=4.22.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (4.25.0)\nRequirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (1.4.4)\nRequirement already satisfied: packaging&gt;=20.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (23.1)\nRequirement already satisfied: pillow&gt;=6.2.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (10.0.1)\nRequirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (3.0.9)\nRequirement already satisfied: python-dateutil&gt;=2.7 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;dtale) (2023.3.post1)\nRequirement already satisfied: tzdata&gt;=2022.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;dtale) (2023.3)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (2.0.4)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (3.4)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (1.26.16)\nRequirement already satisfied: joblib&gt;=1.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from scikit-learn-&gt;dtale) (1.2.0)\nRequirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from scikit-learn-&gt;dtale) (2.2.0)\nRequirement already satisfied: patsy&gt;=0.5.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from statsmodels-&gt;dtale) (0.5.3)\nRequirement already satisfied: zipp&gt;=0.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from importlib-metadata-&gt;dash-&gt;dtale) (3.11.0)\n\n\n\noj = pd.read_csv('https://bcdanl.github.io/data/dominick_oj.csv')\n\n\n\nCode!\noj\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\n0\n8256.0\n3.87\ntropicana\n0\n\n\n1\n6144.0\n3.87\ntropicana\n0\n\n\n2\n3840.0\n3.87\ntropicana\n0\n\n\n3\n8000.0\n3.87\ntropicana\n0\n\n\n4\n8896.0\n3.87\ntropicana\n0\n\n\n...\n...\n...\n...\n...\n\n\n28942\n2944.0\n2.00\ndominicks\n0\n\n\n28943\n4928.0\n1.94\ndominicks\n0\n\n\n28944\n13440.0\n1.59\ndominicks\n0\n\n\n28945\n55680.0\n1.49\ndominicks\n0\n\n\n28946\n7040.0\n1.75\ndominicks\n0\n\n\n\n\n28947 rows × 4 columns\n\n\n\n\n# dtale.show(oj)"
+  },
+  {
+    "objectID": "basic-python-intro.html",
+    "href": "basic-python-intro.html",
+    "title": "Introduction to Python",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')"
+  },
+  {
+    "objectID": "basic-python-intro.html#what-is-python",
+    "href": "basic-python-intro.html#what-is-python",
+    "title": "Introduction to Python",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')"
+  },
+  {
+    "objectID": "basic-python-intro.html#variables-and-data-types",
+    "href": "basic-python-intro.html#variables-and-data-types",
+    "title": "Introduction to Python",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n10.5"
+  },
+  {
+    "objectID": "basic-python-intro.html#control-structures",
+    "href": "basic-python-intro.html#control-structures",
+    "title": "Introduction to Python",
+    "section": "Control Structures",
+    "text": "Control Structures\nPython supports the usual logical conditions from mathematics:\n\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')"
+  },
+  {
+    "objectID": "basic-python-intro.html#functions",
+    "href": "basic-python-intro.html#functions",
+    "title": "Introduction to Python",
+    "section": "Functions",
+    "text": "Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()"
+  },
+  {
+    "objectID": "basic-python-intro.html#lists-and-dictionaries",
+    "href": "basic-python-intro.html#lists-and-dictionaries",
+    "title": "Introduction to Python",
+    "section": "Lists and Dictionaries",
+    "text": "Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
   }
 ]

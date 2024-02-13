@@ -1,0 +1,14 @@
+---
+title: "Python Basics"
+author: "Owen Ellick"
+date: "2024-2-13"
+categories: [Data Analysis]
+image: "pythonimage.png"
+execute: 
+  warning: false
+  message: false
+
+toc: true
+---
+
+## ![](pythonimage.png)
