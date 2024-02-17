@@ -196,6 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#values-variables-and-types" id="toc-values-variables-and-types" class="nav-link" data-scroll-target="#values-variables-and-types">Values, Variables, and Types</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment (=)</a></li>
   <li><a href="#code-and-comment-style" id="toc-code-and-comment-style" class="nav-link" data-scroll-target="#code-and-comment-style">Code and Comment Style</a></li>
+  <li><a href="#brackets" id="toc-brackets" class="nav-link" data-scroll-target="#brackets">Brackets</a></li>
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
@@ -316,14 +317,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Consider adding more comments on code cells and their results using text cells.</li>
 </ul>
 </section>
+<section id="brackets" class="level2">
+<h2 class="anchored" data-anchor-id="brackets">Brackets</h2>
+<ul>
+<li>There are several kinds of brackets in Python, including [], {}, and ().</li>
+</ul>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>vector[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>'a'</code></pre>
+</div>
+</div>
+<ul>
+<li>[] is used to denote a list or to signify accessing a position using an index</li>
+</ul>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">'a'</span>, <span class="st">'b'</span>}  <span class="co"># set</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>{<span class="st">'first_letter'</span>: <span class="st">'a'</span>, <span class="st">'second_letter'</span>: <span class="st">'b'</span>}  <span class="co"># dictionary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>{'first_letter': 'a', 'second_letter': 'b'}</code></pre>
+</div>
+</div>
+<ul>
+<li>{} is used to denote a set or a dictionary (with key-value pairs)</li>
+</ul>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>num_tup <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(num_tup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>6</code></pre>
+</div>
+</div>
+<ul>
+<li>() is used to denote
+<ul>
+<li>a tuple, or</li>
+<li>the arguments to a function, ex. function(x) where x is the input passed to the function</li>
+</ul></li>
+</ul>
+</section>
 <section id="question-1" class="level2">
 <h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
 <ul>
 <li>Using Python operations only, calculate below:</li>
 </ul>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="op">**</span><span class="dv">5</span><span class="op">/</span>(<span class="dv">7</span><span class="op">*</span>(<span class="dv">4</span><span class="op">-</span><span class="dv">2</span><span class="op">**</span><span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="op">**</span><span class="dv">5</span><span class="op">/</span>(<span class="dv">7</span><span class="op">*</span>(<span class="dv">4</span><span class="op">-</span><span class="dv">2</span><span class="op">**</span><span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>-1.1428571428571428</code></pre>
 </div>
 </div>
@@ -333,22 +374,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>For each expression below, what is the value of the expression? Explain thoroughly.</li>
 </ul>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span> <span class="op">==</span> <span class="st">'20'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span> <span class="op">==</span> <span class="st">'20'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>False</code></pre>
 </div>
 </div>
 <ul>
 <li>This is saying 20 is not equal to ‘20’ because they are different data types (int vs string)</li>
 </ul>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">4.0</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">.5</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>y <span class="op">-</span> x</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">&lt;</span> y <span class="kw">or</span> <span class="dv">3</span><span class="op">*</span>y <span class="op">&lt;</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">4.0</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">.5</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">3</span><span class="op">*</span>y <span class="op">-</span> x</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">&lt;</span> y <span class="kw">or</span> <span class="dv">3</span><span class="op">*</span>y <span class="op">&lt;</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -358,10 +399,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-3" class="level2">
 <h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fare <span class="op">=</span> <span class="st">"$10.00"</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>tip <span class="op">=</span> <span class="st">"2.00$"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="st">"$ 0.80"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fare <span class="op">=</span> <span class="st">"$10.00"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>tip <span class="op">=</span> <span class="st">"2.00$"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="st">"$ 0.80"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Write a Python code that uses slicing and the print() function to print out the following message:</p>
@@ -369,14 +410,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The total trip cost is: $12.80</li>
 </ul></li>
 </ul>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span>fare <span class="op">=</span> <span class="st">"$10.00"</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tip <span class="op">=</span> <span class="st">"2.00$"</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="st">"$ 0.80"</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> fare[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">+</span> tip[<span class="dv">0</span>] <span class="op">+</span> tax[<span class="dv">3</span>:<span class="dv">6</span>]</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total trip cost is:"</span>, total)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#The total trip cost is: $12.80The total trip cost is:", total)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span>fare <span class="op">=</span> <span class="st">"$10.00"</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tip <span class="op">=</span> <span class="st">"2.00$"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>tax <span class="op">=</span> <span class="st">"$ 0.80"</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> fare[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">+</span> tip[<span class="dv">0</span>] <span class="op">+</span> tax[<span class="dv">3</span>:<span class="dv">6</span>]</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The total trip cost is:"</span>, total)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#The total trip cost is: $12.80The total trip cost is:", total)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The total trip cost is: $12.80</code></pre>
 </div>
@@ -384,8 +425,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-4" class="level2">
 <h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>list_variable <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">144</span>, <span class="dv">169</span>, <span class="dv">1000</span>, <span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>list_variable <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">144</span>, <span class="dv">169</span>, <span class="dv">1000</span>, <span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Write a Python code that uses print() and max() functions to print out the largest value in the list, list_variable, as follows:</p>
@@ -393,12 +434,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The largest value in the list is: 1000</li>
 </ul></li>
 </ul>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>list_variable <span class="op">=</span> [<span class="dv">100</span>,<span class="dv">144</span>,<span class="dv">169</span>,<span class="dv">1000</span>,<span class="dv">8</span>]</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span><span class="bu">max</span>(list_variable)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The largest value in the list is:'</span>,x)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#The largest value in the list is: 1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>list_variable <span class="op">=</span> [<span class="dv">100</span>,<span class="dv">144</span>,<span class="dv">169</span>,<span class="dv">1000</span>,<span class="dv">8</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span><span class="bu">max</span>(list_variable)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The largest value in the list is:'</span>,x)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#The largest value in the list is: 1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The largest value in the list is: 1000</code></pre>
 </div>
@@ -411,11 +452,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Install the itables package.</li>
 <li>From itables, import the function init_notebook_mode and show.</li>
 </ul>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install itables</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> init_notebook_mode</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> show</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install itables</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> init_notebook_mode</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> show</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Requirement already satisfied: itables in /Users/owenellick/anaconda3/lib/python3.11/site-packages (1.6.3)
 Requirement already satisfied: IPython in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (8.15.0)
