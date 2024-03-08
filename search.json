@@ -42,46 +42,431 @@
     "text": "2.5 MP (minutes per game) Vs TOV (turnovers) 🗑️\nProvide both ggplot codes and a couple of sentences to describe the relationship between Minutes Played Per Game and Turnovers for the top 10 players based on Points Per Game.\n\nggplot(top_10_players, aes(x= MP, y= TOV))+\n  geom_point()+\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\")+\n  facet_wrap(~`Player Name`, ncol = 2)\n\n\n\n\nComments:\n\nGiannis Antetokounmpo played the least amount of minutes per game, but had the most turnovers per game. This makes sense as Giannis is the primary ball handler for his team, therfore there is more opportunity for him to turnover the ball\nDevin Booker, Donovan Mitchell, Jayson Tatum, and Shai Gilgeous-Alexander all play around 35-37 minutes per game and turnover the ball the least out of those 10 players\nStephen Curry, Lebron James, and Kevin Durant all play similar minutes and turnover the ball at a similar rate\n\nThey are all older in age and play similar minutes due to load management. They turnover the ball at an almost identical rate per game."
   },
   {
-    "objectID": "danl-210-quarto-py-only.html",
-    "href": "danl-210-quarto-py-only.html",
-    "title": "DANL 210: Data Preparation and Management",
+    "objectID": "basic-python-intro.html",
+    "href": "basic-python-intro.html",
+    "title": "Introduction to Python",
     "section": "",
-    "text": "reticulate::use_condaenv(\"/Users/owenellick/anaconda3/\", required = TRUE)"
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')"
   },
   {
-    "objectID": "danl-210-quarto-py-only.html#variables-and-data-types",
-    "href": "danl-210-quarto-py-only.html#variables-and-data-types",
-    "title": "DANL 210: Data Preparation and Management",
-    "section": "1.1 Variables and Data Types",
-    "text": "1.1 Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\n\nCode\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n\n10.5"
+    "objectID": "basic-python-intro.html#what-is-python",
+    "href": "basic-python-intro.html#what-is-python",
+    "title": "Introduction to Python",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')"
   },
   {
-    "objectID": "danl-210-quarto-py-only.html#control-structures",
-    "href": "danl-210-quarto-py-only.html#control-structures",
-    "title": "DANL 210: Data Preparation and Management",
-    "section": "1.2 Control Structures",
-    "text": "1.2 Control Structures\nPython supports the usual logical conditions from mathematics:\n\n\nCode\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n\nCode\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')\n\n\nFive is greater than two!"
+    "objectID": "basic-python-intro.html#variables-and-data-types",
+    "href": "basic-python-intro.html#variables-and-data-types",
+    "title": "Introduction to Python",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n10.5"
   },
   {
-    "objectID": "danl-210-quarto-py-only.html#functions",
-    "href": "danl-210-quarto-py-only.html#functions",
-    "title": "DANL 210: Data Preparation and Management",
-    "section": "1.3 Functions",
-    "text": "1.3 Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n\nCode\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()\n\n\nHello from a function"
+    "objectID": "basic-python-intro.html#control-structures",
+    "href": "basic-python-intro.html#control-structures",
+    "title": "Introduction to Python",
+    "section": "Control Structures",
+    "text": "Control Structures\nPython supports the usual logical conditions from mathematics:\n\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')"
   },
   {
-    "objectID": "danl-210-quarto-py-only.html#lists-and-dictionaries",
-    "href": "danl-210-quarto-py-only.html#lists-and-dictionaries",
-    "title": "DANL 210: Data Preparation and Management",
-    "section": "1.4 Lists and Dictionaries",
-    "text": "1.4 Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n\nCode\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
+    "objectID": "basic-python-intro.html#functions",
+    "href": "basic-python-intro.html#functions",
+    "title": "Introduction to Python",
+    "section": "Functions",
+    "text": "Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()"
   },
   {
-    "objectID": "danl-210-quarto-py-only.html#import-python-libraries",
-    "href": "danl-210-quarto-py-only.html#import-python-libraries",
-    "title": "DANL 210: Data Preparation and Management",
-    "section": "2.1 Import Python libraries",
-    "text": "2.1 Import Python libraries\n\n\nCode\nimport pandas as pd\n\n\n\n\nCode\noj = pd.read_csv('https://bcdanl.github.io/data/dominick_oj.csv')\n\n\n\n\nCode!\noj\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\n0\n8256.0\n3.87\ntropicana\n0\n\n\n1\n6144.0\n3.87\ntropicana\n0\n\n\n2\n3840.0\n3.87\ntropicana\n0\n\n\n3\n8000.0\n3.87\ntropicana\n0\n\n\n4\n8896.0\n3.87\ntropicana\n0\n\n\n...\n...\n...\n...\n...\n\n\n28942\n2944.0\n2.00\ndominicks\n0\n\n\n28943\n4928.0\n1.94\ndominicks\n0\n\n\n28944\n13440.0\n1.59\ndominicks\n0\n\n\n28945\n55680.0\n1.49\ndominicks\n0\n\n\n28946\n7040.0\n1.75\ndominicks\n0\n\n\n\n\n28947 rows × 4 columns\n\n\n\n\n\nCode\noj.describe()\n\n\n\n\n\n\n\n\n\nsales\nprice\nad\n\n\n\n\ncount\n28947.000000\n28947.000000\n28947.000000\n\n\nmean\n17312.213356\n2.282488\n0.237261\n\n\nstd\n27477.660437\n0.648001\n0.425411\n\n\nmin\n64.000000\n0.520000\n0.000000\n\n\n25%\n4864.000000\n1.790000\n0.000000\n\n\n50%\n8384.000000\n2.170000\n0.000000\n\n\n75%\n17408.000000\n2.730000\n0.000000\n\n\nmax\n716416.000100\n3.870000\n1.000000\n\n\n\n\n\n\n\n\n2.1.1 Interactive DataFrame with itables library\nIn *.ipynb on Google Colab, we can use itables or just Google Colab’s default to print DataFrame.\n\n\nCode\n# !pip install itables\nfrom itables import init_notebook_mode, show\ninit_notebook_mode(all_interactive=False)\n\nshow(oj)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\nLoading... (need help?)"
+    "objectID": "basic-python-intro.html#lists-and-dictionaries",
+    "href": "basic-python-intro.html#lists-and-dictionaries",
+    "title": "Introduction to Python",
+    "section": "Lists and Dictionaries",
+    "text": "Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
+  },
+  {
+    "objectID": "danl-210-quarto.html",
+    "href": "danl-210-quarto.html",
+    "title": "Python Basics",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')\n\nHello, World!"
+  },
+  {
+    "objectID": "danl-210-quarto.html#what-is-python",
+    "href": "danl-210-quarto.html#what-is-python",
+    "title": "Python Basics",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')\n\nHello, World!"
+  },
+  {
+    "objectID": "danl-210-quarto.html#variables-and-data-types",
+    "href": "danl-210-quarto.html#variables-and-data-types",
+    "title": "Python Basics",
+    "section": "Variables and Data Types",
+    "text": "Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n10.5"
+  },
+  {
+    "objectID": "danl-210-quarto.html#control-structures",
+    "href": "danl-210-quarto.html#control-structures",
+    "title": "Python Basics",
+    "section": "Control Structures",
+    "text": "Control Structures\nPython supports the usual logical conditions from mathematics:\n\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')\n\nFive is greater than two!"
+  },
+  {
+    "objectID": "danl-210-quarto.html#functions",
+    "href": "danl-210-quarto.html#functions",
+    "title": "Python Basics",
+    "section": "Functions",
+    "text": "Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()\n\nHello from a function"
+  },
+  {
+    "objectID": "danl-210-quarto.html#lists-and-dictionaries",
+    "href": "danl-210-quarto.html#lists-and-dictionaries",
+    "title": "Python Basics",
+    "section": "Lists and Dictionaries",
+    "text": "Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
+  },
+  {
+    "objectID": "danl-210-quarto.html#import-python-libraries",
+    "href": "danl-210-quarto.html#import-python-libraries",
+    "title": "Python Basics",
+    "section": "Import Python libraries",
+    "text": "Import Python libraries\n!pip install dtale to install dtale library\n\n!pip install dtale\nimport pandas as pd\nimport dtale\n\nRequirement already satisfied: dtale in /Users/owenellick/anaconda3/lib/python3.11/site-packages (3.9.0)\nRequirement already satisfied: dash-colorscales in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.0.4)\nRequirement already satisfied: dash-daq in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.5.0)\nRequirement already satisfied: Flask-Compress in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.14)\nRequirement already satisfied: future&gt;=0.14.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.18.3)\nRequirement already satisfied: kaleido in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.2.1)\nRequirement already satisfied: missingno in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.5.2)\nRequirement already satisfied: pandas in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.3)\nRequirement already satisfied: squarify in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.4.3)\nRequirement already satisfied: strsimpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.2.1)\nRequirement already satisfied: six in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.16.0)\nRequirement already satisfied: xlrd in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.1)\nRequirement already satisfied: beautifulsoup4 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (4.12.2)\nRequirement already satisfied: certifi in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2023.11.17)\nRequirement already satisfied: flask-ngrok in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.0.25)\nRequirement already satisfied: lz4 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (4.3.2)\nRequirement already satisfied: cycler in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.11.0)\nRequirement already satisfied: dash-bootstrap-components&lt;=1.3.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.3.1)\nRequirement already satisfied: dash in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.14.2)\nRequirement already satisfied: seaborn in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.12.2)\nRequirement already satisfied: statsmodels in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.14.0)\nRequirement already satisfied: werkzeug in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.2.3)\nRequirement already satisfied: networkx in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.1)\nRequirement already satisfied: scikit-learn in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.3.0)\nRequirement already satisfied: numpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.24.3)\nRequirement already satisfied: openpyxl!=3.2.0b1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.0.10)\nRequirement already satisfied: xarray in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2023.6.0)\nRequirement already satisfied: et-xmlfile in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.1.0)\nRequirement already satisfied: plotly in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (5.9.0)\nRequirement already satisfied: Flask&lt;2.3 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.2.2)\nRequirement already satisfied: itsdangerous in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.1)\nRequirement already satisfied: requests in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.31.0)\nRequirement already satisfied: contourpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.0.5)\nRequirement already satisfied: matplotlib in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.7.2)\nRequirement already satisfied: scipy!=1.12.0rc1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.11.1)\nRequirement already satisfied: dash-html-components==2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (2.0.0)\nRequirement already satisfied: dash-core-components==2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (2.0.0)\nRequirement already satisfied: dash-table==5.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (5.0.0)\nRequirement already satisfied: typing-extensions&gt;=4.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (4.7.1)\nRequirement already satisfied: retrying in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.3.4)\nRequirement already satisfied: ansi2html in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.9.1)\nRequirement already satisfied: nest-asyncio in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.5.6)\nRequirement already satisfied: setuptools in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (68.0.0)\nRequirement already satisfied: importlib-metadata in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (6.0.0)\nRequirement already satisfied: Jinja2&gt;=3.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask&lt;2.3-&gt;dtale) (3.1.2)\nRequirement already satisfied: click&gt;=8.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask&lt;2.3-&gt;dtale) (8.0.4)\nRequirement already satisfied: tenacity&gt;=6.2.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from plotly-&gt;dtale) (8.2.2)\nRequirement already satisfied: MarkupSafe&gt;=2.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from werkzeug-&gt;dtale) (2.1.1)\nRequirement already satisfied: soupsieve&gt;1.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from beautifulsoup4-&gt;dtale) (2.4)\nRequirement already satisfied: brotli in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask-Compress-&gt;dtale) (1.1.0)\nRequirement already satisfied: fonttools&gt;=4.22.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (4.25.0)\nRequirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (1.4.4)\nRequirement already satisfied: packaging&gt;=20.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (23.1)\nRequirement already satisfied: pillow&gt;=6.2.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (10.0.1)\nRequirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (3.0.9)\nRequirement already satisfied: python-dateutil&gt;=2.7 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;dtale) (2023.3.post1)\nRequirement already satisfied: tzdata&gt;=2022.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;dtale) (2023.3)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (2.0.4)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (3.4)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (1.26.16)\nRequirement already satisfied: joblib&gt;=1.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from scikit-learn-&gt;dtale) (1.2.0)\nRequirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from scikit-learn-&gt;dtale) (2.2.0)\nRequirement already satisfied: patsy&gt;=0.5.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from statsmodels-&gt;dtale) (0.5.3)\nRequirement already satisfied: zipp&gt;=0.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from importlib-metadata-&gt;dash-&gt;dtale) (3.11.0)\n\n\n\noj = pd.read_csv('https://bcdanl.github.io/data/dominick_oj.csv')\n\n\n\nCode!\noj\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\n0\n8256.0\n3.87\ntropicana\n0\n\n\n1\n6144.0\n3.87\ntropicana\n0\n\n\n2\n3840.0\n3.87\ntropicana\n0\n\n\n3\n8000.0\n3.87\ntropicana\n0\n\n\n4\n8896.0\n3.87\ntropicana\n0\n\n\n...\n...\n...\n...\n...\n\n\n28942\n2944.0\n2.00\ndominicks\n0\n\n\n28943\n4928.0\n1.94\ndominicks\n0\n\n\n28944\n13440.0\n1.59\ndominicks\n0\n\n\n28945\n55680.0\n1.49\ndominicks\n0\n\n\n28946\n7040.0\n1.75\ndominicks\n0\n\n\n\n\n28947 rows × 4 columns\n\n\n\n\n# dtale.show(oj)"
+  },
+  {
+    "objectID": "blog-listing.html",
+    "href": "blog-listing.html",
+    "title": "Owen’s Blog",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nFavorite Artists\n\n\n\n\n\n\n\n\n\nMar 8, 2024\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\n  \n\n\n\n\nPython Basics\n\n\n\n\n\n\n\n\n\nFeb 13, 2024\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nSpotify All\n\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nNFL in 2022\n\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n  \n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Owen Ellick",
+    "section": "",
+    "text": "Owen Ellick majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Owen enjoys playing sports and hanging out with his friends."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Owen Ellick",
+    "section": "Education",
+    "text": "Education\nState University of New York at Geneseo | Geneseo, NY  B.S. in Data Analytics | Aug 2022 - May 2026  Minor in Finance"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Owen Ellick",
+    "section": "Experience",
+    "text": "Experience\nTown of Smithtown | Beach Laborer | May 2023 - Present\nNassau/Suffolk P.A.L Long Island Lacrosse League | Referee | March 2022- Present"
+  },
+  {
+    "objectID": "posts/welcome/Welcome.html",
+    "href": "posts/welcome/Welcome.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in my Quarto blog. Welcome!\nI am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men’s Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.\n\nPicture of my favorite football team! Being of fan of this team has its ups and downs. It allows you to be apart of a culture and fanbase that is bigger than yourself. However recent struggles make being a fan of this team rough, but I know in the end one day they will get it done.\n The photo above is me playing in a lacrosse game for SUNY Geneseo against Nazareth University on February 25,2023. It was really cold and snowy, but we managed to come out with the win 13-11.\nI hope you learned a little bit about me!"
+  },
+  {
+    "objectID": "posts/Spotify All/SpotifyAll.html#variable-description",
+    "href": "posts/Spotify All/SpotifyAll.html#variable-description",
+    "title": "Spotify All",
+    "section": "Variable Description",
+    "text": "Variable Description\n\npid: playlist ID; unique ID for playlist\nplaylist_name: a name of playlist\npos: a position of the track within a playlist (starting from 0)\nartist_name: name of the track’s primary artist\ntrack_name: name of the track\nduration_ms: duration of the track in milliseconds\nalbum_name: name of the track’s album"
+  },
+  {
+    "objectID": "posts/Spotify All/SpotifyAll.html#q1a",
+    "href": "posts/Spotify All/SpotifyAll.html#q1a",
+    "title": "Spotify All",
+    "section": "Q1a 🎶",
+    "text": "Q1a 🎶\n\nFind the ten most popular song. 🎵\n\nA value of a song is defined as a combination of a artist_name value and a track_name value.\nWho are artists for those ten most popular song?\n\n\n\nQ1a &lt;- spotify_all %&gt;% \n  count(artist_name, track_name) %&gt;% \n  arrange(-n) %&gt;% \n  head(10)\n\nQ1a\n\n        artist_name                          track_name   n\n1             Drake                           One Dance 143\n2    Kendrick Lamar                             HUMBLE. 142\n3  The Chainsmokers                              Closer 129\n4              DRAM         Broccoli (feat. Lil Yachty) 127\n5       Post Malone                     Congratulations 119\n6             Migos Bad and Boujee (feat. Lil Uzi Vert) 117\n7              KYLE             iSpy (feat. Lil Yachty) 115\n8      Lil Uzi Vert                       XO TOUR Llif3 113\n9             Aminé                            Caroline 107\n10           Khalid                            Location 102"
+  },
+  {
+    "objectID": "posts/Spotify All/SpotifyAll.html#q1b",
+    "href": "posts/Spotify All/SpotifyAll.html#q1b",
+    "title": "Spotify All",
+    "section": "Q1b 🎼",
+    "text": "Q1b 🎼\n\nFind the five most popular artist in terms of the number of occurrences in the data.frame, spotify_all.\nWhat is the most popular song for each of the five most popular artist?\n\n\nQ1b &lt;- spotify_all %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(n_popular_artist = n()) %&gt;% \n  ungroup() %&gt;% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %&gt;% \n  filter( artist_ranking &lt;= 5) %&gt;% \n  group_by(artist_name, track_name) %&gt;% \n  mutate(n_popular_track = n()) %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(track_ranking = dense_rank( desc(n_popular_track) ) ) %&gt;% \n  filter( track_ranking &lt;= 2) %&gt;%   # I just wanted to see the top two tracks for each artist\n  select(artist_name, artist_ranking, n_popular_artist, track_name, track_ranking, n_popular_track) %&gt;% \n  distinct() %&gt;% \n  arrange(artist_ranking, track_ranking)\n\nQ1b\n\n# A tibble: 10 × 6\n# Groups:   artist_name [5]\n   artist_name    artist_ranking n_popular_artist track_name  track_ranking\n   &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt; &lt;chr&gt;               &lt;int&gt;\n 1 Drake                       1             2715 One Dance               1\n 2 Drake                       1             2715 Jumpman                 2\n 3 Kanye West                  2             1065 Gold Digger             1\n 4 Kanye West                  2             1065 Stronger                2\n 5 Kendrick Lamar              3             1035 HUMBLE.                 1\n 6 Kendrick Lamar              3             1035 DNA.                    2\n 7 Rihanna                     4              915 Needed Me               1\n 8 Rihanna                     4              915 Work                    2\n 9 The Weeknd                  5              913 Starboy                 1\n10 The Weeknd                  5              913 The Hills               2\n# ℹ 1 more variable: n_popular_track &lt;int&gt;"
+  },
+  {
+    "objectID": "posts/Spotify All/SpotifyAll.html#q1c",
+    "href": "posts/Spotify All/SpotifyAll.html#q1c",
+    "title": "Spotify All",
+    "section": "Q1c 🎹",
+    "text": "Q1c 🎹\nProvide both (1) ggplot codes and (2) a couple of sentences to describe the relationship between pos and the ten most popular artists.\n\nQ1c &lt;- spotify_all %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(n_popular_artist = n()) %&gt;% \n  ungroup() %&gt;% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %&gt;% \n  filter( artist_ranking &lt;= 10) \n  \n# boxplot\nggplot(Q1c,\n       aes(x = pos, y = fct_reorder(artist_name, -artist_ranking)) ) +\n  geom_boxplot() +\n  stat_summary(\n    fun = mean,\n    color = 'red'\n  )\n\n\n\n\nHistogram\n\n# histogram\nggplot(Q1c) +\n  geom_histogram(aes(x = pos), binwidth = 1) + \n  facet_grid(fct_reorder(artist_name, artist_ranking) ~ .  , switch = \"y\") +\n  theme(strip.text.y.left = element_text(angle = 0))\n\n\n\n\n\nAll are skewed right.\n\nUsers tend to locate these popular artists’ songs early in their playlist.\n\nThe distribution of pos does not seem to vary a lot across the ten most popular artists.\nAnything noticeable can be mentioned."
+  },
+  {
+    "objectID": "posts/Spotify All/SpotifyAll.html#q1d",
+    "href": "posts/Spotify All/SpotifyAll.html#q1d",
+    "title": "Spotify All",
+    "section": "Q1d 🎵",
+    "text": "Q1d 🎵\nCreate the data.frame with pid-artist level of observations with the following four variables:\n\npid: playlist id\nplaylist_name: name of playlist\nartist: name of the track’s primary artist, which appears only once within a playlist\nn_artist: number of occurrences of artist within a playlist\n\n\nQ1d &lt;- spotify_all %&gt;% \n  count(pid, playlist_name, artist_name) %&gt;% \n  rename(n_artist = n) %&gt;% \n  arrange(pid, -n_artist, artist_name)\n\n\nrmarkdown::paged_table(Q1d)"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
+    "title": "Restaurant Inspection",
+    "section": "Variable Description",
+    "text": "Variable Description\n\nCAMIS:\n\nhis is an unique identifier for the entity (restaurant);\n10-digit integer\n\nDBA:\n\nThis field represents the name (doing business as) of the entity (restaurant); + Public business name, may change at discretion of restaurant owner\n\nBORO:\n\nBorough in which the entity (restaurant) is located.;\n• 1 = MANHATTAN\n• 2 = BRONX\n• 3 = BROOKLYN\n• 4 = QUEENS\n• 5 = STATEN ISLAND\n• 0 = Missing;\n\nCUISINE DESCRIPTION:\n\nThis field describes the entity (restaurant) cuisine.\n\nACTION:\n\nThis field represents the actions that is associated with each restaurant inspection. ;\n• Violations were cited in the following area(s).\n• No violations were recorded at the time of this inspection.\n• Establishment re-opened by DOHMH\n• Establishment re-closed by DOHMH\n• Establishment Closed by DOHMH.\n• Violations were cited in the following area(s) and those requiring immediate action were addressed.\n\nVIOLATION CODE:\n\nViolation code associated with an establishment (restaurant) inspection\n\nVIOLATION DESCRIPTION:\n\nViolation description associated with an establishment (restaurant) inspection\n\nCRITICAL FLAG:\n\nIndicator of critical violation;\n• Critical\n• Not Critical\n• Not Applicable;\nCritical violations are those most likely to contribute to food-borne illness\n\nSCORE:\n\nTotal score for a particular inspection;\n\nGRADE:\n\nGrade associated with the inspection;\n• N = Not Yet Graded\n• A = Grade A\n• B = Grade B\n• C = Grade C\n• Z = Grade Pending\n• P = Grade Pending issued on re-opening following an initial inspection that resulted in a closure"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
+    "title": "Restaurant Inspection",
+    "section": "Q1a",
+    "text": "Q1a\nWhat are the mean, standard deviation, first quartile, median, third quartile, and maximum of SCORE for each GRADE of restaurants?\n\nrestaurant %&gt;% group_by(GRADE) %&gt;% skim(SCORE) %&gt;% select(-n_missing)\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n17633\n\n\nNumber of columns\n12\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n1\n\n\n________________________\n\n\n\nGroup variables\nGRADE\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nGRADE\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nSCORE\nA\n1\n9.26\n3.42\n0\n7\n10\n12\n13\n▁▂▂▅▇\n\n\nSCORE\nB\n1\n21.03\n4.16\n0\n18\n21\n24\n36\n▁▁▇▇▁\n\n\nSCORE\nC\n1\n38.56\n10.83\n0\n31\n36\n44\n86\n▁▇▇▂▁"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
+    "title": "Restaurant Inspection",
+    "section": "Q1b",
+    "text": "Q1b\n\nHow many restaurants with a GRADE of A are there in NYC?\nHow much percentage of restaurants in NYC are a GRADE of C?\n\n\nfreq &lt;- as.data.frame( table(restaurant$GRADE) )\n\nprop &lt;- as.data.frame( 100 * prop.table(table(restaurant$GRADE)) )"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
+    "title": "Restaurant Inspection",
+    "section": "Q1c",
+    "text": "Q1c\nProvide both (1) ggplot code and (2) a simple comment to describe how the distribution of SCORE varies by GRADE and CRITICAL FLAG.\n\nBoxplots\n\n\nggplot(restaurant) +\n  geom_boxplot(aes(x = SCORE, y = GRADE, fill = GRADE) ) +\n  facet_grid( CRITICAL.FLAG ~ . )\n\n\n\n\n\nHistograms\n\n\nggplot(restaurant) +\n  geom_histogram(aes(x = SCORE), binwidth = 1 ) +\n  facet_grid( CRITICAL.FLAG ~ GRADE )\n\n\n\n\n\nMostly,\n\nThe values of SCORE for GRADE A ranges from 0 to 13.\nThe values of SCORE for GRADE B ranges 13 to 27.\nThe values of SCORE for GRADE C ranges 24 to 75.\n\nFor Not Critical type, two SCORE values around 1 and 12 are most common, while 12 is the single most common SCORE value for Critical type."
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
+    "title": "Restaurant Inspection",
+    "section": "Q1d",
+    "text": "Q1d\nProvide both (1) ggplot code and (2) a simple comment to describe how the proportion of CRITICAL FLAG varies by GRADE and BORO.\n\nggplot(restaurant) +\n  geom_bar(aes(x = CRITICAL.FLAG,\n               y = after_stat(prop), group = 1)) +\n  facet_grid( GRADE ~ BORO )\n\n\n\n\n\nFor GRADE A, the probability distribution of CRITICAL FLAG are similar across BOROs.\nFor GRADE B, the restaurants in Staten Island are more likely to be Critical than in other BOROs.\nFor GRADE C, the restaurants in Bronx are more likely to be Critical than in other BOROs."
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
+    "title": "Restaurant Inspection",
+    "section": "Q1e",
+    "text": "Q1e\nFor the 10 most common CUISINE DESCRIPTION values, find the CUISINE DESCRIPTION value that has the highest proportion of GRADE A.\n\nq2e &lt;- restaurant %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(n = n()) %&gt;% \n  ungroup() %&gt;% \n  filter(dense_rank(-n) &lt;= 10) %&gt;% \n  group_by(CUISINE.DESCRIPTION, GRADE) %&gt;% \n  count() %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(prop_A = n / sum(n)) %&gt;% \n  filter(GRADE == 'A') %&gt;% \n  arrange(-prop_A)"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
+    "title": "Restaurant Inspection",
+    "section": "Q1f",
+    "text": "Q1f\n\nFind the 3 most common names of restaurants (DBA) in each BORO.\n\nIf the third most common DBA values are multiple, please include all the DBA values.\n\nOverall, which DBA value is most common in NYC?\n\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)\n\n\nNote that chipotle mexican grill and subway are both the third most popular franchise/chain in Manhattan. 🌯\nOverall, dunkin is the most popular franchise/chain in NYC. 🍩"
+  },
+  {
+    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
+    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
+    "title": "Restaurant Inspection",
+    "section": "Q1g",
+    "text": "Q1g\nFor all the DBA values that appear in the result of Q1f, find the DBA value that is most likely to commit critical violation.\n\nq2g &lt;- restaurant %&gt;% \n  filter(DBA %in% q2f$DBA) %&gt;% \n  group_by(DBA, CRITICAL.FLAG) %&gt;% \n  count() %&gt;% \n  group_by(DBA) %&gt;% \n  mutate(lag_n = lag(n),\n         tot = sum(n),\n         prop_crit = lag_n / tot) %&gt;% \n  select(DBA, prop_crit) %&gt;% \n  filter(!is.na(prop_crit)) %&gt;% \n  arrange(-prop_crit)\n\n\nAmong popular franchises/chains, subway is most likely to commit Critical violation in NYC. 🥪"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#variables-are-names-not-places",
+    "href": "posts/Python Basics/PythonBasics.html#variables-are-names-not-places",
+    "title": "Python Basics",
+    "section": "Variables Are Names, Not Places",
+    "text": "Variables Are Names, Not Places\n\nA value is datum (literal) such as a number or text\nThere are different types of values:\n\n352.3 is known as a float or double;\n22 is an integer;\n“Hello World!” is a string.\n\n\n\nlist_example = [10, 1.23, \"like this\", True, None]\nprint(list_example)\ntype(list_example)\n\n[10, 1.23, 'like this', True, None]\n\n\nlist\n\n\n\nThe most. basic built-in data types that we’ll need to know about are:\n\nintegers, 10\nfloats, 1.23\nstrings, “like this”\nbooleans, True\nnothing, None\n\nPython also has a built-in type of data container called a list (ex. [10,15,20]) that can contain anything, even different types"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#values-variables-and-types",
+    "href": "posts/Python Basics/PythonBasics.html#values-variables-and-types",
+    "title": "Python Basics",
+    "section": "Values, Variables, and Types",
+    "text": "Values, Variables, and Types\n\na = 10\nprint(a)\n\n10\n\n\n\nA variable is a name that refers to a value.\n\nWe can think of a variable as a box that has a value, or multiple values, packed inside it\n\nA variable is just a name!\nSometimes you will hear variables referred to as objects.\nEverything that is not a literal value, such as 10, is an object"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#assignment",
+    "href": "posts/Python Basics/PythonBasics.html#assignment",
+    "title": "Python Basics",
+    "section": "Assignment (=)",
+    "text": "Assignment (=)\n\n# Here we assign the integer value 5 to the variable x.\nx = 5   \n\n# Now we can use the variable x in the next line.\ny = x + 12  \ny\n\n17\n\n\n\nIn Python, we use = to assign a value to a variable\nIn math, = means equality of both sides\nIn programs, = means assignment: assign the value on the right side to the variable on the left side.\nIn programming code, everything on the right side needs to have a value.\n\nThe right side can be a literal value, or a variable that has already been assigned a value, or a combination.\n\nWhen Python reads y= x + 12, it does the following:\n\nSees the = in the middle.\nKnows that this is an assignment.\nCalculates the right side (gets the value of the object referred to by x and adds it to 12).\nAssigns the result to the left-side variable, y."
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#code-and-comment-style",
+    "href": "posts/Python Basics/PythonBasics.html#code-and-comment-style",
+    "title": "Python Basics",
+    "section": "Code and Comment Style",
+    "text": "Code and Comment Style\n\nThe two main principles for coding and managing data are:\n\nMake things easier for your future self.\nDon’t trust your future self.\n\nThe # mark is Google Colab’s comment character\n\nThe # character has many names: hash, sharp, pound, or octothorpe.\n# indicates that the rest of the line is to be ignored.\nWrite comments before the line that you want the comment to apply to.\n\nConsider adding more comments on code cells and their results using text cells."
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#brackets",
+    "href": "posts/Python Basics/PythonBasics.html#brackets",
+    "title": "Python Basics",
+    "section": "Brackets",
+    "text": "Brackets\n\nThere are several kinds of brackets in Python, including [], {}, and ().\n\n\nvector = ['a', 'b']\nvector[0]\n\n'a'\n\n\n\n[] is used to denote a list or to signify accessing a position using an index\n\n\n{'a', 'b'}  # set\n{'first_letter': 'a', 'second_letter': 'b'}  # dictionary\n\n{'first_letter': 'a', 'second_letter': 'b'}\n\n\n\n{} is used to denote a set or a dictionary (with key-value pairs)\n\n\nnum_tup = (1, 2, 3)\nsum(num_tup)\n\n6\n\n\n\n() is used to denote\n\na tuple, or\nthe arguments to a function, ex. function(x) where x is the input passed to the function"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#question-1",
+    "href": "posts/Python Basics/PythonBasics.html#question-1",
+    "title": "Python Basics",
+    "section": "Question 1",
+    "text": "Question 1\n\nUsing Python operations only, calculate below:\n\n\n(2**5/(7*(4-2**3)))\n\n-1.1428571428571428"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#question-2",
+    "href": "posts/Python Basics/PythonBasics.html#question-2",
+    "title": "Python Basics",
+    "section": "Question 2",
+    "text": "Question 2\n\nFor each expression below, what is the value of the expression? Explain thoroughly.\n\n\n20 == '20'\n\nFalse\n\n\n\nThis is saying 20 is not equal to ‘20’ because they are different data types (int vs string)\n\n\nx = 4.0\ny = .5\nz = 3*y - x\n\nx &lt; y or 3*y &lt; x\n\nTrue\n\n\n\nThis says the expression is true since 3*.5 &lt; 4"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#question-3",
+    "href": "posts/Python Basics/PythonBasics.html#question-3",
+    "title": "Python Basics",
+    "section": "Question 3",
+    "text": "Question 3\n\nfare = \"$10.00\"\ntip = \"2.00$\"\ntax = \"$ 0.80\"\n\n\nWrite a Python code that uses slicing and the print() function to print out the following message:\n\nThe total trip cost is: $12.80\n\n\n\ntotal =fare = \"$10.00\"\ntip = \"2.00$\"\ntax = \"$ 0.80\"\ntotal = fare[0:2] + tip[0] + tax[3:6]\nprint(\"The total trip cost is:\", total)\n\n#The total trip cost is: $12.80The total trip cost is:\", total)\n\nThe total trip cost is: $12.80"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#question-4",
+    "href": "posts/Python Basics/PythonBasics.html#question-4",
+    "title": "Python Basics",
+    "section": "Question 4",
+    "text": "Question 4\n\nlist_variable = [100, 144, 169, 1000, 8]\n\n\nWrite a Python code that uses print() and max() functions to print out the largest value in the list, list_variable, as follows:\n\nThe largest value in the list is: 1000\n\n\n\nlist_variable = [100,144,169,1000,8]\nx =max(list_variable)\nprint('The largest value in the list is:',x)\n\n#The largest value in the list is: 1000\n\nThe largest value in the list is: 1000"
+  },
+  {
+    "objectID": "posts/Python Basics/PythonBasics.html#question-5",
+    "href": "posts/Python Basics/PythonBasics.html#question-5",
+    "title": "Python Basics",
+    "section": "Question 5",
+    "text": "Question 5\n\nImport the pandas library as pd.\nInstall the itables package.\nFrom itables, import the function init_notebook_mode and show.\n\n\nimport pandas as pd\n!pip install itables\nfrom itables import init_notebook_mode\nfrom itables import show\n\nRequirement already satisfied: itables in /Users/owenellick/anaconda3/lib/python3.11/site-packages (1.6.3)\nRequirement already satisfied: IPython in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (8.15.0)\nRequirement already satisfied: pandas in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (2.0.3)\nRequirement already satisfied: numpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (1.24.3)\nRequirement already satisfied: backcall in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.2.0)\nRequirement already satisfied: decorator in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (5.1.1)\nRequirement already satisfied: jedi&gt;=0.16 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.18.1)\nRequirement already satisfied: matplotlib-inline in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.1.6)\nRequirement already satisfied: pickleshare in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.7.5)\nRequirement already satisfied: prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (3.0.36)\nRequirement already satisfied: pygments&gt;=2.4.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (2.15.1)\nRequirement already satisfied: stack-data in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.2.0)\nRequirement already satisfied: traitlets&gt;=5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (5.7.1)\nRequirement already satisfied: pexpect&gt;4.3 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (4.8.0)\nRequirement already satisfied: appnope in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.1.2)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2023.3.post1)\nRequirement already satisfied: tzdata&gt;=2022.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2023.3)\nRequirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;itables) (0.8.3)\nRequirement already satisfied: ptyprocess&gt;=0.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;itables) (0.7.0)\nRequirement already satisfied: wcwidth in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30-&gt;IPython-&gt;itables) (0.2.5)\nRequirement already satisfied: six&gt;=1.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;itables) (1.16.0)\nRequirement already satisfied: executing in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (0.8.3)\nRequirement already satisfied: asttokens in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (2.0.5)\nRequirement already satisfied: pure-eval in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (0.2.2)"
+  },
+  {
+    "objectID": "posts/Spotify Favorite Artists/favoriteartists.html#variable-description",
+    "href": "posts/Spotify Favorite Artists/favoriteartists.html#variable-description",
+    "title": "Favorite Artists",
+    "section": "Variable Description 👨‍🎤",
+    "text": "Variable Description 👨‍🎤\n\npid: playlist ID; unique ID for playlist\nplaylist_name: a name of playlist\npos: a position of the track within a playlist (starting from 0)\nartist_name: name of the track’s primary artist\ntrack_name: name of the track\nduration_ms: duration of the track in milliseconds\nalbum_name: name of the track’s album"
+  },
+  {
+    "objectID": "posts/Spotify Favorite Artists/favoriteartists.html#occurances",
+    "href": "posts/Spotify Favorite Artists/favoriteartists.html#occurances",
+    "title": "Favorite Artists",
+    "section": "Occurances 🎙️",
+    "text": "Occurances 🎙️\n\nartist_count = spotify['artist_name'].value_counts()\nartist_count\n\nDrake                2715\nKanye West           1065\nKendrick Lamar       1035\nRihanna               915\nThe Weeknd            913\n                     ... \nLuna City Express       1\nNinetoes                1\nRhemi                   1\nJamie 3:26              1\nCaleb and Kelsey        1\nName: artist_name, Length: 18866, dtype: int64\n\n\n\nThe above code counts the occurences of each artist\n\nas you can see, Drake appears the most in playlists"
+  },
+  {
+    "objectID": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-dataframe",
+    "href": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-dataframe",
+    "title": "Favorite Artists",
+    "section": "Favorite Artists DataFrame 🎹",
+    "text": "Favorite Artists DataFrame 🎹\n\nfavorite_artists = spotify[spotify['artist_name'].isin(['Drake', 'Rihanna','Halsey'])]\nfavorite_artists\n\n\n  \n    \n\n\n\n\n\n\npid\nplaylist_name\npos\nartist_name\ntrack_name\nduration_ms\nalbum_name\n\n\n\n\n320\n5\nWedding\n22\nRihanna\nWe Found Love\n215226\nTalk That Talk\n\n\n409\n7\n2017\n15\nHalsey\nEyes Closed\n202438\nhopeless fountain kingdom\n\n\n522\n10\nabby\n8\nDrake\nPortland\n236614\nMore Life\n\n\n544\n10\nabby\n30\nDrake\nPreach\n236973\nIf You're Reading This It's Too Late\n\n\n570\n10\nabby\n56\nDrake\nHeadlines\n235986\nTake Care\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n197565\n999990\nDrake\n1\nDrake\nFake Love\n210937\nMore Life\n\n\n197566\n999990\nDrake\n2\nDrake\nPop Style\n212946\nViews\n\n\n197567\n999990\nDrake\n3\nDrake\nHotline Bling\n267066\nViews\n\n\n197568\n999990\nDrake\n4\nDrake\nLegend\n241853\nIf You're Reading This It's Too Late\n\n\n197714\n999992\nGB\n100\nRihanna\nBitch Better Have My Money\n219305\nBitch Better Have My Money\n\n\n\n\n\n3939 rows × 7 columns\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n    \n  \n\n\n\nThe above code filters the DataFrame to show only the songs by my three favorite artists: Drake, Rihanna, and Halsey"
+  },
+  {
+    "objectID": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-occurances",
+    "href": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-occurances",
+    "title": "Favorite Artists",
+    "section": "Favorite Artists Occurances 🎶",
+    "text": "Favorite Artists Occurances 🎶\n\nfavorite_count = favorite_artists['artist_name'].value_counts()\nfavorite_count\n\nDrake      2715\nRihanna     915\nHalsey      309\nName: artist_name, dtype: int64\n\n\n\nThis code shows the number of occurrences that my three favorite artists have in the data"
+  },
+  {
+    "objectID": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-track-duration",
+    "href": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-track-duration",
+    "title": "Favorite Artists",
+    "section": "Favorite Artist’s Track Duration 💿",
+    "text": "Favorite Artist’s Track Duration 💿\n\nsorted_fav_artists = favorite_artists.sort_values(by = 'duration_ms', ascending = False)\nno_duplicates = sorted_fav_artists.drop_duplicates(subset=['artist_name', 'track_name'])\nlongest_tracks = no_duplicates[['artist_name', 'track_name', 'duration_ms']].head(10)\nlongest_tracks\n\n\n  \n    \n\n\n\n\n\n\nartist_name\ntrack_name\nduration_ms\n\n\n\n\n47554\nDrake\nCameras / Good Ones Go Interlude - Medley\n434960\n\n\n157169\nDrake\nPound Cake / Paris Morton Music 2\n433800\n\n\n65122\nDrake\nShut It Down\n419306\n\n\n145989\nRihanna\nSame Ol’ Mistakes\n397093\n\n\n110780\nRihanna\nWhere Have You Been - Hardwell Club Mix\n394653\n\n\n122260\nDrake\nUptown\n381240\n\n\n38545\nDrake\nSince Way Back\n368035\n\n\n110850\nDrake\nTuscan Leather\n366400\n\n\n30644\nRihanna\nCold Case Love\n364520\n\n\n29273\nDrake\nForever\n357706\n\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n    \n  \n\n\n\nThe above code sorts the DateFrame containing only tracks from my favorite artists by the length of their tracks\nIt then gets rid of any duplicates so I only see one of each song\nThen I see the top 10 longest tracks by my three favorite artists\nDrake has 7 out of the 10 longest songs out of my three favorite artists\nRihanna has the other 3 longest songs\nHalsey doesn’t have any of them which tells me she keeps her songs relatively short"
+  },
+  {
+    "objectID": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-average-position",
+    "href": "posts/Spotify Favorite Artists/favoriteartists.html#favorite-artists-average-position",
+    "title": "Favorite Artists",
+    "section": "Favorite Artist’s Average Position 🧑‍🎤",
+    "text": "Favorite Artist’s Average Position 🧑‍🎤\n\nfav_artist_name = favorite_artists['artist_name'].unique()\nartist_tracks = spotify[spotify['artist_name'].isin(fav_artist_name)]\navg_pos = artist_tracks.groupby('artist_name')['pos'].mean()\navg_pos\n\nartist_name\nDrake      57.143278\nHalsey     65.582524\nRihanna    47.174863\nName: pos, dtype: float64\n\n\n\nThe above code gathers the average position of tracks within a playlist for each of my three favorite artists within the Spotify DataFrame\n\nI hope you learned a little bit about my favorite artists within the Spotify DataFrame"
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#variable-description",
+    "href": "posts/NFL in 2022/NFLin2022.html#variable-description",
+    "title": "NFL in 2022",
+    "section": "Variable Description 🏈",
+    "text": "Variable Description 🏈\n\nplay_id: Numeric play identifier that when used with game_id and drive provides the unique identifier for a single play\ngame_id: Ten digit identifier for NFL game.\ndrive: Numeric drive number in the game.\nweek: Season week.\nposteam: String abbreviation for the team with possession.\nqtr: Quarter of the game (5 is overtime).\nhalf_seconds_remaining: Numeric seconds remaining in the half.\ndown: The down for the given play.\n\nBasically you get four attempts (aka downs) to move the ball 10 yards (by either running with it or passing it).\nIf you make 10 yards then you get another set of four downs.\n\npass: Binary indicator if the play was a pass play.\nwp: Estimated winning probability for the posteam given the current situation at the start of the given play."
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#q2a",
+    "href": "posts/NFL in 2022/NFLin2022.html#q2a",
+    "title": "NFL in 2022",
+    "section": "Q2a 🏈",
+    "text": "Q2a 🏈\n\nlibrary(tidyverse)\nlibrary(skimr)\n\nIn data.frame, NFL2022_stuffs, remove observations for which values of posteam is missing.\n\nq2a &lt;- NFL2022_stuffs %&gt;% \n  filter(!is.na(posteam))"
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#q2b",
+    "href": "posts/NFL in 2022/NFLin2022.html#q2b",
+    "title": "NFL in 2022",
+    "section": "Q2b 🏈",
+    "text": "Q2b 🏈\n\nSummarize the mean value of pass for each posteam when all the following conditions hold:\n\n\nwp is greater than 20% and less than 75%;\ndown is less than or equal to 2; and\nhalf_seconds_remaining is greater than 120.\n\n\nq2b &lt;- NFL2022_stuffs %&gt;% \n  filter(between(wp, 0.2, 0.75),\n         down &lt;= 2,\n         half_seconds_remaining &gt; 120)\n\nmeanvalq2b &lt;- q2b %&gt;% \n  group_by(posteam) %&gt;% \n  summarise(mean_pass = mean(pass, na.rm = TRUE))\n\nmeanvalq2b\n\n# A tibble: 32 × 2\n   posteam mean_pass\n   &lt;chr&gt;       &lt;dbl&gt;\n 1 ARI         0.553\n 2 ATL         0.4  \n 3 BAL         0.520\n 4 BUF         0.604\n 5 CAR         0.458\n 6 CHI         0.420\n 7 CIN         0.657\n 8 CLE         0.491\n 9 DAL         0.474\n10 DEN         0.493\n# ℹ 22 more rows"
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#q2c",
+    "href": "posts/NFL in 2022/NFLin2022.html#q2c",
+    "title": "NFL in 2022",
+    "section": "Q2c 🏈",
+    "text": "Q2c 🏈\n\nProvide both (1) a ggplot code with geom_point() using the resulting data.frame in Q2b and (2) a simple comments to describe the mean value of pass for each posteam.\n\nIn the ggplot, reorder the posteam categories based on the mean value of pass in ascending or in descending order.\n\n\n\nmeanvaldesc &lt;- meanvalq2b %&gt;% \n  arrange(desc(mean_pass))\n\nggplot(meanvaldesc, aes(x = mean_pass, y = reorder(posteam, mean_pass))) +\n  geom_point()+\n  labs(x= \"Percentage of Pass Plays\",\n       y= \"Team with possesion\")\n\n\n\n\nComments:\n\nCincinnati, Kansas City, Los Angeles Chargers, Buffalo Bills, and Philadelphia eagles had the top 5 highest average percentage of pass plays during the 2022 season.\nAtlanta, Washington, Chicago, New Orleans, and Tennessee had the top 5 lowest average percentage of pass plays during the 2022 season."
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#q2d",
+    "href": "posts/NFL in 2022/NFLin2022.html#q2d",
+    "title": "NFL in 2022",
+    "section": "Q2d 🏈",
+    "text": "Q2d 🏈\n\nConsider the following data.frame, NFL2022_epa:\n\n\nNFL2022_epa &lt;- read.csv('https://bcdanl.github.io/data/NFL2022_epa.csv')\n\n\nVariable description for NFL2022_epa\n\nplay_id: Numeric play identifier that when used with game_id and drive provides the unique identifier for a single play\ngame_id: Ten digit identifier for NFL game.\ndrive: Numeric drive number in the game.\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks)\nreceiver: Name of the receiver.\nepa: Expected points added (EPA) by the posteam for the given play.\n\nCreate the data.frame, NFL2022_stuffs_EPA, that includes\n\nAll the variables in the data.frame, NFL2022_stuffs;\nThe variables, passer, receiver, and epa, from the data.frame, NFL2022_epa. by joining the two data.frames.\n\nIn the resulting data.frame, NFL2022_stuffs_EPA, remove observations with NA in passer.\n\nAnswer:\n\nNFL2022_stuffs_EPA &lt;- left_join(NFL2022_stuffs, NFL2022_epa, by = c(\"play_id\", \"game_id\", \"drive\", \"posteam\"))\n\nNFL2022_stuffs_EPA &lt;- NFL2022_stuffs_EPA %&gt;%\n  filter(!is.na(passer))"
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#q2e",
+    "href": "posts/NFL in 2022/NFLin2022.html#q2e",
+    "title": "NFL in 2022",
+    "section": "Q2e 🏈",
+    "text": "Q2e 🏈\n\nProvide both (1) a single ggplot and (2) a simple comment to describe the NFL weekly trend of weekly mean value of epa for each of the following two passers,\n\n“J.Allen”\n“P.Mahomes”\n\n\n\ntwo_passers &lt;- c(\"J.Allen\", \"P.Mahomes\")\n\nfiltered_twopassers &lt;- NFL2022_stuffs_EPA %&gt;% \n  filter(passer %in% two_passers)\n\nmean_epa_data &lt;- filtered_twopassers %&gt;% group_by(week, passer) %&gt;% \n  summarise(mean_epa = mean(epa, na.rm = TRUE))\n\nggplot(mean_epa_data, aes(x= week, y= mean_epa, color = passer))+\n  geom_line()+\n  scale_color_manual(values =c(\"J.Allen\" =\"blue\", \"P.Mahomes\"=\"red\"))+\n  labs(x= \"Week\",\n       y= \"Mean value of expected points added (EPA)\")\n\n\n\n\nComment: Patrick Mahomes generally had a higher mean value of epa. However, there were a few weeks that Josh Allen had a higher mean value of epa."
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#q2f",
+    "href": "posts/NFL in 2022/NFLin2022.html#q2f",
+    "title": "NFL in 2022",
+    "section": "Q2f 🏈",
+    "text": "Q2f 🏈\nCalculate the difference between the mean value of epa for “J.Allen” the mean value of epa for “P.Mahomes” for each value of week.\n\ndifference_epa &lt;- mean_epa_data %&gt;% \n  pivot_wider(names_from = passer, values_from = mean_epa)\n\ndifference_epa$epa_differnce &lt;- difference_epa$'J.Allen' - difference_epa$'P.Mahomes'\n\nprint(difference_epa)\n\n# A tibble: 22 × 4\n# Groups:   week [22]\n    week J.Allen P.Mahomes epa_differnce\n   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n 1     1   0.530    0.698        -0.169 \n 2     2   0.487    0.148         0.339 \n 3     3   0.169    0.246        -0.0763\n 4     4   0.191    0.271        -0.0803\n 5     5   0.627    0.302         0.325 \n 6     6   0.307    0.133         0.173 \n 7     7  NA        0.701        NA     \n 8     8   0.224   NA            NA     \n 9     9  -0.208    0.0965       -0.304 \n10    10   0.161    0.589        -0.429 \n# ℹ 12 more rows"
+  },
+  {
+    "objectID": "posts/NFL in 2022/NFLin2022.html#q2g",
+    "href": "posts/NFL in 2022/NFLin2022.html#q2g",
+    "title": "NFL in 2022",
+    "section": "Q2g 🏈",
+    "text": "Q2g 🏈\n\nSummarize the resulting data.frame in Q2d, with the following four variables:\n\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop, and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks.)\nmean_epa: Mean value of epa in 2022 for each passer\nn_pass: Number of observations for each passer\n\nThen find the top 10 NFL passers in 2022 in terms of the mean value of epa, conditioning that n_pass must be greater than or equal to the third quantile level of n_pass.\n\n\nsummary_data &lt;- NFL2022_stuffs_EPA %&gt;%\n  group_by(posteam, passer) %&gt;%\n  summarise(\n    mean_epa = mean(epa, na.rm = TRUE),\n    n_pass = n()\n  )\n\nquantile_threshold_passer &lt;- quantile(summary_data$n_pass, 0.75)\nfiltered_summary_data &lt;- summary_data %&gt;%\n  filter(n_pass &gt;= quantile_threshold_passer)\n\ntop_10_passers &lt;- filtered_summary_data %&gt;%\n  arrange(desc(mean_epa)) %&gt;% \n  head(n=10)\n  \ntop_10_passers\n\n# A tibble: 10 × 4\n# Groups:   posteam [10]\n   posteam passer       mean_epa n_pass\n   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;  &lt;int&gt;\n 1 KC      P.Mahomes      0.286     880\n 2 MIA     T.Tagovailoa   0.234     453\n 3 SF      J.Garoppolo    0.200     348\n 4 BUF     J.Allen        0.172     785\n 5 DET     J.Goff         0.171     661\n 6 CIN     J.Burrow       0.153     854\n 7 DAL     D.Prescott     0.147     529\n 8 PHI     J.Hurts        0.138     672\n 9 JAX     T.Lawrence     0.128     764\n10 CLE     J.Brissett     0.0912    445"
+  },
+  {
+    "objectID": "posts/Beer Markets/BeerMarkets.html#variable-description",
+    "href": "posts/Beer Markets/BeerMarkets.html#variable-description",
+    "title": "Beer Markets",
+    "section": "Variable Description",
+    "text": "Variable Description\n\nhh: an identifier of the household;\nX_purchase_desc: details on the purchased item;\nquantity: the number of items purchased;\nbrand: Bud Light, Busch Light, Coors Light, Miller Lite, or Natural Light;\ndollar_spent: total dollar value of purchase;\nbeer_floz: total volume of beer, in fluid ounces;\nprice_per_floz: price per fl.oz. (i.e., beer spent/beer floz);\ncontainer: the type of container;\npromo: Whether the item was promoted (coupon or otherwise);\nmarket: Scan-track market (or state if rural); demographic data, including gender, marital status, household income, class of work, race, education, age, the size of household, and whether or not the household has a microwave or a dishwasher."
+  },
+  {
+    "objectID": "posts/Beer Markets/BeerMarkets.html#q1a",
+    "href": "posts/Beer Markets/BeerMarkets.html#q1a",
+    "title": "Beer Markets",
+    "section": "Q1a 🍻",
+    "text": "Q1a 🍻\n\nFind the top 5 markets in terms of the total beer_floz.\nFind the top 5 markets in terms of the total beer_floz of BUD LIGHT.\nFind the top 5 markets in terms of the total beer_floz of BUSCH LIGHT.\nFind the top 5 markets in terms of the total beer_floz of COORS LIGHT.\nFind the top 5 markets in terms of the total beer_floz of MILLER LITE.\nFind the top 5 markets in terms of the total beer_floz of NATURAL LIGHT.\n\n\nQ1a1 &lt;- beer_mkts %&gt;% \n   group_by(market) %&gt;% \n   summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n   arrange(-beer_floz_tot) %&gt;% \n   slice(1:5)\n\nQ1a_bud &lt;- beer_mkts %&gt;% \n  filter(brand == \"BUD LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_busch &lt;- beer_mkts %&gt;% \n  filter(brand == \"BUSCH LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_coors &lt;- beer_mkts %&gt;% \n  filter(brand == \"COORS LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_miller &lt;- beer_mkts %&gt;% \n  filter(brand == \"MILLER LITE\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_natural &lt;- beer_mkts %&gt;% \n  filter(brand == \"NATURAL LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)"
+  },
+  {
+    "objectID": "posts/Beer Markets/BeerMarkets.html#q1b",
+    "href": "posts/Beer Markets/BeerMarkets.html#q1b",
+    "title": "Beer Markets",
+    "section": "Q1b 🍻",
+    "text": "Q1b 🍻\n\nFor households that purchased BUD LIGHT at least once, what fraction of households did purchase only BUD LIGHT?\nFor households that purchased BUSCH LIGHT at least once, what fraction of households did purchase only BUSCH LIGHT?\nFor households that purchased COORS LIGHT at least once, what fraction of households did purchase only COORS LIGHT?\nFor households that purchased MILLER LITE at least once, what fraction of households did purchase only MILLER LITE?\nFor households that purchased NATURAL LIGHT at least once, what fraction of households did purchase only NATURAL LIGHT?\nWhich beer brand does have the largest proportion of such loyal consumers?\n\n\nq1b &lt;- beer_mkts %&gt;% \n  mutate(bud = ifelse(brand==\"BUD LIGHT\", 1, 0), # 1 if brand==\"BUD LIGHT\"; 0 otherwise\n         busch = ifelse(brand==\"BUSCH LIGHT\", 1, 0),\n         coors = ifelse(brand==\"COORS LIGHT\", 1, 0),\n         miller = ifelse(brand==\"MILLER LITE\", 1, 0),\n         natural = ifelse(brand==\"NATURAL LIGHT\", 1, 0),\n         .after = hh) %&gt;% \n  select(hh:natural) %&gt;%  # select the variables we need\n  group_by(hh) %&gt;% \n  summarise(n_transactions = n(), # number of beer transactions for each hh\n            n_bud = sum(bud), # number of BUD LIGHT transactions for each hh\n            n_busch = sum(busch), \n            n_coors = sum(coors), \n            n_miller = sum(miller), \n            n_natural = sum(natural) \n  ) %&gt;% \n  summarise(loyal_bud = sum(n_transactions == n_bud) / sum(n_bud &gt; 0), \n              # sum(n_transactions == n_bud) : the number of households that purchased BUD LIGHT only\n              # sum(n_bud &gt; 0) : the number of households that purchased BUD LIGHT at least once.\n            loyal_busch = sum(n_transactions == n_busch) / sum(n_busch &gt; 0),\n            loyal_coors = sum(n_transactions == n_coors) / sum(n_coors &gt; 0),\n            loyal_miller = sum(n_transactions == n_miller) / sum(n_miller &gt; 0),\n            loyal_natural = sum(n_transactions == n_natural) / sum(n_natural &gt; 0)\n  )\n\nq1b\n\n# A tibble: 1 × 5\n  loyal_bud loyal_busch loyal_coors loyal_miller loyal_natural\n      &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;\n1     0.660       0.473       0.639        0.631         0.510"
+  },
+  {
+    "objectID": "posts/Beer Markets/BeerMarkets.html#q1c",
+    "href": "posts/Beer Markets/BeerMarkets.html#q1c",
+    "title": "Beer Markets",
+    "section": "Q1c 🍻",
+    "text": "Q1c 🍻\n\nFor each household, calculate the number of beer transactions.\nFor each household, calculate the proportion of each beer brand choice.\n\n\nq1c &lt;- beer_mkts %&gt;% \n  count(hh, brand) %&gt;% \n  group_by(hh) %&gt;% \n  mutate(n_tot = sum(n)) %&gt;%  # n_tot : the number of beer transactions\n  arrange(hh, brand) %&gt;% \n  mutate( prop = n / n_tot ) # prop: the proportion of each beer brand choice\n\nq1c\n\n# A tibble: 13,202 × 5\n# Groups:   hh [10,408]\n        hh brand           n n_tot  prop\n     &lt;int&gt; &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;dbl&gt;\n 1 2000235 BUD LIGHT       1     1 1    \n 2 2000417 COORS LIGHT     8     8 1    \n 3 2000711 COORS LIGHT    13    13 1    \n 4 2000946 BUD LIGHT       1     2 0.5  \n 5 2000946 MILLER LITE     1     2 0.5  \n 6 2001521 BUD LIGHT       6    11 0.545\n 7 2001521 COORS LIGHT     3    11 0.273\n 8 2001521 MILLER LITE     2    11 0.182\n 9 2001531 BUSCH LIGHT     1     1 1    \n10 2001581 BUSCH LIGHT     5     5 1    \n# ℹ 13,192 more rows"
+  },
+  {
+    "objectID": "Quartodoc1.html",
+    "href": "Quartodoc1.html",
+    "title": "Habits",
+    "section": "",
+    "text": "Here is my first Quarto document.\n\nSection 1. I do not know"
+  },
+  {
+    "objectID": "Untitled.html",
+    "href": "Untitled.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "#Section 1\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(hrbrthemes)\n\nNOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.\n      Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and\n      if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow\n\nlibrary(skimr)\n\noption command I for mac\ncommand shift return to run code in r chunk\n\n::: {.cell}\n::: {.cell-output-display}\n![](Untitled_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(gapminder) +\n  geom_point(aes(x = gdpPercap, y = lifeExp,\n                 color = continent), alpha = .25) +\n  labs(x = \"GDP per capita\",\n       y = \"Life Expectancy\",\n       color = \"Continent\")\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(diamonds)+\n  geom_bar(aes(x=price, color = clarity))\n\n\n\n:::"
   },
   {
     "objectID": "danl200-hw5-Ellick-Owen.html",
@@ -168,388 +553,45 @@
     "text": "Q2g 🏈\n\nSummarize the resulting data.frame in Q2d, with the following four variables:\n\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop, and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks.)\nmean_epa: Mean value of epa in 2022 for each passer\nn_pass: Number of observations for each passer\n\nThen find the top 10 NFL passers in 2022 in terms of the mean value of epa, conditioning that n_pass must be greater than or equal to the third quantile level of n_pass.\n\n\nsummary_data &lt;- NFL2022_stuffs_EPA %&gt;%\n  group_by(posteam, passer) %&gt;%\n  summarise(\n    mean_epa = mean(epa, na.rm = TRUE),\n    n_pass = n()\n  )\n\n`summarise()` has grouped output by 'posteam'. You can override using the\n`.groups` argument.\n\nquantile_threshold_passer &lt;- quantile(summary_data$n_pass, 0.75)\nfiltered_summary_data &lt;- summary_data %&gt;%\n  filter(n_pass &gt;= quantile_threshold_passer)\n\ntop_10_passers &lt;- filtered_summary_data %&gt;%\n  arrange(desc(mean_epa)) %&gt;% \n  head(n=10)\n  \ntop_10_passers\n\n# A tibble: 10 × 4\n# Groups:   posteam [10]\n   posteam passer       mean_epa n_pass\n   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;  &lt;int&gt;\n 1 KC      P.Mahomes      0.286     880\n 2 MIA     T.Tagovailoa   0.234     453\n 3 SF      J.Garoppolo    0.200     348\n 4 BUF     J.Allen        0.172     785\n 5 DET     J.Goff         0.171     661\n 6 CIN     J.Burrow       0.153     854\n 7 DAL     D.Prescott     0.147     529\n 8 PHI     J.Hurts        0.138     672\n 9 JAX     T.Lawrence     0.128     764\n10 CLE     J.Brissett     0.0912    445"
   },
   {
-    "objectID": "Untitled.html",
-    "href": "Untitled.html",
-    "title": "Untitled",
+    "objectID": "danl-210-quarto-py-only.html",
+    "href": "danl-210-quarto-py-only.html",
+    "title": "DANL 210: Data Preparation and Management",
     "section": "",
-    "text": "#Section 1\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(hrbrthemes)\n\nNOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.\n      Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and\n      if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow\n\nlibrary(skimr)\n\noption command I for mac\ncommand shift return to run code in r chunk\n\n::: {.cell}\n::: {.cell-output-display}\n![](Untitled_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(gapminder) +\n  geom_point(aes(x = gdpPercap, y = lifeExp,\n                 color = continent), alpha = .25) +\n  labs(x = \"GDP per capita\",\n       y = \"Life Expectancy\",\n       color = \"Continent\")\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(diamonds)+\n  geom_bar(aes(x=price, color = clarity))\n\n\n\n:::"
+    "text": "reticulate::use_condaenv(\"/Users/owenellick/anaconda3/\", required = TRUE)"
   },
   {
-    "objectID": "Quartodoc1.html",
-    "href": "Quartodoc1.html",
-    "title": "Habits",
-    "section": "",
-    "text": "Here is my first Quarto document.\n\nSection 1. I do not know"
+    "objectID": "danl-210-quarto-py-only.html#variables-and-data-types",
+    "href": "danl-210-quarto-py-only.html#variables-and-data-types",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.1 Variables and Data Types",
+    "text": "1.1 Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\n\nCode\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n\n10.5"
   },
   {
-    "objectID": "posts/Beer Markets/BeerMarkets.html#variable-description",
-    "href": "posts/Beer Markets/BeerMarkets.html#variable-description",
-    "title": "Beer Markets",
-    "section": "Variable Description",
-    "text": "Variable Description\n\nhh: an identifier of the household;\nX_purchase_desc: details on the purchased item;\nquantity: the number of items purchased;\nbrand: Bud Light, Busch Light, Coors Light, Miller Lite, or Natural Light;\ndollar_spent: total dollar value of purchase;\nbeer_floz: total volume of beer, in fluid ounces;\nprice_per_floz: price per fl.oz. (i.e., beer spent/beer floz);\ncontainer: the type of container;\npromo: Whether the item was promoted (coupon or otherwise);\nmarket: Scan-track market (or state if rural); demographic data, including gender, marital status, household income, class of work, race, education, age, the size of household, and whether or not the household has a microwave or a dishwasher."
+    "objectID": "danl-210-quarto-py-only.html#control-structures",
+    "href": "danl-210-quarto-py-only.html#control-structures",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.2 Control Structures",
+    "text": "1.2 Control Structures\nPython supports the usual logical conditions from mathematics:\n\n\nCode\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n\nCode\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')\n\n\nFive is greater than two!"
   },
   {
-    "objectID": "posts/Beer Markets/BeerMarkets.html#q1a",
-    "href": "posts/Beer Markets/BeerMarkets.html#q1a",
-    "title": "Beer Markets",
-    "section": "Q1a 🍻",
-    "text": "Q1a 🍻\n\nFind the top 5 markets in terms of the total beer_floz.\nFind the top 5 markets in terms of the total beer_floz of BUD LIGHT.\nFind the top 5 markets in terms of the total beer_floz of BUSCH LIGHT.\nFind the top 5 markets in terms of the total beer_floz of COORS LIGHT.\nFind the top 5 markets in terms of the total beer_floz of MILLER LITE.\nFind the top 5 markets in terms of the total beer_floz of NATURAL LIGHT.\n\n\nQ1a1 &lt;- beer_mkts %&gt;% \n   group_by(market) %&gt;% \n   summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n   arrange(-beer_floz_tot) %&gt;% \n   slice(1:5)\n\nQ1a_bud &lt;- beer_mkts %&gt;% \n  filter(brand == \"BUD LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_busch &lt;- beer_mkts %&gt;% \n  filter(brand == \"BUSCH LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_coors &lt;- beer_mkts %&gt;% \n  filter(brand == \"COORS LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_miller &lt;- beer_mkts %&gt;% \n  filter(brand == \"MILLER LITE\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)\n\nQ1a_natural &lt;- beer_mkts %&gt;% \n  filter(brand == \"NATURAL LIGHT\") %&gt;% \n  group_by(market) %&gt;% \n  summarize(beer_floz_tot = sum(beer_floz, na.rm = T)) %&gt;% \n  arrange(-beer_floz_tot) %&gt;% \n  slice(1:5)"
+    "objectID": "danl-210-quarto-py-only.html#functions",
+    "href": "danl-210-quarto-py-only.html#functions",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.3 Functions",
+    "text": "1.3 Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n\nCode\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()\n\n\nHello from a function"
   },
   {
-    "objectID": "posts/Beer Markets/BeerMarkets.html#q1b",
-    "href": "posts/Beer Markets/BeerMarkets.html#q1b",
-    "title": "Beer Markets",
-    "section": "Q1b 🍻",
-    "text": "Q1b 🍻\n\nFor households that purchased BUD LIGHT at least once, what fraction of households did purchase only BUD LIGHT?\nFor households that purchased BUSCH LIGHT at least once, what fraction of households did purchase only BUSCH LIGHT?\nFor households that purchased COORS LIGHT at least once, what fraction of households did purchase only COORS LIGHT?\nFor households that purchased MILLER LITE at least once, what fraction of households did purchase only MILLER LITE?\nFor households that purchased NATURAL LIGHT at least once, what fraction of households did purchase only NATURAL LIGHT?\nWhich beer brand does have the largest proportion of such loyal consumers?\n\n\nq1b &lt;- beer_mkts %&gt;% \n  mutate(bud = ifelse(brand==\"BUD LIGHT\", 1, 0), # 1 if brand==\"BUD LIGHT\"; 0 otherwise\n         busch = ifelse(brand==\"BUSCH LIGHT\", 1, 0),\n         coors = ifelse(brand==\"COORS LIGHT\", 1, 0),\n         miller = ifelse(brand==\"MILLER LITE\", 1, 0),\n         natural = ifelse(brand==\"NATURAL LIGHT\", 1, 0),\n         .after = hh) %&gt;% \n  select(hh:natural) %&gt;%  # select the variables we need\n  group_by(hh) %&gt;% \n  summarise(n_transactions = n(), # number of beer transactions for each hh\n            n_bud = sum(bud), # number of BUD LIGHT transactions for each hh\n            n_busch = sum(busch), \n            n_coors = sum(coors), \n            n_miller = sum(miller), \n            n_natural = sum(natural) \n  ) %&gt;% \n  summarise(loyal_bud = sum(n_transactions == n_bud) / sum(n_bud &gt; 0), \n              # sum(n_transactions == n_bud) : the number of households that purchased BUD LIGHT only\n              # sum(n_bud &gt; 0) : the number of households that purchased BUD LIGHT at least once.\n            loyal_busch = sum(n_transactions == n_busch) / sum(n_busch &gt; 0),\n            loyal_coors = sum(n_transactions == n_coors) / sum(n_coors &gt; 0),\n            loyal_miller = sum(n_transactions == n_miller) / sum(n_miller &gt; 0),\n            loyal_natural = sum(n_transactions == n_natural) / sum(n_natural &gt; 0)\n  )\n\nq1b\n\n# A tibble: 1 × 5\n  loyal_bud loyal_busch loyal_coors loyal_miller loyal_natural\n      &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;\n1     0.660       0.473       0.639        0.631         0.510"
+    "objectID": "danl-210-quarto-py-only.html#lists-and-dictionaries",
+    "href": "danl-210-quarto-py-only.html#lists-and-dictionaries",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "1.4 Lists and Dictionaries",
+    "text": "1.4 Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n\nCode\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
   },
   {
-    "objectID": "posts/Beer Markets/BeerMarkets.html#q1c",
-    "href": "posts/Beer Markets/BeerMarkets.html#q1c",
-    "title": "Beer Markets",
-    "section": "Q1c 🍻",
-    "text": "Q1c 🍻\n\nFor each household, calculate the number of beer transactions.\nFor each household, calculate the proportion of each beer brand choice.\n\n\nq1c &lt;- beer_mkts %&gt;% \n  count(hh, brand) %&gt;% \n  group_by(hh) %&gt;% \n  mutate(n_tot = sum(n)) %&gt;%  # n_tot : the number of beer transactions\n  arrange(hh, brand) %&gt;% \n  mutate( prop = n / n_tot ) # prop: the proportion of each beer brand choice\n\nq1c\n\n# A tibble: 13,202 × 5\n# Groups:   hh [10,408]\n        hh brand           n n_tot  prop\n     &lt;int&gt; &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;dbl&gt;\n 1 2000235 BUD LIGHT       1     1 1    \n 2 2000417 COORS LIGHT     8     8 1    \n 3 2000711 COORS LIGHT    13    13 1    \n 4 2000946 BUD LIGHT       1     2 0.5  \n 5 2000946 MILLER LITE     1     2 0.5  \n 6 2001521 BUD LIGHT       6    11 0.545\n 7 2001521 COORS LIGHT     3    11 0.273\n 8 2001521 MILLER LITE     2    11 0.182\n 9 2001531 BUSCH LIGHT     1     1 1    \n10 2001581 BUSCH LIGHT     5     5 1    \n# ℹ 13,192 more rows"
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#variable-description",
-    "href": "posts/NFL in 2022/NFLin2022.html#variable-description",
-    "title": "NFL in 2022",
-    "section": "Variable Description 🏈",
-    "text": "Variable Description 🏈\n\nplay_id: Numeric play identifier that when used with game_id and drive provides the unique identifier for a single play\ngame_id: Ten digit identifier for NFL game.\ndrive: Numeric drive number in the game.\nweek: Season week.\nposteam: String abbreviation for the team with possession.\nqtr: Quarter of the game (5 is overtime).\nhalf_seconds_remaining: Numeric seconds remaining in the half.\ndown: The down for the given play.\n\nBasically you get four attempts (aka downs) to move the ball 10 yards (by either running with it or passing it).\nIf you make 10 yards then you get another set of four downs.\n\npass: Binary indicator if the play was a pass play.\nwp: Estimated winning probability for the posteam given the current situation at the start of the given play."
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#q2a",
-    "href": "posts/NFL in 2022/NFLin2022.html#q2a",
-    "title": "NFL in 2022",
-    "section": "Q2a 🏈",
-    "text": "Q2a 🏈\n\nlibrary(tidyverse)\nlibrary(skimr)\n\nIn data.frame, NFL2022_stuffs, remove observations for which values of posteam is missing.\n\nq2a &lt;- NFL2022_stuffs %&gt;% \n  filter(!is.na(posteam))"
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#q2b",
-    "href": "posts/NFL in 2022/NFLin2022.html#q2b",
-    "title": "NFL in 2022",
-    "section": "Q2b 🏈",
-    "text": "Q2b 🏈\n\nSummarize the mean value of pass for each posteam when all the following conditions hold:\n\n\nwp is greater than 20% and less than 75%;\ndown is less than or equal to 2; and\nhalf_seconds_remaining is greater than 120.\n\n\nq2b &lt;- NFL2022_stuffs %&gt;% \n  filter(between(wp, 0.2, 0.75),\n         down &lt;= 2,\n         half_seconds_remaining &gt; 120)\n\nmeanvalq2b &lt;- q2b %&gt;% \n  group_by(posteam) %&gt;% \n  summarise(mean_pass = mean(pass, na.rm = TRUE))\n\nmeanvalq2b\n\n# A tibble: 32 × 2\n   posteam mean_pass\n   &lt;chr&gt;       &lt;dbl&gt;\n 1 ARI         0.553\n 2 ATL         0.4  \n 3 BAL         0.520\n 4 BUF         0.604\n 5 CAR         0.458\n 6 CHI         0.420\n 7 CIN         0.657\n 8 CLE         0.491\n 9 DAL         0.474\n10 DEN         0.493\n# ℹ 22 more rows"
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#q2c",
-    "href": "posts/NFL in 2022/NFLin2022.html#q2c",
-    "title": "NFL in 2022",
-    "section": "Q2c 🏈",
-    "text": "Q2c 🏈\n\nProvide both (1) a ggplot code with geom_point() using the resulting data.frame in Q2b and (2) a simple comments to describe the mean value of pass for each posteam.\n\nIn the ggplot, reorder the posteam categories based on the mean value of pass in ascending or in descending order.\n\n\n\nmeanvaldesc &lt;- meanvalq2b %&gt;% \n  arrange(desc(mean_pass))\n\nggplot(meanvaldesc, aes(x = mean_pass, y = reorder(posteam, mean_pass))) +\n  geom_point()+\n  labs(x= \"Percentage of Pass Plays\",\n       y= \"Team with possesion\")\n\n\n\n\nComments:\n\nCincinnati, Kansas City, Los Angeles Chargers, Buffalo Bills, and Philadelphia eagles had the top 5 highest average percentage of pass plays during the 2022 season.\nAtlanta, Washington, Chicago, New Orleans, and Tennessee had the top 5 lowest average percentage of pass plays during the 2022 season."
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#q2d",
-    "href": "posts/NFL in 2022/NFLin2022.html#q2d",
-    "title": "NFL in 2022",
-    "section": "Q2d 🏈",
-    "text": "Q2d 🏈\n\nConsider the following data.frame, NFL2022_epa:\n\n\nNFL2022_epa &lt;- read.csv('https://bcdanl.github.io/data/NFL2022_epa.csv')\n\n\nVariable description for NFL2022_epa\n\nplay_id: Numeric play identifier that when used with game_id and drive provides the unique identifier for a single play\ngame_id: Ten digit identifier for NFL game.\ndrive: Numeric drive number in the game.\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks)\nreceiver: Name of the receiver.\nepa: Expected points added (EPA) by the posteam for the given play.\n\nCreate the data.frame, NFL2022_stuffs_EPA, that includes\n\nAll the variables in the data.frame, NFL2022_stuffs;\nThe variables, passer, receiver, and epa, from the data.frame, NFL2022_epa. by joining the two data.frames.\n\nIn the resulting data.frame, NFL2022_stuffs_EPA, remove observations with NA in passer.\n\nAnswer:\n\nNFL2022_stuffs_EPA &lt;- left_join(NFL2022_stuffs, NFL2022_epa, by = c(\"play_id\", \"game_id\", \"drive\", \"posteam\"))\n\nNFL2022_stuffs_EPA &lt;- NFL2022_stuffs_EPA %&gt;%\n  filter(!is.na(passer))"
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#q2e",
-    "href": "posts/NFL in 2022/NFLin2022.html#q2e",
-    "title": "NFL in 2022",
-    "section": "Q2e 🏈",
-    "text": "Q2e 🏈\n\nProvide both (1) a single ggplot and (2) a simple comment to describe the NFL weekly trend of weekly mean value of epa for each of the following two passers,\n\n“J.Allen”\n“P.Mahomes”\n\n\n\ntwo_passers &lt;- c(\"J.Allen\", \"P.Mahomes\")\n\nfiltered_twopassers &lt;- NFL2022_stuffs_EPA %&gt;% \n  filter(passer %in% two_passers)\n\nmean_epa_data &lt;- filtered_twopassers %&gt;% group_by(week, passer) %&gt;% \n  summarise(mean_epa = mean(epa, na.rm = TRUE))\n\nggplot(mean_epa_data, aes(x= week, y= mean_epa, color = passer))+\n  geom_line()+\n  scale_color_manual(values =c(\"J.Allen\" =\"blue\", \"P.Mahomes\"=\"red\"))+\n  labs(x= \"Week\",\n       y= \"Mean value of expected points added (EPA)\")\n\n\n\n\nComment: Patrick Mahomes generally had a higher mean value of epa. However, there were a few weeks that Josh Allen had a higher mean value of epa."
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#q2f",
-    "href": "posts/NFL in 2022/NFLin2022.html#q2f",
-    "title": "NFL in 2022",
-    "section": "Q2f 🏈",
-    "text": "Q2f 🏈\nCalculate the difference between the mean value of epa for “J.Allen” the mean value of epa for “P.Mahomes” for each value of week.\n\ndifference_epa &lt;- mean_epa_data %&gt;% \n  pivot_wider(names_from = passer, values_from = mean_epa)\n\ndifference_epa$epa_differnce &lt;- difference_epa$'J.Allen' - difference_epa$'P.Mahomes'\n\nprint(difference_epa)\n\n# A tibble: 22 × 4\n# Groups:   week [22]\n    week J.Allen P.Mahomes epa_differnce\n   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n 1     1   0.530    0.698        -0.169 \n 2     2   0.487    0.148         0.339 \n 3     3   0.169    0.246        -0.0763\n 4     4   0.191    0.271        -0.0803\n 5     5   0.627    0.302         0.325 \n 6     6   0.307    0.133         0.173 \n 7     7  NA        0.701        NA     \n 8     8   0.224   NA            NA     \n 9     9  -0.208    0.0965       -0.304 \n10    10   0.161    0.589        -0.429 \n# ℹ 12 more rows"
-  },
-  {
-    "objectID": "posts/NFL in 2022/NFLin2022.html#q2g",
-    "href": "posts/NFL in 2022/NFLin2022.html#q2g",
-    "title": "NFL in 2022",
-    "section": "Q2g 🏈",
-    "text": "Q2g 🏈\n\nSummarize the resulting data.frame in Q2d, with the following four variables:\n\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop, and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks.)\nmean_epa: Mean value of epa in 2022 for each passer\nn_pass: Number of observations for each passer\n\nThen find the top 10 NFL passers in 2022 in terms of the mean value of epa, conditioning that n_pass must be greater than or equal to the third quantile level of n_pass.\n\n\nsummary_data &lt;- NFL2022_stuffs_EPA %&gt;%\n  group_by(posteam, passer) %&gt;%\n  summarise(\n    mean_epa = mean(epa, na.rm = TRUE),\n    n_pass = n()\n  )\n\nquantile_threshold_passer &lt;- quantile(summary_data$n_pass, 0.75)\nfiltered_summary_data &lt;- summary_data %&gt;%\n  filter(n_pass &gt;= quantile_threshold_passer)\n\ntop_10_passers &lt;- filtered_summary_data %&gt;%\n  arrange(desc(mean_epa)) %&gt;% \n  head(n=10)\n  \ntop_10_passers\n\n# A tibble: 10 × 4\n# Groups:   posteam [10]\n   posteam passer       mean_epa n_pass\n   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;  &lt;int&gt;\n 1 KC      P.Mahomes      0.286     880\n 2 MIA     T.Tagovailoa   0.234     453\n 3 SF      J.Garoppolo    0.200     348\n 4 BUF     J.Allen        0.172     785\n 5 DET     J.Goff         0.171     661\n 6 CIN     J.Burrow       0.153     854\n 7 DAL     D.Prescott     0.147     529\n 8 PHI     J.Hurts        0.138     672\n 9 JAX     T.Lawrence     0.128     764\n10 CLE     J.Brissett     0.0912    445"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#variables-are-names-not-places",
-    "href": "posts/Python Basics/PythonBasics.html#variables-are-names-not-places",
-    "title": "Python Basics",
-    "section": "Variables Are Names, Not Places",
-    "text": "Variables Are Names, Not Places\n\nA value is datum (literal) such as a number or text\nThere are different types of values:\n\n352.3 is known as a float or double;\n22 is an integer;\n“Hello World!” is a string.\n\n\n\nlist_example = [10, 1.23, \"like this\", True, None]\nprint(list_example)\ntype(list_example)\n\n[10, 1.23, 'like this', True, None]\n\n\nlist\n\n\n\nThe most. basic built-in data types that we’ll need to know about are:\n\nintegers, 10\nfloats, 1.23\nstrings, “like this”\nbooleans, True\nnothing, None\n\nPython also has a built-in type of data container called a list (ex. [10,15,20]) that can contain anything, even different types"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#values-variables-and-types",
-    "href": "posts/Python Basics/PythonBasics.html#values-variables-and-types",
-    "title": "Python Basics",
-    "section": "Values, Variables, and Types",
-    "text": "Values, Variables, and Types\n\na = 10\nprint(a)\n\n10\n\n\n\nA variable is a name that refers to a value.\n\nWe can think of a variable as a box that has a value, or multiple values, packed inside it\n\nA variable is just a name!\nSometimes you will hear variables referred to as objects.\nEverything that is not a literal value, such as 10, is an object"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#assignment",
-    "href": "posts/Python Basics/PythonBasics.html#assignment",
-    "title": "Python Basics",
-    "section": "Assignment (=)",
-    "text": "Assignment (=)\n\n# Here we assign the integer value 5 to the variable x.\nx = 5   \n\n# Now we can use the variable x in the next line.\ny = x + 12  \ny\n\n17\n\n\n\nIn Python, we use = to assign a value to a variable\nIn math, = means equality of both sides\nIn programs, = means assignment: assign the value on the right side to the variable on the left side.\nIn programming code, everything on the right side needs to have a value.\n\nThe right side can be a literal value, or a variable that has already been assigned a value, or a combination.\n\nWhen Python reads y= x + 12, it does the following:\n\nSees the = in the middle.\nKnows that this is an assignment.\nCalculates the right side (gets the value of the object referred to by x and adds it to 12).\nAssigns the result to the left-side variable, y."
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#code-and-comment-style",
-    "href": "posts/Python Basics/PythonBasics.html#code-and-comment-style",
-    "title": "Python Basics",
-    "section": "Code and Comment Style",
-    "text": "Code and Comment Style\n\nThe two main principles for coding and managing data are:\n\nMake things easier for your future self.\nDon’t trust your future self.\n\nThe # mark is Google Colab’s comment character\n\nThe # character has many names: hash, sharp, pound, or octothorpe.\n# indicates that the rest of the line is to be ignored.\nWrite comments before the line that you want the comment to apply to.\n\nConsider adding more comments on code cells and their results using text cells."
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#brackets",
-    "href": "posts/Python Basics/PythonBasics.html#brackets",
-    "title": "Python Basics",
-    "section": "Brackets",
-    "text": "Brackets\n\nThere are several kinds of brackets in Python, including [], {}, and ().\n\n\nvector = ['a', 'b']\nvector[0]\n\n'a'\n\n\n\n[] is used to denote a list or to signify accessing a position using an index\n\n\n{'a', 'b'}  # set\n{'first_letter': 'a', 'second_letter': 'b'}  # dictionary\n\n{'first_letter': 'a', 'second_letter': 'b'}\n\n\n\n{} is used to denote a set or a dictionary (with key-value pairs)\n\n\nnum_tup = (1, 2, 3)\nsum(num_tup)\n\n6\n\n\n\n() is used to denote\n\na tuple, or\nthe arguments to a function, ex. function(x) where x is the input passed to the function"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#question-1",
-    "href": "posts/Python Basics/PythonBasics.html#question-1",
-    "title": "Python Basics",
-    "section": "Question 1",
-    "text": "Question 1\n\nUsing Python operations only, calculate below:\n\n\n(2**5/(7*(4-2**3)))\n\n-1.1428571428571428"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#question-2",
-    "href": "posts/Python Basics/PythonBasics.html#question-2",
-    "title": "Python Basics",
-    "section": "Question 2",
-    "text": "Question 2\n\nFor each expression below, what is the value of the expression? Explain thoroughly.\n\n\n20 == '20'\n\nFalse\n\n\n\nThis is saying 20 is not equal to ‘20’ because they are different data types (int vs string)\n\n\nx = 4.0\ny = .5\nz = 3*y - x\n\nx &lt; y or 3*y &lt; x\n\nTrue\n\n\n\nThis says the expression is true since 3*.5 &lt; 4"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#question-3",
-    "href": "posts/Python Basics/PythonBasics.html#question-3",
-    "title": "Python Basics",
-    "section": "Question 3",
-    "text": "Question 3\n\nfare = \"$10.00\"\ntip = \"2.00$\"\ntax = \"$ 0.80\"\n\n\nWrite a Python code that uses slicing and the print() function to print out the following message:\n\nThe total trip cost is: $12.80\n\n\n\ntotal =fare = \"$10.00\"\ntip = \"2.00$\"\ntax = \"$ 0.80\"\ntotal = fare[0:2] + tip[0] + tax[3:6]\nprint(\"The total trip cost is:\", total)\n\n#The total trip cost is: $12.80The total trip cost is:\", total)\n\nThe total trip cost is: $12.80"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#question-4",
-    "href": "posts/Python Basics/PythonBasics.html#question-4",
-    "title": "Python Basics",
-    "section": "Question 4",
-    "text": "Question 4\n\nlist_variable = [100, 144, 169, 1000, 8]\n\n\nWrite a Python code that uses print() and max() functions to print out the largest value in the list, list_variable, as follows:\n\nThe largest value in the list is: 1000\n\n\n\nlist_variable = [100,144,169,1000,8]\nx =max(list_variable)\nprint('The largest value in the list is:',x)\n\n#The largest value in the list is: 1000\n\nThe largest value in the list is: 1000"
-  },
-  {
-    "objectID": "posts/Python Basics/PythonBasics.html#question-5",
-    "href": "posts/Python Basics/PythonBasics.html#question-5",
-    "title": "Python Basics",
-    "section": "Question 5",
-    "text": "Question 5\n\nImport the pandas library as pd.\nInstall the itables package.\nFrom itables, import the function init_notebook_mode and show.\n\n\nimport pandas as pd\n!pip install itables\nfrom itables import init_notebook_mode\nfrom itables import show\n\nRequirement already satisfied: itables in /Users/owenellick/anaconda3/lib/python3.11/site-packages (1.6.3)\nRequirement already satisfied: IPython in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (8.15.0)\nRequirement already satisfied: pandas in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (2.0.3)\nRequirement already satisfied: numpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (1.24.3)\nRequirement already satisfied: backcall in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.2.0)\nRequirement already satisfied: decorator in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (5.1.1)\nRequirement already satisfied: jedi&gt;=0.16 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.18.1)\nRequirement already satisfied: matplotlib-inline in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.1.6)\nRequirement already satisfied: pickleshare in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.7.5)\nRequirement already satisfied: prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (3.0.36)\nRequirement already satisfied: pygments&gt;=2.4.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (2.15.1)\nRequirement already satisfied: stack-data in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.2.0)\nRequirement already satisfied: traitlets&gt;=5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (5.7.1)\nRequirement already satisfied: pexpect&gt;4.3 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (4.8.0)\nRequirement already satisfied: appnope in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.1.2)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2023.3.post1)\nRequirement already satisfied: tzdata&gt;=2022.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2023.3)\nRequirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;itables) (0.8.3)\nRequirement already satisfied: ptyprocess&gt;=0.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;itables) (0.7.0)\nRequirement already satisfied: wcwidth in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30-&gt;IPython-&gt;itables) (0.2.5)\nRequirement already satisfied: six&gt;=1.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;itables) (1.16.0)\nRequirement already satisfied: executing in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (0.8.3)\nRequirement already satisfied: asttokens in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (2.0.5)\nRequirement already satisfied: pure-eval in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (0.2.2)"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#variable-description",
-    "title": "Restaurant Inspection",
-    "section": "Variable Description",
-    "text": "Variable Description\n\nCAMIS:\n\nhis is an unique identifier for the entity (restaurant);\n10-digit integer\n\nDBA:\n\nThis field represents the name (doing business as) of the entity (restaurant); + Public business name, may change at discretion of restaurant owner\n\nBORO:\n\nBorough in which the entity (restaurant) is located.;\n• 1 = MANHATTAN\n• 2 = BRONX\n• 3 = BROOKLYN\n• 4 = QUEENS\n• 5 = STATEN ISLAND\n• 0 = Missing;\n\nCUISINE DESCRIPTION:\n\nThis field describes the entity (restaurant) cuisine.\n\nACTION:\n\nThis field represents the actions that is associated with each restaurant inspection. ;\n• Violations were cited in the following area(s).\n• No violations were recorded at the time of this inspection.\n• Establishment re-opened by DOHMH\n• Establishment re-closed by DOHMH\n• Establishment Closed by DOHMH.\n• Violations were cited in the following area(s) and those requiring immediate action were addressed.\n\nVIOLATION CODE:\n\nViolation code associated with an establishment (restaurant) inspection\n\nVIOLATION DESCRIPTION:\n\nViolation description associated with an establishment (restaurant) inspection\n\nCRITICAL FLAG:\n\nIndicator of critical violation;\n• Critical\n• Not Critical\n• Not Applicable;\nCritical violations are those most likely to contribute to food-borne illness\n\nSCORE:\n\nTotal score for a particular inspection;\n\nGRADE:\n\nGrade associated with the inspection;\n• N = Not Yet Graded\n• A = Grade A\n• B = Grade B\n• C = Grade C\n• Z = Grade Pending\n• P = Grade Pending issued on re-opening following an initial inspection that resulted in a closure"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1a",
-    "title": "Restaurant Inspection",
-    "section": "Q1a",
-    "text": "Q1a\nWhat are the mean, standard deviation, first quartile, median, third quartile, and maximum of SCORE for each GRADE of restaurants?\n\nrestaurant %&gt;% group_by(GRADE) %&gt;% skim(SCORE) %&gt;% select(-n_missing)\n\n\nData summary\n\n\nName\nPiped data\n\n\nNumber of rows\n17633\n\n\nNumber of columns\n12\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nnumeric\n1\n\n\n________________________\n\n\n\nGroup variables\nGRADE\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nGRADE\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nSCORE\nA\n1\n9.26\n3.42\n0\n7\n10\n12\n13\n▁▂▂▅▇\n\n\nSCORE\nB\n1\n21.03\n4.16\n0\n18\n21\n24\n36\n▁▁▇▇▁\n\n\nSCORE\nC\n1\n38.56\n10.83\n0\n31\n36\n44\n86\n▁▇▇▂▁"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1b",
-    "title": "Restaurant Inspection",
-    "section": "Q1b",
-    "text": "Q1b\n\nHow many restaurants with a GRADE of A are there in NYC?\nHow much percentage of restaurants in NYC are a GRADE of C?\n\n\nfreq &lt;- as.data.frame( table(restaurant$GRADE) )\n\nprop &lt;- as.data.frame( 100 * prop.table(table(restaurant$GRADE)) )"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1c",
-    "title": "Restaurant Inspection",
-    "section": "Q1c",
-    "text": "Q1c\nProvide both (1) ggplot code and (2) a simple comment to describe how the distribution of SCORE varies by GRADE and CRITICAL FLAG.\n\nBoxplots\n\n\nggplot(restaurant) +\n  geom_boxplot(aes(x = SCORE, y = GRADE, fill = GRADE) ) +\n  facet_grid( CRITICAL.FLAG ~ . )\n\n\n\n\n\nHistograms\n\n\nggplot(restaurant) +\n  geom_histogram(aes(x = SCORE), binwidth = 1 ) +\n  facet_grid( CRITICAL.FLAG ~ GRADE )\n\n\n\n\n\nMostly,\n\nThe values of SCORE for GRADE A ranges from 0 to 13.\nThe values of SCORE for GRADE B ranges 13 to 27.\nThe values of SCORE for GRADE C ranges 24 to 75.\n\nFor Not Critical type, two SCORE values around 1 and 12 are most common, while 12 is the single most common SCORE value for Critical type."
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1d",
-    "title": "Restaurant Inspection",
-    "section": "Q1d",
-    "text": "Q1d\nProvide both (1) ggplot code and (2) a simple comment to describe how the proportion of CRITICAL FLAG varies by GRADE and BORO.\n\nggplot(restaurant) +\n  geom_bar(aes(x = CRITICAL.FLAG,\n               y = after_stat(prop), group = 1)) +\n  facet_grid( GRADE ~ BORO )\n\n\n\n\n\nFor GRADE A, the probability distribution of CRITICAL FLAG are similar across BOROs.\nFor GRADE B, the restaurants in Staten Island are more likely to be Critical than in other BOROs.\nFor GRADE C, the restaurants in Bronx are more likely to be Critical than in other BOROs."
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1e",
-    "title": "Restaurant Inspection",
-    "section": "Q1e",
-    "text": "Q1e\nFor the 10 most common CUISINE DESCRIPTION values, find the CUISINE DESCRIPTION value that has the highest proportion of GRADE A.\n\nq2e &lt;- restaurant %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(n = n()) %&gt;% \n  ungroup() %&gt;% \n  filter(dense_rank(-n) &lt;= 10) %&gt;% \n  group_by(CUISINE.DESCRIPTION, GRADE) %&gt;% \n  count() %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(prop_A = n / sum(n)) %&gt;% \n  filter(GRADE == 'A') %&gt;% \n  arrange(-prop_A)"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1f",
-    "title": "Restaurant Inspection",
-    "section": "Q1f",
-    "text": "Q1f\n\nFind the 3 most common names of restaurants (DBA) in each BORO.\n\nIf the third most common DBA values are multiple, please include all the DBA values.\n\nOverall, which DBA value is most common in NYC?\n\n\nq2f &lt;- restaurant %&gt;% \n  select(DBA, BORO) %&gt;% \n  group_by(BORO, DBA) %&gt;% \n  summarize(n = n()) %&gt;% \n  mutate(ranking = dense_rank(-n)) %&gt;% \n  filter(ranking &lt;= 3) %&gt;% \n  arrange(BORO, ranking)\n\nq2f_ &lt;- restaurant %&gt;% \n  group_by(DBA) %&gt;% \n  count() %&gt;% \n  arrange(-n)\n\n\nNote that chipotle mexican grill and subway are both the third most popular franchise/chain in Manhattan. 🌯\nOverall, dunkin is the most popular franchise/chain in NYC. 🍩"
-  },
-  {
-    "objectID": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
-    "href": "posts/Restaurant Inspection/RestaurantInspection.html#q1g",
-    "title": "Restaurant Inspection",
-    "section": "Q1g",
-    "text": "Q1g\nFor all the DBA values that appear in the result of Q1f, find the DBA value that is most likely to commit critical violation.\n\nq2g &lt;- restaurant %&gt;% \n  filter(DBA %in% q2f$DBA) %&gt;% \n  group_by(DBA, CRITICAL.FLAG) %&gt;% \n  count() %&gt;% \n  group_by(DBA) %&gt;% \n  mutate(lag_n = lag(n),\n         tot = sum(n),\n         prop_crit = lag_n / tot) %&gt;% \n  select(DBA, prop_crit) %&gt;% \n  filter(!is.na(prop_crit)) %&gt;% \n  arrange(-prop_crit)\n\n\nAmong popular franchises/chains, subway is most likely to commit Critical violation in NYC. 🥪"
-  },
-  {
-    "objectID": "posts/Spotify All/SpotifyAll.html#variable-description",
-    "href": "posts/Spotify All/SpotifyAll.html#variable-description",
-    "title": "Spotify All",
-    "section": "Variable Description",
-    "text": "Variable Description\n\npid: playlist ID; unique ID for playlist\nplaylist_name: a name of playlist\npos: a position of the track within a playlist (starting from 0)\nartist_name: name of the track’s primary artist\ntrack_name: name of the track\nduration_ms: duration of the track in milliseconds\nalbum_name: name of the track’s album"
-  },
-  {
-    "objectID": "posts/Spotify All/SpotifyAll.html#q1a",
-    "href": "posts/Spotify All/SpotifyAll.html#q1a",
-    "title": "Spotify All",
-    "section": "Q1a 🎶",
-    "text": "Q1a 🎶\n\nFind the ten most popular song. 🎵\n\nA value of a song is defined as a combination of a artist_name value and a track_name value.\nWho are artists for those ten most popular song?\n\n\n\nQ1a &lt;- spotify_all %&gt;% \n  count(artist_name, track_name) %&gt;% \n  arrange(-n) %&gt;% \n  head(10)\n\nQ1a\n\n        artist_name                          track_name   n\n1             Drake                           One Dance 143\n2    Kendrick Lamar                             HUMBLE. 142\n3  The Chainsmokers                              Closer 129\n4              DRAM         Broccoli (feat. Lil Yachty) 127\n5       Post Malone                     Congratulations 119\n6             Migos Bad and Boujee (feat. Lil Uzi Vert) 117\n7              KYLE             iSpy (feat. Lil Yachty) 115\n8      Lil Uzi Vert                       XO TOUR Llif3 113\n9             Aminé                            Caroline 107\n10           Khalid                            Location 102"
-  },
-  {
-    "objectID": "posts/Spotify All/SpotifyAll.html#q1b",
-    "href": "posts/Spotify All/SpotifyAll.html#q1b",
-    "title": "Spotify All",
-    "section": "Q1b 🎼",
-    "text": "Q1b 🎼\n\nFind the five most popular artist in terms of the number of occurrences in the data.frame, spotify_all.\nWhat is the most popular song for each of the five most popular artist?\n\n\nQ1b &lt;- spotify_all %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(n_popular_artist = n()) %&gt;% \n  ungroup() %&gt;% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %&gt;% \n  filter( artist_ranking &lt;= 5) %&gt;% \n  group_by(artist_name, track_name) %&gt;% \n  mutate(n_popular_track = n()) %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(track_ranking = dense_rank( desc(n_popular_track) ) ) %&gt;% \n  filter( track_ranking &lt;= 2) %&gt;%   # I just wanted to see the top two tracks for each artist\n  select(artist_name, artist_ranking, n_popular_artist, track_name, track_ranking, n_popular_track) %&gt;% \n  distinct() %&gt;% \n  arrange(artist_ranking, track_ranking)\n\nQ1b\n\n# A tibble: 10 × 6\n# Groups:   artist_name [5]\n   artist_name    artist_ranking n_popular_artist track_name  track_ranking\n   &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt; &lt;chr&gt;               &lt;int&gt;\n 1 Drake                       1             2715 One Dance               1\n 2 Drake                       1             2715 Jumpman                 2\n 3 Kanye West                  2             1065 Gold Digger             1\n 4 Kanye West                  2             1065 Stronger                2\n 5 Kendrick Lamar              3             1035 HUMBLE.                 1\n 6 Kendrick Lamar              3             1035 DNA.                    2\n 7 Rihanna                     4              915 Needed Me               1\n 8 Rihanna                     4              915 Work                    2\n 9 The Weeknd                  5              913 Starboy                 1\n10 The Weeknd                  5              913 The Hills               2\n# ℹ 1 more variable: n_popular_track &lt;int&gt;"
-  },
-  {
-    "objectID": "posts/Spotify All/SpotifyAll.html#q1c",
-    "href": "posts/Spotify All/SpotifyAll.html#q1c",
-    "title": "Spotify All",
-    "section": "Q1c 🎹",
-    "text": "Q1c 🎹\nProvide both (1) ggplot codes and (2) a couple of sentences to describe the relationship between pos and the ten most popular artists.\n\nQ1c &lt;- spotify_all %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(n_popular_artist = n()) %&gt;% \n  ungroup() %&gt;% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %&gt;% \n  filter( artist_ranking &lt;= 10) \n  \n# boxplot\nggplot(Q1c,\n       aes(x = pos, y = fct_reorder(artist_name, -artist_ranking)) ) +\n  geom_boxplot() +\n  stat_summary(\n    fun = mean,\n    color = 'red'\n  )\n\n\n\n\nHistogram\n\n# histogram\nggplot(Q1c) +\n  geom_histogram(aes(x = pos), binwidth = 1) + \n  facet_grid(fct_reorder(artist_name, artist_ranking) ~ .  , switch = \"y\") +\n  theme(strip.text.y.left = element_text(angle = 0))\n\n\n\n\n\nAll are skewed right.\n\nUsers tend to locate these popular artists’ songs early in their playlist.\n\nThe distribution of pos does not seem to vary a lot across the ten most popular artists.\nAnything noticeable can be mentioned."
-  },
-  {
-    "objectID": "posts/Spotify All/SpotifyAll.html#q1d",
-    "href": "posts/Spotify All/SpotifyAll.html#q1d",
-    "title": "Spotify All",
-    "section": "Q1d 🎵",
-    "text": "Q1d 🎵\nCreate the data.frame with pid-artist level of observations with the following four variables:\n\npid: playlist id\nplaylist_name: name of playlist\nartist: name of the track’s primary artist, which appears only once within a playlist\nn_artist: number of occurrences of artist within a playlist\n\n\nQ1d &lt;- spotify_all %&gt;% \n  count(pid, playlist_name, artist_name) %&gt;% \n  rename(n_artist = n) %&gt;% \n  arrange(pid, -n_artist, artist_name)\n\n\nrmarkdown::paged_table(Q1d)"
-  },
-  {
-    "objectID": "posts/welcome/Welcome.html",
-    "href": "posts/welcome/Welcome.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in my Quarto blog. Welcome!\nI am Owen Ellick and I am currently a Sophomore Data Analtytics major with a Minor in Finance. I play on the Men’s Lacrosse team here at Geneseo. I enjoy playing sports specifically football,lacrosse, and golf. My plan for when I graduate from Geneseo is to travel Europe for a short period of time and then get a job doing data analysis in the sports industry. My favorite football team is the New York Jets and my favorite hockey team is the Washington Capitals. I enjoy spending time with my friends and family as they are a huge part of my life.\n\nPicture of my favorite football team! Being of fan of this team has its ups and downs. It allows you to be apart of a culture and fanbase that is bigger than yourself. However recent struggles make being a fan of this team rough, but I know in the end one day they will get it done.\n The photo above is me playing in a lacrosse game for SUNY Geneseo against Nazareth University on February 25,2023. It was really cold and snowy, but we managed to come out with the win 13-11.\nI hope you learned a little bit about me!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Owen Ellick",
-    "section": "",
-    "text": "Owen Ellick majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Owen enjoys playing sports and hanging out with his friends."
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Owen Ellick",
-    "section": "Education",
-    "text": "Education\nState University of New York at Geneseo | Geneseo, NY  B.S. in Data Analytics | Aug 2022 - May 2026  Minor in Finance"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Owen Ellick",
-    "section": "Experience",
-    "text": "Experience\nTown of Smithtown | Beach Laborer | May 2023 - Present\nNassau/Suffolk P.A.L Long Island Lacrosse League | Referee | March 2022- Present"
-  },
-  {
-    "objectID": "blog-listing.html",
-    "href": "blog-listing.html",
-    "title": "Owen’s Blog",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nPython Basics\n\n\n\n\n\n\n\n\n\nFeb 13, 2024\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nSpotify All\n\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nNFL in 2022\n\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n  \n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n  \n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "danl-210-quarto.html",
-    "href": "danl-210-quarto.html",
-    "title": "Python Basics",
-    "section": "",
-    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')\n\nHello, World!"
-  },
-  {
-    "objectID": "danl-210-quarto.html#what-is-python",
-    "href": "danl-210-quarto.html#what-is-python",
-    "title": "Python Basics",
-    "section": "",
-    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')\n\nHello, World!"
-  },
-  {
-    "objectID": "danl-210-quarto.html#variables-and-data-types",
-    "href": "danl-210-quarto.html#variables-and-data-types",
-    "title": "Python Basics",
-    "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n10.5"
-  },
-  {
-    "objectID": "danl-210-quarto.html#control-structures",
-    "href": "danl-210-quarto.html#control-structures",
-    "title": "Python Basics",
-    "section": "Control Structures",
-    "text": "Control Structures\nPython supports the usual logical conditions from mathematics:\n\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')\n\nFive is greater than two!"
-  },
-  {
-    "objectID": "danl-210-quarto.html#functions",
-    "href": "danl-210-quarto.html#functions",
-    "title": "Python Basics",
-    "section": "Functions",
-    "text": "Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()\n\nHello from a function"
-  },
-  {
-    "objectID": "danl-210-quarto.html#lists-and-dictionaries",
-    "href": "danl-210-quarto.html#lists-and-dictionaries",
-    "title": "Python Basics",
-    "section": "Lists and Dictionaries",
-    "text": "Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
-  },
-  {
-    "objectID": "danl-210-quarto.html#import-python-libraries",
-    "href": "danl-210-quarto.html#import-python-libraries",
-    "title": "Python Basics",
-    "section": "Import Python libraries",
-    "text": "Import Python libraries\n!pip install dtale to install dtale library\n\n!pip install dtale\nimport pandas as pd\nimport dtale\n\nRequirement already satisfied: dtale in /Users/owenellick/anaconda3/lib/python3.11/site-packages (3.9.0)\nRequirement already satisfied: dash-colorscales in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.0.4)\nRequirement already satisfied: dash-daq in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.5.0)\nRequirement already satisfied: Flask-Compress in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.14)\nRequirement already satisfied: future&gt;=0.14.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.18.3)\nRequirement already satisfied: kaleido in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.2.1)\nRequirement already satisfied: missingno in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.5.2)\nRequirement already satisfied: pandas in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.3)\nRequirement already satisfied: squarify in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.4.3)\nRequirement already satisfied: strsimpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.2.1)\nRequirement already satisfied: six in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.16.0)\nRequirement already satisfied: xlrd in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.1)\nRequirement already satisfied: beautifulsoup4 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (4.12.2)\nRequirement already satisfied: certifi in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2023.11.17)\nRequirement already satisfied: flask-ngrok in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.0.25)\nRequirement already satisfied: lz4 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (4.3.2)\nRequirement already satisfied: cycler in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.11.0)\nRequirement already satisfied: dash-bootstrap-components&lt;=1.3.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.3.1)\nRequirement already satisfied: dash in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.14.2)\nRequirement already satisfied: seaborn in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.12.2)\nRequirement already satisfied: statsmodels in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (0.14.0)\nRequirement already satisfied: werkzeug in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.2.3)\nRequirement already satisfied: networkx in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.1)\nRequirement already satisfied: scikit-learn in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.3.0)\nRequirement already satisfied: numpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.24.3)\nRequirement already satisfied: openpyxl!=3.2.0b1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.0.10)\nRequirement already satisfied: xarray in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2023.6.0)\nRequirement already satisfied: et-xmlfile in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.1.0)\nRequirement already satisfied: plotly in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (5.9.0)\nRequirement already satisfied: Flask&lt;2.3 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.2.2)\nRequirement already satisfied: itsdangerous in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.0.1)\nRequirement already satisfied: requests in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (2.31.0)\nRequirement already satisfied: contourpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.0.5)\nRequirement already satisfied: matplotlib in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (3.7.2)\nRequirement already satisfied: scipy!=1.12.0rc1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dtale) (1.11.1)\nRequirement already satisfied: dash-html-components==2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (2.0.0)\nRequirement already satisfied: dash-core-components==2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (2.0.0)\nRequirement already satisfied: dash-table==5.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (5.0.0)\nRequirement already satisfied: typing-extensions&gt;=4.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (4.7.1)\nRequirement already satisfied: retrying in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.3.4)\nRequirement already satisfied: ansi2html in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.9.1)\nRequirement already satisfied: nest-asyncio in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (1.5.6)\nRequirement already satisfied: setuptools in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (68.0.0)\nRequirement already satisfied: importlib-metadata in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from dash-&gt;dtale) (6.0.0)\nRequirement already satisfied: Jinja2&gt;=3.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask&lt;2.3-&gt;dtale) (3.1.2)\nRequirement already satisfied: click&gt;=8.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask&lt;2.3-&gt;dtale) (8.0.4)\nRequirement already satisfied: tenacity&gt;=6.2.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from plotly-&gt;dtale) (8.2.2)\nRequirement already satisfied: MarkupSafe&gt;=2.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from werkzeug-&gt;dtale) (2.1.1)\nRequirement already satisfied: soupsieve&gt;1.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from beautifulsoup4-&gt;dtale) (2.4)\nRequirement already satisfied: brotli in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from Flask-Compress-&gt;dtale) (1.1.0)\nRequirement already satisfied: fonttools&gt;=4.22.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (4.25.0)\nRequirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (1.4.4)\nRequirement already satisfied: packaging&gt;=20.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (23.1)\nRequirement already satisfied: pillow&gt;=6.2.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (10.0.1)\nRequirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (3.0.9)\nRequirement already satisfied: python-dateutil&gt;=2.7 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from matplotlib-&gt;dtale) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;dtale) (2023.3.post1)\nRequirement already satisfied: tzdata&gt;=2022.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;dtale) (2023.3)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (2.0.4)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (3.4)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from requests-&gt;dtale) (1.26.16)\nRequirement already satisfied: joblib&gt;=1.1.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from scikit-learn-&gt;dtale) (1.2.0)\nRequirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from scikit-learn-&gt;dtale) (2.2.0)\nRequirement already satisfied: patsy&gt;=0.5.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from statsmodels-&gt;dtale) (0.5.3)\nRequirement already satisfied: zipp&gt;=0.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from importlib-metadata-&gt;dash-&gt;dtale) (3.11.0)\n\n\n\noj = pd.read_csv('https://bcdanl.github.io/data/dominick_oj.csv')\n\n\n\nCode!\noj\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\n0\n8256.0\n3.87\ntropicana\n0\n\n\n1\n6144.0\n3.87\ntropicana\n0\n\n\n2\n3840.0\n3.87\ntropicana\n0\n\n\n3\n8000.0\n3.87\ntropicana\n0\n\n\n4\n8896.0\n3.87\ntropicana\n0\n\n\n...\n...\n...\n...\n...\n\n\n28942\n2944.0\n2.00\ndominicks\n0\n\n\n28943\n4928.0\n1.94\ndominicks\n0\n\n\n28944\n13440.0\n1.59\ndominicks\n0\n\n\n28945\n55680.0\n1.49\ndominicks\n0\n\n\n28946\n7040.0\n1.75\ndominicks\n0\n\n\n\n\n28947 rows × 4 columns\n\n\n\n\n# dtale.show(oj)"
-  },
-  {
-    "objectID": "basic-python-intro.html",
-    "href": "basic-python-intro.html",
-    "title": "Introduction to Python",
-    "section": "",
-    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')"
-  },
-  {
-    "objectID": "basic-python-intro.html#what-is-python",
-    "href": "basic-python-intro.html#what-is-python",
-    "title": "Introduction to Python",
-    "section": "",
-    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')"
-  },
-  {
-    "objectID": "basic-python-intro.html#variables-and-data-types",
-    "href": "basic-python-intro.html#variables-and-data-types",
-    "title": "Introduction to Python",
-    "section": "Variables and Data Types",
-    "text": "Variables and Data Types\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n10.5"
-  },
-  {
-    "objectID": "basic-python-intro.html#control-structures",
-    "href": "basic-python-intro.html#control-structures",
-    "title": "Introduction to Python",
-    "section": "Control Structures",
-    "text": "Control Structures\nPython supports the usual logical conditions from mathematics:\n\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')"
-  },
-  {
-    "objectID": "basic-python-intro.html#functions",
-    "href": "basic-python-intro.html#functions",
-    "title": "Introduction to Python",
-    "section": "Functions",
-    "text": "Functions\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()"
-  },
-  {
-    "objectID": "basic-python-intro.html#lists-and-dictionaries",
-    "href": "basic-python-intro.html#lists-and-dictionaries",
-    "title": "Introduction to Python",
-    "section": "Lists and Dictionaries",
-    "text": "Lists and Dictionaries\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
+    "objectID": "danl-210-quarto-py-only.html#import-python-libraries",
+    "href": "danl-210-quarto-py-only.html#import-python-libraries",
+    "title": "DANL 210: Data Preparation and Management",
+    "section": "2.1 Import Python libraries",
+    "text": "2.1 Import Python libraries\n\n\nCode\nimport pandas as pd\n\n\n\n\nCode\noj = pd.read_csv('https://bcdanl.github.io/data/dominick_oj.csv')\n\n\n\n\nCode!\noj\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\n0\n8256.0\n3.87\ntropicana\n0\n\n\n1\n6144.0\n3.87\ntropicana\n0\n\n\n2\n3840.0\n3.87\ntropicana\n0\n\n\n3\n8000.0\n3.87\ntropicana\n0\n\n\n4\n8896.0\n3.87\ntropicana\n0\n\n\n...\n...\n...\n...\n...\n\n\n28942\n2944.0\n2.00\ndominicks\n0\n\n\n28943\n4928.0\n1.94\ndominicks\n0\n\n\n28944\n13440.0\n1.59\ndominicks\n0\n\n\n28945\n55680.0\n1.49\ndominicks\n0\n\n\n28946\n7040.0\n1.75\ndominicks\n0\n\n\n\n\n28947 rows × 4 columns\n\n\n\n\n\nCode\noj.describe()\n\n\n\n\n\n\n\n\n\nsales\nprice\nad\n\n\n\n\ncount\n28947.000000\n28947.000000\n28947.000000\n\n\nmean\n17312.213356\n2.282488\n0.237261\n\n\nstd\n27477.660437\n0.648001\n0.425411\n\n\nmin\n64.000000\n0.520000\n0.000000\n\n\n25%\n4864.000000\n1.790000\n0.000000\n\n\n50%\n8384.000000\n2.170000\n0.000000\n\n\n75%\n17408.000000\n2.730000\n0.000000\n\n\nmax\n716416.000100\n3.870000\n1.000000\n\n\n\n\n\n\n\n\n2.1.1 Interactive DataFrame with itables library\nIn *.ipynb on Google Colab, we can use itables or just Google Colab’s default to print DataFrame.\n\n\nCode\n# !pip install itables\nfrom itables import init_notebook_mode, show\ninit_notebook_mode(all_interactive=False)\n\nshow(oj)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\nLoading... (need help?)"
   }
 ]
