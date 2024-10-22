@@ -18,7 +18,7 @@ about:
       href: https://github.com/OwenEllick/OwenEllick.github.io
     - icon: file-earmark-pdf
       text: Resume
-      href: https://OwenEllick.github.io/Resume.pdf
+      href: https://OwenEllick.github.io/resume.pdf
     - icon: mailbox
       text: Email
       href: mailto:ome1@geneseo.edu
