@@ -13,6 +13,13 @@ website:
         href: blog-listing.qmd
       - text: Project DANL 210
         href: Project210.qmd
+      - text: Python Data Analysis
+        menu: 
+          - text: Pandas
+            href: pandas_basic.ipynb
+          - text: Seaborn
+            href: seaborn_basic.ipynb
+        
   page-footer: 
     center: "Powered with GitHub and Quarto<br>© Owen Ellick, 2023"
 
