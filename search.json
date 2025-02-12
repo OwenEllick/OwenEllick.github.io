@@ -137,7 +137,7 @@
     "href": "blog-listing.html",
     "title": "Owen’s Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nFavorite Artists\n\n\n\n\n\n\n\n\nMar 8, 2024\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\nPython Basics\n\n\n\n\n\n\n\n\nFeb 13, 2024\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nSpotify All\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nNFL in 2022\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nggplot Basics\n\n\n\n\n\n\n\n\nFeb 11, 2025\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nFavorite Artists\n\n\n\n\n\n\n\n\nMar 8, 2024\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\nPython Basics\n\n\n\n\n\n\n\n\nFeb 13, 2024\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nSpotify All\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nNFL in 2022\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "project210.html",
@@ -231,81 +231,32 @@
     "text": "4.4 D. Financial Balance Sheet Data Analysis\n\nFind the top 15 companies in the finance_balance_sheets Data Frame by Inventory\n\n\ngrouped_inventory = finance_balance_sheets.groupby('Company Name')['Inventory'].sum().reset_index()\n\ntop_companies_inventory = grouped_inventory.sort_values(by='Inventory', ascending=False)\n\ntop_15_companies_inventory = top_companies_inventory.head(15)\n\ncolumn_order = ['Company Name', 'Inventory'] + [col for col in top_15_companies_inventory.columns if col not in ['Company Name', 'Inventory']]\ntop_15_companies_inventory = top_15_companies_inventory[column_order]\n\nprint(top_15_companies_inventory)\n\n                     Company Name     Inventory\n455            The Boeing Company  3.990090e+11\n28               Amazon.com, Inc.  1.706280e+11\n188       Exxon Mobil Corporation  1.209520e+11\n146             D.R. Horton, Inc.  1.168188e+11\n279            Lennar Corporation  1.056539e+11\n307          McKesson Corporation  1.053050e+11\n97         CVS Health Corporation  8.787900e+10\n110                       Cencora  8.754558e+10\n215        General Motors Company  8.740400e+10\n201            Ford Motor Company  8.652400e+10\n108              Caterpillar Inc.  8.647700e+10\n105         Cardinal Health, Inc.  8.527500e+10\n209                  GE Aerospace  8.413800e+10\n139  Costco Wholesale Corporation  8.413200e+10\n449                   Tesla, Inc.  7.211100e+10\n\n\n\nComment: These are the top 15 companies in the data frame by inventory\nHow does total assets value vary across different companies?\n\n\ngrouped_assets = finance_balance_sheets.groupby('Company Name')['Total Assets'].sum().reset_index()\n\ntop_companies_assets = grouped_assets.sort_values(by='Total Assets', ascending=False)\n\ntop_N = 10\ntop_N_companies_assets = top_companies_assets.head(top_N)\nplt.figure(figsize=(10, 6))\nsns.barplot(data=top_N_companies_assets, x='Company Name', y='Total Assets')\n\nplt.title(f'Top {top_N} Companies by Total Assets')\nplt.xlabel('Company Name')\nplt.ylabel('Total Assets')\nplt.xticks(rotation=90,)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nComment: This code shows how the variable total assets varys across the top 10 companies by total assets. I reduced the data to top 10 to avoid overcrowding on the x axis."
   },
   {
-    "objectID": "danl-310-quarto-r.html",
-    "href": "danl-310-quarto-r.html",
-    "title": "Quarto with R",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Owen Ellick",
     "section": "",
-    "text": "“Tidy datasets are all alike, but every messy dataset is messy in its own way.” — Hadley Wickham\n\nR is a powerful language and environment for statistical computing and graphics. It is widely used among statisticians and data analysts for data analysis and developing statistical software. Here are some basic concepts and elements of R to help you get started:\n\n\n\nVariables in R are used to store data. You can create a variable using the assignment operator &lt;- (option/Alt + -). For example:\n\n\nCode\nmy_variable &lt;- 10\n\n\nThis will store the value 10 in my_variable.\n\n\n\n\n\nR has several basic data types:\n\nNumeric: For decimal values like 2.5.\nInteger: For whole numbers like 2L (the L tells R it is an integer).\nCharacter: For text or string values, e.g., \"Hello\".\nLogical: For boolean values (TRUE or FALSE).\n\n\n\n\n\n\nVectors are a basic data structure in R. They contain elements of the same type. You can create a vector using the c() function:\n\n\nCode\nmy_vector &lt;- c(1, 2, 3, 4, 5)\n\n\n\n\n\n\nData frames are used for storing data tables in R. It is a list of vectors of equal length. For example, to create a simple data frame:\n\n\nCode\ndf &lt;- data.frame(\n  Name = c(\"Alice\", \"Bob\"), \n  Age = c(25, 30)\n  )\n\n\n\n\n\n\nFunctions are used to carry out specific tasks in R. For example, sum() is a function that adds numbers together:\n\n\nCode\nsum(1, 2, 3) # Returns 6\n\n\n[1] 6\n\n\n\n\n\n\nR has a vast collection of packages for various statistical tasks. You can install a package using install.packages(\"packageName\") and load it using library(packageName).\n\n\nCode\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\n\n\n\n\nTo get help on a specific function or topic, use the help() function or the shorthand ?, like ?sum on R Console."
+    "text": "Owen Ellick majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Owen enjoys playing sports and hanging out with his friends."
   },
   {
-    "objectID": "danl-310-quarto-r.html#variables",
-    "href": "danl-310-quarto-r.html#variables",
-    "title": "Quarto with R",
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Owen Ellick",
+    "section": "Education",
+    "text": "Education\nState University of New York at Geneseo | Geneseo, NY  B.S. in Data Analytics | Aug 2022 - May 2026  Minor in Finance"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Owen Ellick",
+    "section": "Experience",
+    "text": "Experience\nTown of Smithtown | Beach Laborer | May 2023 - Present\nNassau/Suffolk P.A.L Long Island Lacrosse League | Referee | March 2022- Present"
+  },
+  {
+    "objectID": "Quartodoc1.html",
+    "href": "Quartodoc1.html",
+    "title": "Habits",
     "section": "",
-    "text": "Variables in R are used to store data. You can create a variable using the assignment operator &lt;- (option/Alt + -). For example:\n\n\nCode\nmy_variable &lt;- 10\n\n\nThis will store the value 10 in my_variable."
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#data-types",
-    "href": "danl-310-quarto-r.html#data-types",
-    "title": "Quarto with R",
-    "section": "",
-    "text": "R has several basic data types:\n\nNumeric: For decimal values like 2.5.\nInteger: For whole numbers like 2L (the L tells R it is an integer).\nCharacter: For text or string values, e.g., \"Hello\".\nLogical: For boolean values (TRUE or FALSE)."
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#vectors",
-    "href": "danl-310-quarto-r.html#vectors",
-    "title": "Quarto with R",
-    "section": "",
-    "text": "Vectors are a basic data structure in R. They contain elements of the same type. You can create a vector using the c() function:\n\n\nCode\nmy_vector &lt;- c(1, 2, 3, 4, 5)"
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#data-frames",
-    "href": "danl-310-quarto-r.html#data-frames",
-    "title": "Quarto with R",
-    "section": "",
-    "text": "Data frames are used for storing data tables in R. It is a list of vectors of equal length. For example, to create a simple data frame:\n\n\nCode\ndf &lt;- data.frame(\n  Name = c(\"Alice\", \"Bob\"), \n  Age = c(25, 30)\n  )"
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#functions",
-    "href": "danl-310-quarto-r.html#functions",
-    "title": "Quarto with R",
-    "section": "",
-    "text": "Functions are used to carry out specific tasks in R. For example, sum() is a function that adds numbers together:\n\n\nCode\nsum(1, 2, 3) # Returns 6\n\n\n[1] 6"
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#packages",
-    "href": "danl-310-quarto-r.html#packages",
-    "title": "Quarto with R",
-    "section": "",
-    "text": "R has a vast collection of packages for various statistical tasks. You can install a package using install.packages(\"packageName\") and load it using library(packageName).\n\n\nCode\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)"
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#help-system",
-    "href": "danl-310-quarto-r.html#help-system",
-    "title": "Quarto with R",
-    "section": "",
-    "text": "To get help on a specific function or topic, use the help() function or the shorthand ?, like ?sum on R Console."
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#key-concepts",
-    "href": "danl-310-quarto-r.html#key-concepts",
-    "title": "Quarto with R",
-    "section": "2.1 Key Concepts",
-    "text": "2.1 Key Concepts\n\nData: The raw data that you want to plot.\naes() (Aesthetic Mappings): Defines how data are mapped to color, size, shape, and other visual properties.\nGeoms (Geometric Objects): The type of objects that represent data points, like points, lines, bars, etc.\nFacets: For creating small multiples, splitting data into subsets and displaying the same plot for each subset.\nScales: Control how data values are translated to visual properties.\nCoordinate Systems: The plane in which data is plotted, e.g., Cartesian, polar.\nThemes: Control the overall appearance of the plot, like background color, grid lines, and font sizes."
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#examples",
-    "href": "danl-310-quarto-r.html#examples",
-    "title": "Quarto with R",
-    "section": "2.2 Examples",
-    "text": "2.2 Examples\nLet’s go through some examples to illustrate how ggplot can be used to create different types of visualizations.\n\n2.2.1 Scatter Plot\nCreating a scatter plot to explore the relationship between two variables, say mpg (miles per gallon) and wt (weight of the car) from the mtcars dataset.\n\n\nCode\nggplot(mtcars, aes(x = wt, y = mpg)) + \n  geom_point() +\n  labs(x = \"Weight of Car\", y = \"Miles Per Gallon\",\n       title = \"Scatter plot of MPG vs Car Weight\")\n\n\n\n\n\n\n\n\n\nThis code block creates a scatter plot where car weight is on the x-axis and miles per gallon on the y-axis. Each point represents a car.\n\n\n2.2.2 Bar Chart\nCreating a bar chart to show the count of cars by the number of cylinders.\n\n\nCode\nggplot(mtcars, aes(x = factor(cyl))) + \n  geom_bar() + \n  labs(x = \"Number of Cylinders\", y = \"Count\",\n       title = \"Count of Cars by Cylinders\")\n\n\n\n\n\n\n\n\n\nThis plots a bar chart where each bar represents the count of cars with a certain number of cylinders.\n\n\n2.2.3 Line Graph\nPlotting a line graph, assuming we have a time series data.frame economics that is part of ggplot2 package.\n\n\nCode\nggplot(economics, aes(x = date, y = unemploy)) + \n  geom_line() +\n  labs(x = \"Year\", y = \"Number of Unemployed Persons\",\n       title = \"Unemployment over Time\") \n\n\n\n\n\n\n\n\n\nThis code plots the unemployment numbers over time, with time on the x-axis and the number of unemployed persons on the y-axis.\n\n\n2.2.4 Faceted Plot\nCreating a faceted plot to compare scatter plots of mpg vs wt across different numbers of cylinders.\n\n\nCode\nggplot(mtcars, aes(x = wt, y = mpg)) + \n  geom_point() +\n  facet_wrap(~cyl) +\n  labs(title = \"MPG vs Weight by Number of Cylinders\")\n\n\n\n\n\n\n\n\n\nThis splits the data into subsets based on the number of cylinders and creates a scatter plot for each subset."
-  },
-  {
-    "objectID": "danl-310-quarto-r.html#conclusion",
-    "href": "danl-310-quarto-r.html#conclusion",
-    "title": "Quarto with R",
-    "section": "2.3 Conclusion",
-    "text": "2.3 Conclusion\nggplot2 provides a powerful and flexible system for making a wide variety of plots. By understanding the grammar of graphics upon which it is based, you can build up complex visualizations from simple components, allowing for a deep and intuitive exploration of data."
+    "text": "Here is my first Quarto document.\n\nSection 1. I do not know"
   },
   {
     "objectID": "posts/welcome/Welcome.html",
@@ -476,6 +427,48 @@
     "text": "Question 5\n\nImport the pandas library as pd.\nInstall the itables package.\nFrom itables, import the function init_notebook_mode and show.\n\n\nimport pandas as pd\n!pip install itables\nfrom itables import init_notebook_mode\nfrom itables import show\n\nRequirement already satisfied: itables in /Users/owenellick/anaconda3/lib/python3.11/site-packages (1.6.3)\nRequirement already satisfied: IPython in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (8.15.0)\nRequirement already satisfied: pandas in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (2.0.3)\nRequirement already satisfied: numpy in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from itables) (1.24.3)\nRequirement already satisfied: backcall in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.2.0)\nRequirement already satisfied: decorator in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (5.1.1)\nRequirement already satisfied: jedi&gt;=0.16 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.18.1)\nRequirement already satisfied: matplotlib-inline in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.1.6)\nRequirement already satisfied: pickleshare in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.7.5)\nRequirement already satisfied: prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (3.0.36)\nRequirement already satisfied: pygments&gt;=2.4.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (2.15.1)\nRequirement already satisfied: stack-data in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.2.0)\nRequirement already satisfied: traitlets&gt;=5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (5.7.1)\nRequirement already satisfied: pexpect&gt;4.3 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (4.8.0)\nRequirement already satisfied: appnope in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from IPython-&gt;itables) (0.1.2)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2023.3.post1)\nRequirement already satisfied: tzdata&gt;=2022.1 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pandas-&gt;itables) (2023.3)\nRequirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from jedi&gt;=0.16-&gt;IPython-&gt;itables) (0.8.3)\nRequirement already satisfied: ptyprocess&gt;=0.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from pexpect&gt;4.3-&gt;IPython-&gt;itables) (0.7.0)\nRequirement already satisfied: wcwidth in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from prompt-toolkit!=3.0.37,&lt;3.1.0,&gt;=3.0.30-&gt;IPython-&gt;itables) (0.2.5)\nRequirement already satisfied: six&gt;=1.5 in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;itables) (1.16.0)\nRequirement already satisfied: executing in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (0.8.3)\nRequirement already satisfied: asttokens in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (2.0.5)\nRequirement already satisfied: pure-eval in /Users/owenellick/anaconda3/lib/python3.11/site-packages (from stack-data-&gt;IPython-&gt;itables) (0.2.2)"
   },
   {
+    "objectID": "danl-320-python-basic.html",
+    "href": "danl-320-python-basic.html",
+    "title": "Python Basics",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')\n\n\n\n\nIn Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n10.5\n\n\n\n\n\nPython supports the usual logical conditions from mathematics:\n\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')\n\n\n\n\nA function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()\n\n\n\n\nA list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
+  },
+  {
+    "objectID": "danl-320-python-basic.html#what-is-python",
+    "href": "danl-320-python-basic.html#what-is-python",
+    "title": "Python Basics",
+    "section": "",
+    "text": "Python is a high-level, interpreted programming language. This is a simple Python code:\n\nprint('Hello, World!')"
+  },
+  {
+    "objectID": "danl-320-python-basic.html#variables-and-data-types",
+    "href": "danl-320-python-basic.html#variables-and-data-types",
+    "title": "Python Basics",
+    "section": "",
+    "text": "In Python, variables can store data of different types without explicitly declaring the type.\nFor example:\n\ninteger_variable = 10\nstring_variable = 'Hello'\nfloat_variable = 10.5\n\nfloat_variable\n\n10.5"
+  },
+  {
+    "objectID": "danl-320-python-basic.html#control-structures",
+    "href": "danl-320-python-basic.html#control-structures",
+    "title": "Python Basics",
+    "section": "",
+    "text": "Python supports the usual logical conditions from mathematics:\n\n# Equals: a == b\n# Not Equals: a != b\n# Less than: a &lt; b\n# Less than or equal to: a &lt;= b\n# Greater than: a &gt; b\n# Greater than or equal to: a &gt;= b\n\nThese conditions can be used in several ways, most commonly in ‘if statements’ and loops.\n\n# if statement:\nif 5 &gt; 2:\n    print('Five is greater than two!')"
+  },
+  {
+    "objectID": "danl-320-python-basic.html#functions",
+    "href": "danl-320-python-basic.html#functions",
+    "title": "Python Basics",
+    "section": "",
+    "text": "A function is a block of code which only runs when it is called.\nYou can pass data, known as parameters, into a function.\nA function can return data as a result.\n\n# Defining a function:\ndef my_function():\n    print('Hello from a function')\n\n# Calling a function:\nmy_function()"
+  },
+  {
+    "objectID": "danl-320-python-basic.html#lists-and-dictionaries",
+    "href": "danl-320-python-basic.html#lists-and-dictionaries",
+    "title": "Python Basics",
+    "section": "",
+    "text": "A list is a collection which is ordered and changeable.\nA dictionary is a collection which is unordered, changeable and indexed.\n\n# List example:\nmy_list = ['apple', 'banana', 'cherry']\n\n# Dictionary example:\nmy_dict = {'name': 'John', 'age': 36}"
+  },
+  {
     "objectID": "posts/Spotify Favorite Artists/favoriteartists.html#variable-description",
     "href": "posts/Spotify Favorite Artists/favoriteartists.html#variable-description",
     "title": "Favorite Artists",
@@ -602,32 +595,130 @@
     "text": "Q1c 🍻\n\nFor each household, calculate the number of beer transactions.\nFor each household, calculate the proportion of each beer brand choice.\n\n\nq1c &lt;- beer_mkts %&gt;% \n  count(hh, brand) %&gt;% \n  group_by(hh) %&gt;% \n  mutate(n_tot = sum(n)) %&gt;%  # n_tot : the number of beer transactions\n  arrange(hh, brand) %&gt;% \n  mutate( prop = n / n_tot ) # prop: the proportion of each beer brand choice\n\nq1c\n\n# A tibble: 13,202 × 5\n# Groups:   hh [10,408]\n        hh brand           n n_tot  prop\n     &lt;int&gt; &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;dbl&gt;\n 1 2000235 BUD LIGHT       1     1 1    \n 2 2000417 COORS LIGHT     8     8 1    \n 3 2000711 COORS LIGHT    13    13 1    \n 4 2000946 BUD LIGHT       1     2 0.5  \n 5 2000946 MILLER LITE     1     2 0.5  \n 6 2001521 BUD LIGHT       6    11 0.545\n 7 2001521 COORS LIGHT     3    11 0.273\n 8 2001521 MILLER LITE     2    11 0.182\n 9 2001531 BUSCH LIGHT     1     1 1    \n10 2001581 BUSCH LIGHT     5     5 1    \n# ℹ 13,192 more rows"
   },
   {
-    "objectID": "Quartodoc1.html",
-    "href": "Quartodoc1.html",
-    "title": "Habits",
+    "objectID": "seaborn_basics.html",
+    "href": "seaborn_basics.html",
+    "title": "Seaborn Example",
     "section": "",
-    "text": "Here is my first Quarto document.\n\nSection 1. I do not know"
+    "text": "import seaborn as sns\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n# Sample data\ndata = {\n    'Category': ['A', 'B', 'C', 'D'],\n    'Values': [23, 45, 56, 78]\n}\ndf = pd.DataFrame(data)\n\n# Create a barplot\nsns.set(style=\"whitegrid\")  # Optional: Set a clean grid style\nplt.figure(figsize=(8, 6))  # Set the figure size\nsns.barplot(data=df, x='Category', y='Values', palette='viridis')\n\n# Customize the plot\nplt.title(\"Bar Plot Example\", fontsize=16)\nplt.xlabel(\"Category\", fontsize=12)\nplt.ylabel(\"Values\", fontsize=12)\n\n# Show the plot\nplt.show()\n\nFutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=df, x='Category', y='Values', palette='viridis')"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Owen Ellick",
+    "objectID": "danl-310-quarto-r.html",
+    "href": "danl-310-quarto-r.html",
+    "title": "Quarto with R",
     "section": "",
-    "text": "Owen Ellick majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Owen enjoys playing sports and hanging out with his friends."
+    "text": "“Tidy datasets are all alike, but every messy dataset is messy in its own way.” — Hadley Wickham\n\nR is a powerful language and environment for statistical computing and graphics. It is widely used among statisticians and data analysts for data analysis and developing statistical software. Here are some basic concepts and elements of R to help you get started:\n\n\n\nVariables in R are used to store data. You can create a variable using the assignment operator &lt;- (option/Alt + -). For example:\n\n\nCode\nmy_variable &lt;- 10\n\n\nThis will store the value 10 in my_variable.\n\n\n\n\n\nR has several basic data types:\n\nNumeric: For decimal values like 2.5.\nInteger: For whole numbers like 2L (the L tells R it is an integer).\nCharacter: For text or string values, e.g., \"Hello\".\nLogical: For boolean values (TRUE or FALSE).\n\n\n\n\n\n\nVectors are a basic data structure in R. They contain elements of the same type. You can create a vector using the c() function:\n\n\nCode\nmy_vector &lt;- c(1, 2, 3, 4, 5)\n\n\n\n\n\n\nData frames are used for storing data tables in R. It is a list of vectors of equal length. For example, to create a simple data frame:\n\n\nCode\ndf &lt;- data.frame(\n  Name = c(\"Alice\", \"Bob\"), \n  Age = c(25, 30)\n  )\n\n\n\n\n\n\nFunctions are used to carry out specific tasks in R. For example, sum() is a function that adds numbers together:\n\n\nCode\nsum(1, 2, 3) # Returns 6\n\n\n[1] 6\n\n\n\n\n\n\nR has a vast collection of packages for various statistical tasks. You can install a package using install.packages(\"packageName\") and load it using library(packageName).\n\n\nCode\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\n\n\n\n\nTo get help on a specific function or topic, use the help() function or the shorthand ?, like ?sum on R Console."
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Owen Ellick",
-    "section": "Education",
-    "text": "Education\nState University of New York at Geneseo | Geneseo, NY  B.S. in Data Analytics | Aug 2022 - May 2026  Minor in Finance"
+    "objectID": "danl-310-quarto-r.html#variables",
+    "href": "danl-310-quarto-r.html#variables",
+    "title": "Quarto with R",
+    "section": "",
+    "text": "Variables in R are used to store data. You can create a variable using the assignment operator &lt;- (option/Alt + -). For example:\n\n\nCode\nmy_variable &lt;- 10\n\n\nThis will store the value 10 in my_variable."
   },
   {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Owen Ellick",
-    "section": "Experience",
-    "text": "Experience\nTown of Smithtown | Beach Laborer | May 2023 - Present\nNassau/Suffolk P.A.L Long Island Lacrosse League | Referee | March 2022- Present"
+    "objectID": "danl-310-quarto-r.html#data-types",
+    "href": "danl-310-quarto-r.html#data-types",
+    "title": "Quarto with R",
+    "section": "",
+    "text": "R has several basic data types:\n\nNumeric: For decimal values like 2.5.\nInteger: For whole numbers like 2L (the L tells R it is an integer).\nCharacter: For text or string values, e.g., \"Hello\".\nLogical: For boolean values (TRUE or FALSE)."
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#vectors",
+    "href": "danl-310-quarto-r.html#vectors",
+    "title": "Quarto with R",
+    "section": "",
+    "text": "Vectors are a basic data structure in R. They contain elements of the same type. You can create a vector using the c() function:\n\n\nCode\nmy_vector &lt;- c(1, 2, 3, 4, 5)"
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#data-frames",
+    "href": "danl-310-quarto-r.html#data-frames",
+    "title": "Quarto with R",
+    "section": "",
+    "text": "Data frames are used for storing data tables in R. It is a list of vectors of equal length. For example, to create a simple data frame:\n\n\nCode\ndf &lt;- data.frame(\n  Name = c(\"Alice\", \"Bob\"), \n  Age = c(25, 30)\n  )"
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#functions",
+    "href": "danl-310-quarto-r.html#functions",
+    "title": "Quarto with R",
+    "section": "",
+    "text": "Functions are used to carry out specific tasks in R. For example, sum() is a function that adds numbers together:\n\n\nCode\nsum(1, 2, 3) # Returns 6\n\n\n[1] 6"
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#packages",
+    "href": "danl-310-quarto-r.html#packages",
+    "title": "Quarto with R",
+    "section": "",
+    "text": "R has a vast collection of packages for various statistical tasks. You can install a package using install.packages(\"packageName\") and load it using library(packageName).\n\n\nCode\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#help-system",
+    "href": "danl-310-quarto-r.html#help-system",
+    "title": "Quarto with R",
+    "section": "",
+    "text": "To get help on a specific function or topic, use the help() function or the shorthand ?, like ?sum on R Console."
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#key-concepts",
+    "href": "danl-310-quarto-r.html#key-concepts",
+    "title": "Quarto with R",
+    "section": "2.1 Key Concepts",
+    "text": "2.1 Key Concepts\n\nData: The raw data that you want to plot.\naes() (Aesthetic Mappings): Defines how data are mapped to color, size, shape, and other visual properties.\nGeoms (Geometric Objects): The type of objects that represent data points, like points, lines, bars, etc.\nFacets: For creating small multiples, splitting data into subsets and displaying the same plot for each subset.\nScales: Control how data values are translated to visual properties.\nCoordinate Systems: The plane in which data is plotted, e.g., Cartesian, polar.\nThemes: Control the overall appearance of the plot, like background color, grid lines, and font sizes."
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#examples",
+    "href": "danl-310-quarto-r.html#examples",
+    "title": "Quarto with R",
+    "section": "2.2 Examples",
+    "text": "2.2 Examples\nLet’s go through some examples to illustrate how ggplot can be used to create different types of visualizations.\n\n2.2.1 Scatter Plot\nCreating a scatter plot to explore the relationship between two variables, say mpg (miles per gallon) and wt (weight of the car) from the mtcars dataset.\n\n\nCode\nggplot(mtcars, aes(x = wt, y = mpg)) + \n  geom_point() +\n  labs(x = \"Weight of Car\", y = \"Miles Per Gallon\",\n       title = \"Scatter plot of MPG vs Car Weight\")\n\n\n\n\n\n\n\n\n\nThis code block creates a scatter plot where car weight is on the x-axis and miles per gallon on the y-axis. Each point represents a car.\n\n\n2.2.2 Bar Chart\nCreating a bar chart to show the count of cars by the number of cylinders.\n\n\nCode\nggplot(mtcars, aes(x = factor(cyl))) + \n  geom_bar() + \n  labs(x = \"Number of Cylinders\", y = \"Count\",\n       title = \"Count of Cars by Cylinders\")\n\n\n\n\n\n\n\n\n\nThis plots a bar chart where each bar represents the count of cars with a certain number of cylinders.\n\n\n2.2.3 Line Graph\nPlotting a line graph, assuming we have a time series data.frame economics that is part of ggplot2 package.\n\n\nCode\nggplot(economics, aes(x = date, y = unemploy)) + \n  geom_line() +\n  labs(x = \"Year\", y = \"Number of Unemployed Persons\",\n       title = \"Unemployment over Time\") \n\n\n\n\n\n\n\n\n\nThis code plots the unemployment numbers over time, with time on the x-axis and the number of unemployed persons on the y-axis.\n\n\n2.2.4 Faceted Plot\nCreating a faceted plot to compare scatter plots of mpg vs wt across different numbers of cylinders.\n\n\nCode\nggplot(mtcars, aes(x = wt, y = mpg)) + \n  geom_point() +\n  facet_wrap(~cyl) +\n  labs(title = \"MPG vs Weight by Number of Cylinders\")\n\n\n\n\n\n\n\n\n\nThis splits the data into subsets based on the number of cylinders and creates a scatter plot for each subset."
+  },
+  {
+    "objectID": "danl-310-quarto-r.html#conclusion",
+    "href": "danl-310-quarto-r.html#conclusion",
+    "title": "Quarto with R",
+    "section": "2.3 Conclusion",
+    "text": "2.3 Conclusion\nggplot2 provides a powerful and flexible system for making a wide variety of plots. By understanding the grammar of graphics upon which it is based, you can build up complex visualizations from simple components, allowing for a deep and intuitive exploration of data."
+  },
+  {
+    "objectID": "pandas_basics.html#creating-a-series",
+    "href": "pandas_basics.html#creating-a-series",
+    "title": "Pandas Basics",
+    "section": "Creating a Series",
+    "text": "Creating a Series\n\n\n# Creating a Series from a list\ndata = [10, 20, 30, 40, 50]\nseries = pd.Series(data)\nseries\n\n\n\n\n\n\n\n\n\n0\n\n\n\n\n0\n10\n\n\n1\n20\n\n\n2\n30\n\n\n3\n40\n\n\n4\n50\n\n\n\n\ndtype: int64"
+  },
+  {
+    "objectID": "pandas_basics.html#creating-a-dataframe",
+    "href": "pandas_basics.html#creating-a-dataframe",
+    "title": "Pandas Basics",
+    "section": "Creating a DataFrame",
+    "text": "Creating a DataFrame\n\n\n# Creating a DataFrame from a dictionary\ndata = {\n    \"Name\": [\"Alice\", \"Bob\", \"Charlie\"],\n    \"Age\": [25, 30, 35],\n    \"City\": [\"New York\", \"Los Angeles\", \"Chicago\"]\n}\ndf = pd.DataFrame(data)\ndf\n\n\n\n  \n    \n\n\n\n\n\n\nName\nAge\nCity\n\n\n\n\n0\nAlice\n25\nNew York\n\n\n1\nBob\n30\nLos Angeles\n\n\n2\nCharlie\n35\nChicago"
+  },
+  {
+    "objectID": "pandas_basics.html#exploring-data",
+    "href": "pandas_basics.html#exploring-data",
+    "title": "Pandas Basics",
+    "section": "Exploring Data",
+    "text": "Exploring Data\n\n\n# Display the first few rows\ndf.head()\n\n# Display the shape of the DataFrame\nprint(\"Shape:\", df.shape)\n\n# Display summary statistics\ndf.describe()\n\nShape: (3, 3)\n\n\n\n\n  \n    \n\n\n\n\n\n\nAge\n\n\n\n\ncount\n3.0\n\n\nmean\n30.0\n\n\nstd\n5.0\n\n\nmin\n25.0\n\n\n25%\n27.5\n\n\n50%\n30.0\n\n\n75%\n32.5\n\n\nmax\n35.0"
+  },
+  {
+    "objectID": "pandas_basics.html#selecting-data",
+    "href": "pandas_basics.html#selecting-data",
+    "title": "Pandas Basics",
+    "section": "Selecting Data",
+    "text": "Selecting Data\n\n# Selecting a single column\ndf[\"Name\"]\n\n\n\n\n\n\n\n\n\nName\n\n\n\n\n0\nAlice\n\n\n1\nBob\n\n\n2\nCharlie\n\n\n\n\ndtype: object\n\n\n\n\n# Selecting multiple columns\ndf[[\"Name\", \"City\"]]\n\n\n\n  \n    \n\n\n\n\n\n\nName\nCity\n\n\n\n\n0\nAlice\nNew York\n\n\n1\nBob\nLos Angeles\n\n\n2\nCharlie\nChicago\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\n\n# Selecting rows by index\ndf.iloc[0]\n\n\n\n\n\n\n\n\n\n0\n\n\n\n\nName\nAlice\n\n\nAge\n25\n\n\nCity\nNew York\n\n\n\n\ndtype: object"
+  },
+  {
+    "objectID": "pandas_basics.html#filtering-data",
+    "href": "pandas_basics.html#filtering-data",
+    "title": "Pandas Basics",
+    "section": "Filtering Data",
+    "text": "Filtering Data\n\n# Filtering rows where Age is greater than 25\nfiltered_df = df[df[\"Age\"] &gt; 25]\nfiltered_df\n\n\n\n  \n    \n\n\n\n\n\n\nName\nAge\nCity\n\n\n\n\n1\nBob\n30\nLos Angeles\n\n\n2\nCharlie\n35\nChicago"
+  },
+  {
+    "objectID": "pandas_basics.html#adding-a-new-column",
+    "href": "pandas_basics.html#adding-a-new-column",
+    "title": "Pandas Basics",
+    "section": "Adding a New Column",
+    "text": "Adding a New Column\n\n\n# Adding a new column\ndf[\"Salary\"] = [50000, 60000, 70000]\ndf\n\n\n\n  \n    \n\n\n\n\n\n\nName\nAge\nCity\nSalary\n\n\n\n\n0\nAlice\n25\nNew York\n50000\n\n\n1\nBob\n30\nLos Angeles\n60000\n\n\n2\nCharlie\n35\nChicago\n70000\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n  \n    \n    \n\n  \n    \n  \n    \n    \n  \n\n    \n  \n\n\n\n    ## Conclusion\n\n    This notebook covers the basic operations of pandas. You can explore more advanced features like merging,\n    joining, and working with time series data in pandas documentation: https://pandas.pydata.org/docs/"
   },
   {
     "objectID": "Untitled.html",
@@ -761,5 +852,68 @@
     "title": "DANL 210: Data Preparation and Management",
     "section": "2.1 Import Python libraries",
     "text": "2.1 Import Python libraries\n\n\nCode\nimport pandas as pd\n\n\n\n\nCode\noj = pd.read_csv('https://bcdanl.github.io/data/dominick_oj.csv')\n\n\n\n\nCode!\noj\n\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\n0\n8256.0\n3.87\ntropicana\n0\n\n\n1\n6144.0\n3.87\ntropicana\n0\n\n\n2\n3840.0\n3.87\ntropicana\n0\n\n\n3\n8000.0\n3.87\ntropicana\n0\n\n\n4\n8896.0\n3.87\ntropicana\n0\n\n\n...\n...\n...\n...\n...\n\n\n28942\n2944.0\n2.00\ndominicks\n0\n\n\n28943\n4928.0\n1.94\ndominicks\n0\n\n\n28944\n13440.0\n1.59\ndominicks\n0\n\n\n28945\n55680.0\n1.49\ndominicks\n0\n\n\n28946\n7040.0\n1.75\ndominicks\n0\n\n\n\n\n28947 rows × 4 columns\n\n\n\n\n\n\nCode\noj.describe()\n\n\n\n\n\n\n\n\n\n\nsales\nprice\nad\n\n\n\n\ncount\n28947.000000\n28947.000000\n28947.000000\n\n\nmean\n17312.213356\n2.282488\n0.237261\n\n\nstd\n27477.660437\n0.648001\n0.425411\n\n\nmin\n64.000000\n0.520000\n0.000000\n\n\n25%\n4864.000000\n1.790000\n0.000000\n\n\n50%\n8384.000000\n2.170000\n0.000000\n\n\n75%\n17408.000000\n2.730000\n0.000000\n\n\nmax\n716416.000100\n3.870000\n1.000000\n\n\n\n\n\n\n\n\n\n2.1.1 Interactive DataFrame with itables library\nIn *.ipynb on Google Colab, we can use itables or just Google Colab’s default to print DataFrame.\n\n\nCode\n# !pip install itables\nfrom itables import init_notebook_mode, show\ninit_notebook_mode(all_interactive=False)\n\nshow(oj)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsales\nprice\nbrand\nad\n\n\n\n\nLoading... (need help?)"
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#load-necessary-library",
+    "href": "posts/ggplot Basics/ggplotbasics.html#load-necessary-library",
+    "title": "ggplot Basics",
+    "section": "Load Necessary Library",
+    "text": "Load Necessary Library\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#grammar-of-graphics",
+    "href": "posts/ggplot Basics/ggplotbasics.html#grammar-of-graphics",
+    "title": "ggplot Basics",
+    "section": "Grammar of Graphics",
+    "text": "Grammar of Graphics\n\nA grammar of graphics is a tool that enables us to concisely describe the components of a graphic."
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#aesthetic-mappings",
+    "href": "posts/ggplot Basics/ggplotbasics.html#aesthetic-mappings",
+    "title": "ggplot Basics",
+    "section": "Aesthetic Mappings",
+    "text": "Aesthetic Mappings\n\nAn aesthetic is a visual property (e.g., size, shape, color) of the objects (e.g., class) in your plot.\nYou can display a point in different ways by changing the values of its aesthetic properties.\n\n\nAdding a color to the plot 🟥\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   color = class) )\n\n\n\n\n\n\n\n\n\n\nAdding a shape to the plot ⬜\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   shape = class) )\n\n\n\n\n\n\n\n\n\n\nAdding a size to the plot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   size = class) )\n\n\n\n\n\n\n\n\n\n\nAdding an alpha (transparency) to the plot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   alpha = class) )\n\n\n\n\n\n\n\n\n\n\nSpecifying a color to the plot 🟦\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy), \n             color = \"blue\")"
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#facets",
+    "href": "posts/ggplot Basics/ggplotbasics.html#facets",
+    "title": "ggplot Basics",
+    "section": "Facets",
+    "text": "Facets\n\nOne way to add a variable, particularly useful for categorical variables, is to use facets to split our plot into facets, subplots that each display one subset of the data.\n\n\nFacet plots using facet_wrap()\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy), \n             alpha = .5) + \n  facet_wrap( . ~ class, nrow = 2)"
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#geometric-objects",
+    "href": "posts/ggplot Basics/ggplotbasics.html#geometric-objects",
+    "title": "ggplot Basics",
+    "section": "Geometric Objects",
+    "text": "Geometric Objects\n\nA geom_*() is the geometrical object that a plot uses to represent data.\n\nBar charts use geom_bar();\nLine charts use geom_line();\nBoxplots use the geom_boxplot();\nScatterplots use the geom_point();\nFitted lines use the geom_smooth(); and many more!\n\nWe can use different geom_*() to plot the same data.\n\n\nScatterplot\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3)\n\n\n\n\n\n\n\n\n\n\nFitted Lines\n\nggplot(data = mpg) + \n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))"
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#statistical-transformation",
+    "href": "posts/ggplot Basics/ggplotbasics.html#statistical-transformation",
+    "title": "ggplot Basics",
+    "section": "Statistical Transformation",
+    "text": "Statistical Transformation\n\nMany graphs, including bar charts, calculate new values to plot:\n\ngeom_bar(), geom_histogram(), and geom_freqpoly() bin our data and then plot bin counts, the number of observations that fall in each bin.\ngeom_boxplot() computes a summary of the distribution and then display a specially formatted box.\ngeom_smooth() fits a model to our data and then plot predictions from the model.\n\n\n\nHistogram\n\nggplot(diamonds) +\n  geom_histogram(aes(x = price))\n\n\n\n\n\n\n\n\n\n\nFreqpoly 📈\n\nggplot(diamonds) +\n  geom_freqpoly(aes(x = price), \n                 bins = 200)\n\n\n\n\n\n\n\n\n\n\nBar Chart 📊\n\nggplot(data = diamonds) + \n  geom_bar(mapping = aes(x = cut))"
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#position-adjustment",
+    "href": "posts/ggplot Basics/ggplotbasics.html#position-adjustment",
+    "title": "ggplot Basics",
+    "section": "Position Adjustment",
+    "text": "Position Adjustment\n\nColor and fill aesthetic\n\nWe can color a bar chart using either the color aesthetic, or, more usefully, fill.\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 color = cut))\n\n\n\n\n\n\n\n\n\n\nFill\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = cut))"
+  },
+  {
+    "objectID": "posts/ggplot Basics/ggplotbasics.html#examples-of-ggplot-in-classwork",
+    "href": "posts/ggplot Basics/ggplotbasics.html#examples-of-ggplot-in-classwork",
+    "title": "ggplot Basics",
+    "section": "Examples of ggplot in classwork 💯",
+    "text": "Examples of ggplot in classwork 💯\n\nQ1c\n\nRecreate the R code necessary to generate plots\n\n\nQ1c(a)\n\nggplot(data=mpg, mapping=aes(x=displ, y=hwy)) + \n  geom_point(shape=19, alpha=0.4) +\n  geom_smooth(se=FALSE)\n\n\n\n\n\n\n\n\n\n\nQ1c(b)\n\nggplot(mpg, aes(x=displ, y=hwy, group=drv)) +\n  geom_point(alpha=0.4, shape=19) +\n  geom_smooth(show.legend = FALSE, se=FALSE) \n\n\n\n\n\n\n\n\n\n\nQ1c(c)\n\nggplot(mpg, aes(x=displ, y=hwy, color=drv)) +\n  geom_point(alpha=0.4, shape=19) +\n  geom_smooth(se=FALSE) \n\n\n\n\n\n\n\n\n\n\nQ1c(d)\n\nggplot(mpg, aes(x=displ, y=hwy)) +\n  geom_point(aes(color=drv), alpha=0.4, shape = 19) + \n  geom_smooth(se=FALSE)\n\n\n\n\n\n\n\n\n\n\nQ1c(e)\n\nggplot(mpg, aes(x=displ, y=hwy)) +\n  geom_point(aes(color=drv), alpha=0.4, shape=19) +\n  geom_smooth(aes(linetype = drv), se=FALSE)\n\n\n\n\n\n\n\n\n\n\nQ1c(f)\n\nggplot(mpg, aes(x=displ, y=hwy, color=drv)) +\n  geom_point(size=6, alpha=0.6, shape=19, color=\"transparent\") +\n  geom_point(size=3, alpha=0.4, shape=19)\n\n\n\n\n\n\n\n\n\nCongratulations on learning the ggplot basics! ✅"
+  },
+  {
+    "objectID": "ggplotnotes.html",
+    "href": "ggplotnotes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\ndata = mpg\n\n\n#adding color to the plot\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   color = class) ) \n\n\n\n\n\n\n\n\n\n#adding shape to the plot\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   shape = class) )\n\nWarning: The shape palette can deal with a maximum of 6 discrete values because more\nthan 6 becomes difficult to discriminate\nℹ you have requested 7 values. Consider specifying shapes manually if you need\n  that many have them.\n\n\nWarning: Removed 62 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n#adding size to the. plot\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   size = class) )\n\nWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n\n\n\n\n\n#adding alpha (transparency) to the plot\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   alpha = class) )\n\nWarning: Using alpha for a discrete variable is not advised.\n\n\n\n\n\n\n\n\n\n#Specifying aes property manually\n\nggplot(mpg, \n       aes(x = displ, y =hwy)) +\n  geom_point(alpha = 0.3)\n\n\n\n\n\n\n\n\n#Facets\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy), \n             alpha = .5) + \n  facet_wrap( . ~ class, nrow = 2)\n\n\n\n\n\n\n\n\n\nggplot(data = mpg,\n       mapping = aes (x =displ, y = hwy,\n                      color = class)) +\n  geom_point() +\n  geom_smooth()\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: span too small.  fewer data values than degrees of freedom.\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: pseudoinverse used at 5.6935\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: neighborhood radius 0.5065\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: reciprocal condition number 0\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: There are other near singularities as well. 0.65044\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : span too small.  fewer\ndata values than degrees of freedom.\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at\n5.6935\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : neighborhood radius\n0.5065\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : reciprocal condition\nnumber 0\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : There are other near\nsingularities as well. 0.65044\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: pseudoinverse used at 4.008\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: neighborhood radius 0.708\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: reciprocal condition number 0\n\n\nWarning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,\n: There are other near singularities as well. 0.25\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at\n4.008\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : neighborhood radius\n0.708\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : reciprocal condition\nnumber 0\n\n\nWarning in predLoess(object$y, object$x, newx = if (is.null(newdata)) object$x\nelse if (is.data.frame(newdata))\nas.matrix(model.frame(delete.response(terms(object)), : There are other near\nsingularities as well. 0.25\n\n\n\n\n\n\n\n\n\n\n#to facet the plot on. combo of two varibale add facet_grid (var_row ~ Var_ col)\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .5) + \n  facet_grid(drv ~ cyl)\n\n\n\n\n\n\n\n\n\n#option scales in facet is whether scales is: fixed (default), free in one dimenstion ( free_x, free_y), or free in two dimensions (free)\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .5) + \n  facet_grid(drv ~ cyl, \n             scales = \"free_x\")\n\n\n\n\n\n\n\n\n\n#A geom_*() is the geometrical object that a plot uses to represent data.\n#Bar charts use geom_bar();\n#Line charts use geom_line();\n#Boxplots use the geom_boxplot();\n#Scatterplots use the geom_point();\n#Fitted lines use the geom_smooth();\n#and many more!\n#We can use different geom_*() to plot the same data.\n\n#Geom Plots\n\n#Scatterplot\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3)\n\n\n\n\n\n\n\n\n\n#fitted lines\nggplot(data = mpg) + \n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n#Every geom function in ggplot2 takes a mapping argument.\n\n#However, not every aesthetic works with every geom.\n\n#We could set the shape of a point, but you couldn’t set the shape of a line;\n#We could set the linetype of a line.\n\nggplot( data = mpg ) + \n  geom_smooth( mapping = \n                 aes( x = displ, \n                      y = hwy, \n                      linetype = drv) )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n#Setting method = lm manually in geom_smooth() gives a straight line that fits into data points.\n\nggplot( data = mpg ) + \n  geom_smooth( mapping = \n                 aes( x = displ, \n                      y = hwy),\n               method = lm)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n#We can set the group aesthetic to a categorical variable to draw multiple objects.\n#ggplot2 will draw a separate object for each unique value of the grouping variable.\n\nggplot(data = mpg) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy, \n                    group = drv))\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n#To display multiple geometric objects in the same plot, add multiple geom_*() functions to ggplot():\n\n#Using geom_point(), geom_smooth(), and geom_smooth(method = lm) together is an excellent option to visualize the relationship between the two variables.\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy)) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy), \n              method = lm, \n              color = 'red')\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nggplot(diamonds) +\n  geom_histogram(aes(x = price))\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\nggplot(diamonds) +\n  geom_histogram(aes(x = price), \n                 bins = 200)\n\n\n\n\n\n\n\n\n\nggplot(diamonds) +\n  geom_freqpoly(aes(x = price), \n                 bins = 200)\n\n\n\n\n\n\n\n\n#The use of. log()\n\nlibrary(tidyverse)\nsale_df &lt;- read_csv(\n  \"https://bcdanl.github.io/data/home_sales_nyc.csv\")\n\nRows: 12668 Columns: 15\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr   (3): borough_name, neighborhood, building.class.category\ndbl  (11): borough, zip.code, sale.price, residential.units, commercial.unit...\ndate  (1): sale.date\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nggplot(sale_df, \n       aes(x = sale.price), \n       bins = 500) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = aes(x = cut))\n\n\n\n\n\n\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 y = stat(prop), \n                 group = 1))\n\nWarning: `stat(prop)` was deprecated in ggplot2 3.4.0.\nℹ Please use `after_stat(prop)` instead.\n\n\n\n\n\n\n\n\n\n\nggplot(data = diamonds) + \n  stat_summary(\n    mapping = aes(x = cut, y = depth),\n    fun.min = min,\n    fun.max = max,\n    fun = median\n  )\n\n\n\n\n\n\n\n\n#Position Adjustment\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 color = cut))\n\n\n\n\n\n\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = cut))\n\n\n\n\n\n\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity),\n           position = \"stack\")\n\n\n\n\n\n\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity), \n           position = \"fill\")\n\n\n\n\n\n\n\n\n\nggplot(data = diamonds) + \n  geom_bar(mapping = \n             aes(x = cut, \n                 fill = clarity), \n           position = \"dodge\")\n\n\n\n\n\n\n\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = cty, \n             y = hwy)) + \n  geom_point() + \n  geom_abline() # math: y = ax + b\n\n\n\n\n\n\n\n\n\nggplot(data = mpg, \n       mapping = \n         aes(x = cty, \n             y = hwy)) + \n  geom_point() + \n  geom_abline() +\n  coord_fixed()\n\n\n\n\n\n\n\n\n\n#ggplot(data = &lt;DATA&gt;) + \n  #&lt;GEOM_FUNCTION&gt;(\n     #mapping = aes(&lt;MAPPINGS&gt;),\n    # stat = &lt;STAT&gt;, \n     #position = &lt;POSITION&gt;) +\n  #&lt;COORDINATE_FUNCTION&gt; +\n  #&lt;FACET_FUNCTION&gt; +\n  #&lt;SCALE_FUNCTIONS&gt; +\n  #&lt;GUIDES&gt; +\n  #&lt;THEME&gt;\n\n\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy),\n             alpha = .3) +\n  geom_smooth(mapping = \n                aes(x = displ, \n                    y = hwy))\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nggplot(data=mpg, mapping=aes(x=displ, y=hwy)) + \n  geom_point(shape=19, alpha=0.4) +\n  geom_smooth(se=FALSE)\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x=displ, y=hwy, group=drv)) +\n  geom_point(alpha=0.4, shape=19) +\n  geom_smooth(show.legend = FALSE, se=FALSE) \n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nggplot(mpg, aes(x=displ, y=hwy, color=drv)) +\n  geom_point(alpha=0.4, shape=19) +\n  geom_smooth(se=FALSE)\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
   }
 ]

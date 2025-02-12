@@ -1,0 +1,235 @@
+---
+title: "ggplot Basics"
+author: "Owen Ellick"
+date: "2025-02-11"
+categories: [Data Analysis]
+image: "ggplot.png"
+execute: 
+  warning: false
+  message: false
+
+toc: true
+---
+
+## ![](ggplot.png)
+
+# ggplot Basics
+
+## Load Necessary Library
+```{r}
+library(tidyverse)
+```
+
+
+## Grammar of Graphics
+
+-   A grammar of graphics is a tool that enables us to concisely describe the components of a graphic.
+
+## Aesthetic Mappings
+
+-   An aesthetic is a visual property (e.g., size, shape, color) of the objects (e.g., class) in your plot.
+-   You can display a point in different ways by changing the values of its aesthetic properties.
+
+### Adding a color to the plot 🟥
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy, 
+                   color = class) )
+```
+
+### Adding a shape to the plot ⬜
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy, 
+                   shape = class) )
+```
+
+### Adding a size to the plot
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy, 
+                   size = class) )
+```
+
+### Adding an alpha (transparency) to the plot
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy, 
+                   alpha = class) )
+```
+
+### Specifying a color to the plot 🟦
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy), 
+             color = "blue")
+```
+
+## Facets
+
+-   One way to add a variable, particularly useful for categorical variables, is to use facets to split our plot into facets, subplots that each display one subset of the data.
+
+### Facet plots using facet_wrap()
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy), 
+             alpha = .5) + 
+  facet_wrap( . ~ class, nrow = 2)
+```
+
+## Geometric Objects
+
+-   A geom\_\*() is the geometrical object that a plot uses to represent data.
+    -   Bar charts use geom_bar();
+    -   Line charts use geom_line();
+    -   Boxplots use the geom_boxplot();
+    -   Scatterplots use the geom_point();
+    -   Fitted lines use the geom_smooth(); and many more!
+-   We can use different geom\_\*() to plot the same data.
+
+### Scatterplot
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy),
+             alpha = .3)
+```
+
+### Fitted Lines 
+
+```{r}
+ggplot(data = mpg) + 
+  geom_smooth(mapping = 
+                aes(x = displ, 
+                    y = hwy))
+```
+
+## Statistical Transformation
+
+-   Many graphs, including bar charts, calculate new values to plot:
+
+    -   geom_bar(), geom_histogram(), and geom_freqpoly() bin our data and then plot bin counts, the number of observations that fall in each bin.
+
+    -   geom_boxplot() computes a summary of the distribution and then display a specially formatted box.
+
+    -   geom_smooth() fits a model to our data and then plot predictions from the model.
+
+### Histogram
+
+```{r}
+ggplot(diamonds) +
+  geom_histogram(aes(x = price))
+```
+
+### Freqpoly 📈
+
+```{r}
+ggplot(diamonds) +
+  geom_freqpoly(aes(x = price), 
+                 bins = 200)
+```
+
+### Bar Chart 📊 
+
+```{r}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut))
+```
+
+## Position Adjustment
+
+### Color and fill aesthetic
+
+-   We can color a bar chart using either the color aesthetic, or, more usefully, fill.
+
+```{r}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = 
+             aes(x = cut, 
+                 color = cut))
+```
+
+### Fill
+
+```{r}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = 
+             aes(x = cut, 
+                 fill = cut))
+```
+
+## Examples of ggplot in classwork 💯
+
+### Q1c
+
+-   Recreate the R code necessary to generate plots
+
+#### Q1c(a)
+
+```{r}
+ggplot(data=mpg, mapping=aes(x=displ, y=hwy)) + 
+  geom_point(shape=19, alpha=0.4) +
+  geom_smooth(se=FALSE)
+```
+
+#### Q1c(b)
+
+```{r}
+ggplot(mpg, aes(x=displ, y=hwy, group=drv)) +
+  geom_point(alpha=0.4, shape=19) +
+  geom_smooth(show.legend = FALSE, se=FALSE) 
+```
+
+#### Q1c(c)
+
+```{r}
+ggplot(mpg, aes(x=displ, y=hwy, color=drv)) +
+  geom_point(alpha=0.4, shape=19) +
+  geom_smooth(se=FALSE) 
+```
+
+#### Q1c(d)
+
+```{r}
+ggplot(mpg, aes(x=displ, y=hwy)) +
+  geom_point(aes(color=drv), alpha=0.4, shape = 19) + 
+  geom_smooth(se=FALSE)
+```
+
+#### Q1c(e)
+
+```{r}
+ggplot(mpg, aes(x=displ, y=hwy)) +
+  geom_point(aes(color=drv), alpha=0.4, shape=19) +
+  geom_smooth(aes(linetype = drv), se=FALSE)
+```
+
+#### Q1c(f)
+
+```{r}
+ggplot(mpg, aes(x=displ, y=hwy, color=drv)) +
+  geom_point(size=6, alpha=0.6, shape=19, color="transparent") +
+  geom_point(size=3, alpha=0.4, shape=19)
+```
+
+-   Congratulations on learning the ggplot basics! ✅
