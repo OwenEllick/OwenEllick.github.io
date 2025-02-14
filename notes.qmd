@@ -1,0 +1,83 @@
+---
+title: "dplyr"
+editor: visual
+---
+
+```{r}
+install.packages("socviz")
+library(socviz)
+?gss_sm
+
+gss_sm <- gss_sm
+skimr::skim(gss_sm)
+
+```
+
+```{r}
+ggplot(gss_sm,
+       aes(x = bigregion,
+           y = ..prop..,
+           group = 1)) +
+  geom_bar() +
+  labs(y = "Proportion") +
+  theme_grey()
+```
+
+```{r}
+organdata
+skimr::skim(organdata)
+```
+```{r}
+p <- ggplot(data = organdata,
+            mapping = 
+              aes(x = year, 
+                  y = donors))
+p + geom_point()
+```
+
+```{r}
+p <- ggplot(data = organdata,
+            mapping = aes(x = year, 
+                          y = donors))
+p + 
+  geom_line(aes(group = country)) + 
+  facet_wrap(~ country) +
+  theme(axis.text.x = 
+          element_text(angle = 45))
+```
+```{r}
+levels(organdata$country)
+```
+
+```{r}
+organdata <- organdata |>
+  mutate(country = 
+           fct_reorder(country, 
+                       donors, na.rm = T) ) 
+```
+
+```{r}
+p <- ggplot(data = organdata,
+            mapping = 
+              aes(x = country, 
+                  y = donors))
+p + geom_boxplot() + 
+  labs(x = NULL) + 
+  coord_flip()
+```
+```{r}
+p <- ggplot(data = organdata,
+            mapping = 
+              aes(x = 
+                    fct_reorder(
+                      country, 
+                      donors, 
+                      na.rm=TRUE),
+                  y = donors, 
+                  fill = world))
+p + geom_boxplot() + 
+  labs(x=NULL) +
+  coord_flip() + 
+  theme(legend.position = "top")
+```
+
