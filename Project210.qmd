@@ -238,8 +238,6 @@ print(top_10_companies)
 
 -   Comment: This code provides the top 10 companies in the esg_proj_data data frame by Total ESG Risk Score.
     -   As you can see Energy Transfer LP is the top company by Total ESG Risk Score
-    
-    
 -   Create a plot to visualize the Total ESG Risk Scores for the top 10 companies
 
 ```{python}
