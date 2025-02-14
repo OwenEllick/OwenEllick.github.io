@@ -2,6 +2,7 @@
   {
     "listing": "/blog-listing.html",
     "items": [
+      "/posts/PySpark Basics/PySparkbasics.html",
       "/posts/ggplot Basics/ggplotbasics.html",
       "/posts/Spotify Favorite Artists/favoriteartists.html",
       "/posts/Python Basics/PythonBasics.html",
