@@ -12,7 +12,7 @@ website:
       - text: Blog
         href: blog-listing.qmd
       - text: Project DANL 210
-        href: Project210.qmd
+        href: project210.qmd
       - text: Project IPYNB
         href: danl_proj_nba.ipynb
         
