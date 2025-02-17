@@ -62,7 +62,9 @@ ggplot(monthly_avg_temp, aes(x = month, y = avg_temp, color = location, group = 
   theme_minimal()
 
 ```
+
 ## Question 2
+
 ```{r}
 library(tidyverse)
 
@@ -91,6 +93,135 @@ ggplot(ncdc_temp, aes(x = month, y = temperature)) +  # Use 'temperature' direct
     text = element_text(size = 11)
   )
 ```
+
 ## Question 3
 
+```{r}
+library(tidyverse)
+library(ggridges)
 
+ncdc_temp <- read_csv(
+ 'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
+
+monthly_mean_temp <- ncdc_temp %>% 
+  group_by(month) %>% 
+  summarise(mean_temp = mean(temperature, na.rm = TRUE))
+
+ggplot(ncdc_temp, aes(x = temperature, y = factor(month))) +
+  geom_density_ridges(scale = 2, fill = 'lightblue', linetype = "blank") +
+  labs(x = "mean temperature (°F)", y = "month") +
+  theme_minimal()
+
+```
+
+## Question 4
+
+```{r}
+library(ggplot2)
+data(mtcars)
+
+ggplot(mtcars, aes(x = disp, y = mpg, color = hp)) +
+  geom_point() +
+  scale_color_gradient(low = "navy", high = "lightblue") +
+  labs(x = "displacement(cu. in.)", y = "fuel efficiency(mpg)", color = "hp") +
+  theme_minimal()
+```
+
+## Question 5
+
+```{r}
+library(tidyverse)
+
+popgrowth_df <- read_csv(
+  'https://bcdanl.github.io/data/popgrowth.csv')
+popgrowth_df <- popgrowth_df %>% 
+  mutate(popgrowth = (pop2010 - pop2000) / pop2000 * 100)
+
+ggplot(popgrowth_df, aes(x = reorder(state,popgrowth), y = popgrowth, fill = region)) + 
+  geom_col() +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  labs( x = " reorder(state, popgrowth)", y = "population growth, 2000 to 2010", fill = "region") +
+  theme_minimal()
+```
+
+## Question 6
+
+```{r}
+library(tidyverse)
+male_Aus <- read_csv(
+  'https://bcdanl.github.io/data/aus_athletics_male.csv')
+
+ggplot(male_Aus, aes (x = height, y = pcBfat, shape = sport, color = sport)) +
+  geom_point(size = 3, alpha = 0.7) +
+  scale_shape_manual( values = c( "basketball" = 16, "field" = 15, "swimming" = 18, "track" = 17, "water polo" = 25)) +
+  scale_color_manual(values = c("basketball" = "red", "field" = "grey", "swimming" = "grey", "track" = "grey", "water polo" = "grey")) +
+  labs(x = "height(cm)", y = "% body fat", shape = "sport", color = "sport") +
+  theme_minimal()
+```
+
+## Question 7
+
+```{r}
+library(tidyverse)
+
+titanic <- read_csv('https://bcdanl.github.io/data/titanic_cleaned.csv')
+
+# Create a new variable identical to gender
+titanic_gender <- titanic %>%
+  mutate(group = gender)
+
+# Create a new data frame with "all passengers"
+titanic_all <- titanic %>%
+  mutate(group = "all passengers")
+
+# Combine the two data frames
+titanic_plot <- bind_rows(titanic_gender, titanic_all)
+
+# Create the plot
+ggplot(titanic_plot, aes(x = age, fill = group)) +  # Fill mapped to 'group'
+  geom_density(
+    aes(y = after_stat(count)),
+    alpha = 0.5,
+    color = "black",
+    position = "identity"
+  ) +
+  facet_wrap(~ gender, ncol = 2) +  # Facet by 'gender'
+  scale_fill_manual(
+    values = c("lightgray", "darkorange", "steelblue"),
+    labels = c("all passengers", "females", "males")
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 25, by = 5),
+    limits = c(0, 25),
+    name = "Count"
+  ) +
+  labs(x = "Passenger Age (years)") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+```
+
+## Question 8
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(readr)
+
+# Load the data
+cows_filtered <- read_csv("https://bcdanl.github.io/data/cows_filtered.csv")
+
+# Create the density plot
+ggplot(cows_filtered, aes(x = butterfat, fill = breed, color = breed)) +
+  geom_density(alpha = 0.3) +
+  labs(x = "butterfat contents", y = "density") +
+  theme_minimal()
+
+
+```
+
+## Question 9
+
+-   Provide your GitHub username.
+    -   OwenEllick
