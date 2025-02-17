@@ -28,6 +28,29 @@ editor: visual
 
 -   Use the following data.frame for Question 1, 2, and 3.
 
+```{r setup}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(DT)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 90,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+
 ```{r}
 library(tidyverse)
 ncdc_temp <- read_csv(
@@ -38,6 +61,7 @@ ncdc_temp
 ## Question 1
 
 ```{r}
+
 library(ggplot2)
 library(readr)
 library(dplyr)
@@ -56,7 +80,7 @@ filtered_points <- monthly_avg_temp %>% filter(month %in% c("Jan", "Apr", "Jul",
 
 ggplot(monthly_avg_temp, aes(x = month, y = avg_temp, color = location, group = location)) +
   geom_line(size = 1) + 
-  geom_point(data = filtered_points, aes(x = month, y = avg_temp), size = 2, color = "black") + 
+  geom_point(data = filtered_points, aes(x = month, y = avg_temp), size = 0.5, color = "black") + 
   scale_x_discrete(breaks = c("Jan", "Apr", "Jul", "Oct"), labels = c("Jan", "Apr", "Jul", "Oct")) + 
   labs(x = "Month", y = "Temperature (°F)", title = "Monthly Average Temperature by Location") +
   theme_minimal()
@@ -71,17 +95,16 @@ library(tidyverse)
 ncdc_temp <- read_csv(
  'https://bcdanl.github.io/data/ncdc_temp_cleaned.csv')
 
-# Convert month to factor for proper ordering
 ncdc_temp$month <- factor(ncdc_temp$month, levels = sprintf("%02d", 1:12))
 
-# Now use ncdc_temp directly for the plot (no need to pre-calculate means)
-ggplot(ncdc_temp, aes(x = month, y = temperature)) +  # Use 'temperature' directly
-  geom_boxplot(fill = "lightgray", color = "black") +  # REMOVE outlier.shape = NA
+
+ggplot(ncdc_temp, aes(x = month, y = temperature)) +  
+  geom_boxplot(fill = "lightgray", color = "black") +  
   scale_y_continuous(breaks = seq(40, 100, 20), limits = c(20, 100)) +
   labs(
     title = "",
     x = "month",
-    y = "mean temperature (°F)"  # Keep the y-axis label as "mean temperature (°F)"
+    y = "mean temperature (°F)"  
   ) +
   theme_bw() +
   theme(
@@ -155,51 +178,38 @@ male_Aus <- read_csv(
 ggplot(male_Aus, aes (x = height, y = pcBfat, shape = sport, color = sport)) +
   geom_point(size = 3, alpha = 0.7) +
   scale_shape_manual( values = c( "basketball" = 16, "field" = 15, "swimming" = 18, "track" = 17, "water polo" = 25)) +
-  scale_color_manual(values = c("basketball" = "red", "field" = "grey", "swimming" = "grey", "track" = "grey", "water polo" = "grey")) +
+  scale_color_manual(values = c("basketball" = "darkred", "field" = "grey", "swimming" = "grey", "track" = "grey", "water polo" = "grey")) +
   labs(x = "height(cm)", y = "% body fat", shape = "sport", color = "sport") +
   theme_minimal()
 ```
 
 ## Question 7
 
+
 ```{r}
-library(tidyverse)
 
-titanic <- read_csv('https://bcdanl.github.io/data/titanic_cleaned.csv')
+titanic_female <- titanic %>% 
+  mutate(gender = "female", gender_new = "all passengers")
 
-# Create a new variable identical to gender
-titanic_gender <- titanic %>%
-  mutate(group = gender)
+titanic_male <- titanic %>% 
+  mutate(gender = "male", gender_new = "all     passengers")
 
-# Create a new data frame with "all passengers"
-titanic_all <- titanic %>%
-  mutate(group = "all passengers")
+titanic_2x <- titanic_male %>% 
+  rbind(titanic_female)
 
-# Combine the two data frames
-titanic_plot <- bind_rows(titanic_gender, titanic_all)
+titanic <- titanic %>% 
+  mutate(gender_new = gender)
 
-# Create the plot
-ggplot(titanic_plot, aes(x = age, fill = group)) +  # Fill mapped to 'group'
-  geom_density(
-    aes(y = after_stat(count)),
-    alpha = 0.5,
-    color = "black",
-    position = "identity"
-  ) +
-  facet_wrap(~ gender, ncol = 2) +  # Facet by 'gender'
-  scale_fill_manual(
-    values = c("lightgray", "darkorange", "steelblue"),
-    labels = c("all passengers", "females", "males")
-  ) +
-  scale_y_continuous(
-    breaks = seq(0, 25, by = 5),
-    limits = c(0, 25),
-    name = "Count"
-  ) +
-  labs(x = "Passenger Age (years)") +
-  theme_minimal() +
-  theme(legend.position = "bottom")
-
+  ggplot(data = titanic,
+         aes(x = age, y = after_stat(count), fill = gender_new)) +
+  geom_density(data = titanic_2x, color = NA) +
+    geom_density(color = NA) +
+  facet_wrap(~gender) +
+    scale_fill_manual(values = c("all passengers" = "lightgray", "female" = "darkorange", "male" = "darkblue"), labels = c("all passengers", "females", "males")) +
+    theme_minimal() +
+    theme(legend.position = "bottom") +
+    labs(fill = "")
+  
 ```
 
 ## Question 8
@@ -209,10 +219,9 @@ library(tidyverse)
 library(ggplot2)
 library(readr)
 
-# Load the data
+
 cows_filtered <- read_csv("https://bcdanl.github.io/data/cows_filtered.csv")
 
-# Create the density plot
 ggplot(cows_filtered, aes(x = butterfat, fill = breed, color = breed)) +
   geom_density(alpha = 0.3) +
   labs(x = "butterfat contents", y = "density") +
