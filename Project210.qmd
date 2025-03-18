@@ -1,0 +1,384 @@
+---
+title: DANL 210 Project
+subtitle: "Understanding ESG Metrics and Financial Data: A Data Analysis Project"
+author: 
+  - Owen Ellick
+
+toc: true
+toc-title: "Table of Contents"
+toc-depth: 2
+number-sections: true
+
+fig-width: 9
+
+execute:
+  code-tools: true
+  message: false
+  warning: false
+
+from: markdown+emoji
+---
+
+# 1. Introduction :chart_with_upwards_trend:
+
+## Background :office_worker:
+
+The integration of Environmental, Social, and Governance (ESG) factors have become increasingly important for investors, businesses, and policymakers due to their implications for sustainability, ethical practices, and long-term financial performance. Understanding the relationship between ESG metrics and financial/accounting data is crucial for making informed investment decisions, developing sustainable business strategies, and shaping public policy.
+
+## Statement of the Problem :technologist:
+
+This project seeks to analyze the interplay between ESG metrics, stock performance, and financial health by integrating data from multiple sources. The specific problem addressed is the lack of comprehensive insights into how ESG factors influence stock market performance and financial outcomes. By conducting data analysis, we aim to uncover patters, correlations, and trends that shed light on the relationship between sustainable practices, market valuation, and corporate financial performance. This analysis will provide valuable insights for investors, business, and policymakers seeking to incorporate ESG considerations into their decision-making processes and drive positive social and environmental impact.
+
+# Load the Data
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+finance_balance_sheets = pd.read_csv('yfinance-balance-sheet.csv')
+finance_income_statement = pd.read_csv('yfinance-income-stmt.csv')
+finance_history = pd.read_csv('yfinance-history.csv')
+esg_proj_data = pd.read_csv('esg_proj_data.csv')
+```
+
+# 2. Descriptive Statistics :computer:
+
+## Descriptive Statistics for Yfinance History
+
+### Ungrouped
+
+```{python}
+print("\nYfinance History Data Descriptive Statistics:")
+print(finance_history.describe())
+```
+
+### Grouped/Selected
+
+```{python}
+finance_history['Volume'].describe()
+```
+
+## Descriptive Statistics for Balance Sheets
+
+### Ungrouped
+
+```{python}
+print("\nFinance Balance Sheets Data Descriptive Statistics:")
+print(finance_balance_sheets.describe())
+```
+
+### Grouped/Selected
+
+```{python}
+finance_balance_sheets[['Total Assets','Total Debt']].describe()
+
+```
+
+## Descriptive Statistics Income Statements
+
+### Ungrouped
+
+```{python}
+print("\nFinance Income Statement Data Descriptive Statistics:")
+print(finance_income_statement.describe())
+```
+
+### Grouped/Selected
+
+```{python}
+finance_income_statement['Net Income'].describe()
+
+```
+
+## Descriptive Statistics ESG Project Data
+
+### Ungrouped
+
+```{python}
+print("\nESG Data Descriptive Statistics:")
+print(esg_proj_data.describe())
+```
+
+### Grouped/Selected
+
+```{python}
+esg_proj_data['Total ESG Risk Score'].describe()
+
+```
+
+```{python}
+esg_proj_data['Controversy Level'].describe()
+```
+
+## Distribution Plots
+
+### ESG Project Data
+
+```{python}
+def plot_distributions(df, title_prefix):
+    for col in df.select_dtypes(include=['float64', 'int64']).columns:
+        plt.figure(figsize=(10, 6))
+        sns.histplot(df[col].dropna(), bins=20, kde=True)
+        plt.title(f'Distribution of {title_prefix} {col}')
+        plt.xlabel(col)
+        plt.ylabel('Frequency')
+        plt.show()
+
+# Plot distributions for ESG data
+plot_distributions(esg_proj_data, 'ESG Data')
+
+
+```
+
+### Yfinance Balance Sheet Data
+
+```{python}
+balance_sheet_columns = ['Total Assets', 'Common Stock', 'Current Liabilities', 'Accounts Payable', 'Total Debt']
+
+# Function to plot distributions for specified columns
+def plot_distributions(df, title_prefix, columns):
+    for col in columns:
+        plt.figure(figsize=(10, 6))
+        sns.histplot(df[col].dropna(), bins=20, kde=True)
+        plt.title(f'Distribution of {title_prefix} {col}')
+        plt.xlabel(col)
+        plt.ylabel('Frequency')
+        plt.show()
+
+# Plot distributions for financial balance sheets data
+plot_distributions(finance_balance_sheets, 'Finance Balance Sheets Data', columns=balance_sheet_columns)
+```
+
+### Yfinance Income Statement Data
+
+```{python}
+income_statement_columns = ['Net Income', 'Total Revenue', 'Gross Profit', 'Total Expenses']
+
+# Function to plot distributions for specified columns
+def plot_distributions(df, title_prefix, columns):
+    for col in columns:
+        plt.figure(figsize=(10, 6))
+        sns.histplot(df[col].dropna(), bins=20, kde=True)
+        plt.title(f'Distribution of {title_prefix} {col}')
+        plt.xlabel(col)
+        plt.ylabel('Frequency')
+        plt.show()
+
+# Plot distributions for financial income statement data
+plot_distributions(finance_income_statement, 'Finance Income Statement Data', columns=income_statement_columns)
+```
+
+### Yfinance History Data
+
+```{python}
+history_columns = ['Open', 'High', 'Low', 'Close']
+
+# Function to plot distributions for specified columns
+def plot_distributions(df, title_prefix, columns):
+    for col in columns:
+        plt.figure(figsize=(10, 6))
+        sns.histplot(df[col].dropna(), bins=20, kde=True)
+        plt.title(f'Distribution of {title_prefix} {col}')
+        plt.xlabel(col)
+        plt.ylabel('Frequency')
+        plt.show()
+
+# Plot distributions for financial historical data
+plot_distributions(finance_history, 'Finance History Data', columns=history_columns)
+```
+
+## Correlation Heat Maps
+
+### ESG Project Data Heatmap
+
+```{python}
+
+numeric_data = esg_proj_data.select_dtypes(include='number')
+corr_matrix = numeric_data.corr()
+plt.figure(figsize=(8, 6))
+
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=.5)
+
+
+plt.title('Correlation Heatmap with Varied Correlations')
+
+
+plt.show()
+
+```
+
+### Yfinance Historical Data Heatmap
+
+```{python}
+numeric_data = finance_history.select_dtypes(include='number')
+corr_matrix = numeric_data.corr()
+plt.figure(figsize=(8, 6))
+
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=.5)
+
+
+plt.title('Correlation Heatmap with Varied Correlations')
+
+
+plt.show()
+```
+
+# 3. Exploratory Data Analysis :dollar:
+
+## A. ESG Data Analysis
+
+-   Find the top 10 companies by Total ESG Risk Score
+
+```{python}
+top_10_companies = esg_proj_data.sort_values(by='Total ESG Risk Score', ascending=False).head(10)
+
+print(top_10_companies)
+```
+
+-   Comment: This code provides the top 10 companies in the esg_proj_data data frame by Total ESG Risk Score.
+    -   As you can see Energy Transfer LP is the top company by Total ESG Risk Score
+-   Create a plot to visualize the Total ESG Risk Scores for the top 10 companies
+
+```{python}
+plt.figure(figsize=(10, 6))
+
+sns.barplot(data=top_10_companies, x='Comapny Name', y='Total ESG Risk Score', palette='viridis')
+
+plt.title('Top 10 Companies by Total ESG Risk Score')
+plt.xlabel('Company')
+plt.ylabel('Total ESG Risk Score')
+plt.xticks(rotation=45, ha='right')
+
+plt.tight_layout()
+plt.show()
+```
+
+-   Comment: This bar plot visualizes the top 10 companies by Total ESG Risk Score
+
+## B. Financial Income Statement Data Analysis
+
+-   What is the distribution of net income across a small subset of 5 companies within the data frame finance_income_statement?
+
+```{python}
+
+
+subset_companies = finance_income_statement['Company Name'].unique()[:5] 
+
+subset_data = finance_income_statement[finance_income_statement['Company Name'].isin(subset_companies)]
+
+
+plt.figure(figsize=(10, 6))
+
+
+sns.boxplot(data=subset_data, x='Net Income', y='Company Name')
+
+
+plt.title('Distribution of Net Income Across Selected Companies')
+plt.xlabel('Net Income')
+plt.ylabel('Company Name')
+
+plt.tight_layout()
+plt.show()
+
+
+```
+
+-   Comment: This code shows boxplots regarding net income for the first 5 companies in the data frame
+    -   The box plot summarizes the central tendency and spread of net income for each selected company
+    -   It reveals variations in net income distribution among the companies, with Apple being far ahead in every aspect.
+    -   Potential outliers in net income are indicated by points beyond the whiskers of the box plot
+    -   This visualization helps identify differences in net income distribution across companies and highlights areas for further analysis
+
+## C. Financial History Data Analysis
+
+-   What is the average daily trading volume for a specific company over the given time period spanning from January 1,2023, to March 31, 2024?
+
+```{python}
+company_name = 'Tesla, Inc.'
+
+company_data = finance_history[finance_history['Company Name'] == company_name]
+average_volume = company_data['Volume'].mean()
+print(f"The average daily trading volume for {company_name} is: {average_volume}")
+
+```
+
+-   How does the closing price of Zillow Group, Inc. vary over time?
+
+```{python}
+company_name = 'Zillow Group, Inc.'
+
+company_data = finance_history[finance_history['Company Name'] == company_name]
+company_data['Date'] = pd.to_datetime(company_data['Date'])
+
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=company_data, x='Date', y='Close', marker='o')
+
+plt.title(f'Closing Price Over Time for {company_name}')
+plt.xlabel('Date')
+plt.ylabel('Closing Price')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+-   Comment: The closing price for Zillow based on the visualization was trending upward in the first and second quarter.
+    -   In the third quarter the close price dropped very low within 35 and 40.
+    -   During the fourth quarter the closing price willed its way back up
+    -   Lastly, in the fifth quarter it remained volatile going up and down ultimately ending trending downward
+
+## D. Financial Balance Sheet Data Analysis
+
+-   Find the top 15 companies in the finance_balance_sheets Data Frame by Inventory
+
+```{python}
+grouped_inventory = finance_balance_sheets.groupby('Company Name')['Inventory'].sum().reset_index()
+
+top_companies_inventory = grouped_inventory.sort_values(by='Inventory', ascending=False)
+
+top_15_companies_inventory = top_companies_inventory.head(15)
+
+column_order = ['Company Name', 'Inventory'] + [col for col in top_15_companies_inventory.columns if col not in ['Company Name', 'Inventory']]
+top_15_companies_inventory = top_15_companies_inventory[column_order]
+
+print(top_15_companies_inventory)
+
+
+```
+
+-   Comment: These are the top 15 companies in the data frame by inventory
+
+-   How does total assets value vary across different companies?
+
+```{python}
+
+grouped_assets = finance_balance_sheets.groupby('Company Name')['Total Assets'].sum().reset_index()
+
+top_companies_assets = grouped_assets.sort_values(by='Total Assets', ascending=False)
+
+top_N = 10
+top_N_companies_assets = top_companies_assets.head(top_N)
+plt.figure(figsize=(10, 6))
+sns.barplot(data=top_N_companies_assets, x='Company Name', y='Total Assets')
+
+plt.title(f'Top {top_N} Companies by Total Assets')
+plt.xlabel('Company Name')
+plt.ylabel('Total Assets')
+plt.xticks(rotation=90,)
+plt.tight_layout()
+plt.show()
+
+
+```
+
+-   Comment: This code shows how the variable total assets varys across the top 10 companies by total assets. I reduced the data to top 10 to avoid overcrowding on the x axis.
+
+# 4. Significance of the Project :memo:
+
+This project holds significant implications across various domains, particularly in investment analysis, risk management, and corporate governance. By utilizing financial and ESG data retrieved from Yahoo! Finance, stakeholders such as investors, financial analysts, and policymakers gain access to valuable insights essential for informed decision-making. For investors, the project offers the opportunity to assess companies' financial performance alongside their environmental, social, and governance practices, enabling more comprehensive investment evaluations. Moreover, businesses can leverage the data to optimize operational strategies, mitigate risks, and enhance sustainability efforts. From a regulatory standpoint, policymakers can use the insights to formulate policies promoting transparency, accountability, and responsible corporate behavior, thus fostering long-term economic growth and societal well-being. Overall, the project's implications extend beyond financial analysis to encompass broader societal and environmental considerations, underscoring its relevance in shaping business practices and public policy.
+
+# 5. References :bar_chart:
+
+-   Data collected from Yahoo! finance: https://finance.yahoo.com/
+
+-   ChatGPT was used as a coding reference to improve code and debug. https://chatgpt.com/

@@ -1,0 +1,220 @@
+---
+title: "Ice Cream"
+author: "Owen Ellick"
+date: "2025-03-17"
+categories: [Data Analysis]
+image: "Ben&Jerry's.png"
+execute: 
+  warning: false
+  message: false
+
+toc: true
+---
+
+## ![](Ben&Jerry's.png)
+
+#Ben & Jerry's Ice Cream
+
+## Load Necessary Library
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(scales)
+```
+
+## Loading the Data
+
+```{r}
+ice_cream <- read_csv('https://bcdanl.github.io/data/ben-and-jerry-cleaned.csv')
+
+print(ice_cream)
+```
+## Summary Statistics For Key Variables
+
+```{r}
+summary(ice_cream %>% select(priceper1, household_income, household_size))
+
+```
+
+## Price Analysis Across Flavors
+```{r}
+# Calculate average price and count for each flavor
+flavor_analysis <- ice_cream %>%
+  group_by(flavor_descr) %>%
+  summarize(
+    avg_price = mean(priceper1, na.rm = TRUE),
+    count = n(),
+    sd_price = sd(priceper1, na.rm = TRUE)
+  ) %>%
+  filter(count > 50) %>%  # Focus on flavors with sufficient data
+  arrange(desc(count))
+
+# Display top flavors by purchase count
+head(flavor_analysis, 10)
+```
+
+## Plot 1: Price vs. Popularity of Top Flavors
+
+```{r}
+# Create plot for top 15 flavors showing price vs popularity
+flavor_analysis %>%
+  top_n(15, count) %>%
+  ggplot(aes(x = reorder(flavor_descr, count), y = avg_price, fill = count)) +
+  geom_col() +
+  geom_errorbar(aes(ymin = avg_price - sd_price, ymax = avg_price + sd_price), 
+                width = 0.2, color = "darkred", alpha = 0.7) +
+  coord_flip() +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  scale_y_continuous(labels = dollar_format()) +
+  labs(
+    title = "Average Price vs. Popularity of Ben & Jerry's Flavors",
+    subtitle = "Top 15 flavors by purchase frequency with price variation",
+    x = NULL,
+    y = "Average Price per Unit ($)",
+    fill = "Purchase\nCount"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(size = 12, color = "darkgrey"),
+    axis.text.y = element_text(size = 11),
+    panel.grid.major.y = element_blank(),
+    legend.position = "right",
+    legend.title = element_text(face = "bold")
+  ) +
+  guides(fill = guide_colorbar(barwidth = 1, barheight = 10))
+```
+- This visualization reveals both the popularity and pricing strategy of Ben & Jerry's top flavors. 
+  - CHERRY GRCA and CHC CHIP C-DH  appear to be among the most purchased flavors, though there's significant price variation as shown by the error bars.
+
+## Regional Preferences Analysis
+
+```{r}
+# Calculate regional preferences
+regional_preferences <- ice_cream %>%
+  filter(!is.na(region)) %>%
+  group_by(region, flavor_descr) %>%
+  summarize(count = n(), .groups = "drop") %>%
+  group_by(region) %>%
+  mutate(proportion = count / sum(count),
+         rank_in_region = rank(-count, ties.method = "min")) %>%
+  filter(rank_in_region <= 5) %>%
+  arrange(region, rank_in_region)
+
+# Display regional top flavors
+regional_preferences %>%
+  select(region, flavor_descr, count, proportion, rank_in_region) %>%
+  mutate(proportion = scales::percent(proportion, accuracy = 0.1))
+```
+
+## Plot2: Regional Flavor Preferences
+```{r}
+# Select top 3 flavors per region for visualization
+top_regional <- ice_cream %>%
+  filter(!is.na(region)) %>%
+  count(region, flavor_descr) %>%
+  group_by(region) %>%
+  mutate(prop = n / sum(n)) %>%
+  top_n(3, prop) %>%
+  ungroup()
+
+# Create regional preferences plot
+ggplot(top_regional, aes(x = reorder(flavor_descr, prop), y = prop, fill = region)) +
+  geom_col() +
+  facet_wrap(~ region, scales = "free_y", ncol = 2) +
+  coord_flip() +
+  scale_fill_brewer(palette = "Set2") +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  labs(
+    title = "Regional Preferences for Ben & Jerry's Flavors",
+    subtitle = "Top 3 flavors by proportion of purchases in each region",
+    x = NULL,
+    y = "Proportion of Regional Purchases",
+    fill = "Region"
+  ) +
+  theme_light() +
+  theme(
+    strip.background = element_rect(fill = "skyblue"),
+    strip.text = element_text(face = "bold"),
+    legend.position = "bottom",
+    panel.grid.major.y = element_blank(),
+    axis.text.y = element_text(size = 10),
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(size = 12, color = "darkgrey")
+  ) +
+  guides(fill = guide_legend(nrow = 1))
+```
+- This visualization shows how flavor preferences vary by region. 
+  - Interestingly, while some flavors like CHERRY GRCA have broad appeal across regions, others show distinct regional popularity patterns.
+
+## Demographics and Purchasing Behavior
+```{r}
+# Income group and average price analysis
+income_price <- ice_cream %>%
+  filter(!is.na(household_income)) %>%
+  mutate(income_group = case_when(
+    household_income < 30000 ~ "Low",
+    household_income < 70000 ~ "Middle",
+    TRUE ~ "High"
+  )) %>%
+  group_by(income_group) %>%
+  summarize(
+    avg_price = mean(priceper1, na.rm = TRUE),
+    median_price = median(priceper1, na.rm = TRUE),
+    count = n(),
+    coupon_usage_rate = mean(usecoup == TRUE, na.rm = TRUE)
+  )
+
+# Display income group summary
+income_price %>%
+  mutate(coupon_usage_rate = percent(coupon_usage_rate, accuracy = 0.1))
+```
+## Plot 3: Demographic Factors and Purchase Behavior
+```{r}
+# Create demographic factors plot
+ice_cream %>%
+  filter(!is.na(household_income), !is.na(household_size), !is.na(priceper1)) %>%
+  mutate(
+    income_group = case_when(
+      household_income < 30000 ~ "Low",
+      household_income < 70000 ~ "Middle",
+      TRUE ~ "High"
+    ),
+    household_size = as.factor(household_size),
+    coupon_used = ifelse(usecoup == TRUE, "Used Coupon", "No Coupon")
+  ) %>%
+  ggplot(aes(x = income_group, y = priceper1, fill = household_size)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = NA) +
+  facet_wrap(~ coupon_used) +
+  scale_y_continuous(
+    limits = c(0, 6),
+    labels = dollar_format(),
+    name = "Price per Unit ($)"
+  ) +
+  scale_fill_brewer(
+    palette = "YlOrRd",
+    name = "Household\nSize"
+  ) +
+  labs(
+    title = "Ice Cream Pricing by Income Group, Household Size, and Coupon Usage",
+    subtitle = "How demographics affect Ben & Jerry's purchasing patterns",
+    x = "Household Income Group",
+    caption = "Note: Outliers beyond $6 are not shown"
+  ) +
+  theme_bw() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(size = 12, color = "darkgrey"),
+    legend.position = "right",
+    strip.background = element_rect(fill = "lightpink"),
+    strip.text = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    axis.title = element_text(face = "bold")
+  ) +
+  guides(fill = guide_legend(override.aes = list(alpha = 0.9)))
+```
+
+- Higher income households tend to pay more for Ben & Jerry's ice cream, regardless of coupon usage
+- Larger households (4+ members) in the middle-income bracket show the widest price variation
+- Coupon usage appears to effectively reduce prices across all income groups, but especially for middle-income households

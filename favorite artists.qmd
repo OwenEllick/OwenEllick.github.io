@@ -1,0 +1,14 @@
+---
+title: "Favorite Artists"
+author: "Owen Ellick"
+date: "2024-03-7"
+categories: [Data Analysis]
+image: "drake.png"
+execute: 
+  warning: false
+  message: false
+
+toc: true
+---
+
+## ![](drake.png)

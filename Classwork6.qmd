@@ -1,0 +1,94 @@
+---
+title: "Classwork 6"
+editor: visual
+---
+
+```{r}
+gapminder <- gapminder::gapminder
+```
+
+#CW 6
+## Question 1
+
+```{r}
+gapminder <- gapminder::gapminder
+
+
+gapminder |> 
+  filter(year == 2007,
+         continent != "Oceania") |> 
+  ggplot(aes(x = lifeExp,
+             y = fct_reorder(country, lifeExp))) +
+  geom_point(color = '#0072B2') +
+  geom_text(aes(label = lifeExp),
+            hjust = -.2) +
+  facet_wrap(~continent,
+             scales = "free_y") +
+  labs(x = "",
+       y = "",
+       title = "Life Expectancy in 2007") +
+  theme_minimal() 
+```
+
+## Question 2
+```{r}
+electricity <- read_csv(
+  'https://bcdanl.github.io/data/electricity-usa-chn.csv')
+```
+### (a)
+```{r}
+library(hrbrthemes)
+electricity |> 
+  ggplot(aes(x = year,
+             y = value,
+             color = energy)) +
+  geom_line(linewidth = 1.5) +
+  facet_wrap(~iso3c) +
+  labs(x = "year",
+        y = "Electricity\n Generation\n (TWh)",
+       color = "Energy") +
+  scale_color_viridis_d(option = "B") +
+  theme_ipsum() +
+  theme(strip.background = element_rect(fill="lightgray"),
+        axis.title.y = element_text(angle = 0),
+        legend.position = "top")
+  
+```
+
+### (b)
+
+```{r}
+electricity_new <- electricity |> 
+  arrange(iso3c, year, energy) |> 
+  group_by(iso3c, year) |> 
+  mutate(tot = sum(value)) |> 
+  mutate(perc = value / tot) |> 
+  mutate(tot_perc = sum(perc))
+```
+
+```{r}
+electricity_new <- electricity |> 
+  arrange(iso3c, year, energy) |> 
+  group_by(iso3c, year) |> 
+  mutate(tot = sum(value),
+         perc = value / tot,
+         tot_perc = sum(perc)) 
+
+
+electricity_new |> 
+  ggplot(aes(x = year,
+             y = perc,
+             color = energy)) +
+  geom_line(linewidth = 1.5) +
+  facet_wrap(~iso3c) +
+  labs(x = "year",
+        y = "Percentage of\n Electricity\n Generation\n (TWh)",
+       color = "Energy") +
+  scale_color_viridis_d(option = "B") +
+  theme_ipsum() +
+  theme(strip.background = element_rect(fill="lightgray"),
+        axis.title.y = element_text(angle = 0),
+        legend.position = "top")
+
+```
+
