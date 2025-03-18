@@ -837,7 +837,7 @@
     "href": "blog-listing.html",
     "title": "Owen’s Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nPySpark Basics\n\n\n\n\n\n\n\n\nFeb 14, 2025\n\n\nOwen Ellick\n\n\n9 min\n\n\n\n\n\n\n\n\n\n\n\n\nggplot Basics\n\n\n\n\n\n\n\n\nFeb 11, 2025\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nFavorite Artists\n\n\n\n\n\n\n\n\nMar 8, 2024\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\nPython Basics\n\n\n\n\n\n\n\n\nFeb 13, 2024\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nSpotify All\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nNFL in 2022\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nIce Cream\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nPySpark Basics\n\n\n\n\n\n\n\n\nFeb 14, 2025\n\n\nOwen Ellick\n\n\n9 min\n\n\n\n\n\n\n\n\n\n\n\n\nggplot Basics\n\n\n\n\n\n\n\n\nFeb 11, 2025\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nFavorite Artists\n\n\n\n\n\n\n\n\nMar 8, 2024\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\nPython Basics\n\n\n\n\n\n\n\n\nFeb 13, 2024\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nSpotify All\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nNFL in 2022\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\nDec 7, 2023\n\n\nOwen Ellick\n\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\nDec 6, 2023\n\n\nOwen Ellick\n\n\n6 min\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nOwen Ellick\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "danl-210-quarto.html",
@@ -1139,5 +1139,82 @@
     "title": "PySpark Basics",
     "section": "Filtering by a Condition",
     "text": "Filtering by a Condition\n\nimport pandas as pd\nfrom pyspark.sql import SparkSession\nspark = SparkSession.builder.master(“local[*]”).getOrCreate()\ndf_pd = pd.read_csv(“https://bcdanl.github.io/data/employment.csv”)\ndf_pd = df_pd.where(pd.notnull(df_pd), None)\ndf = spark.createDataFrame(df_pd)\ndf.filter(col(“Salary”) &gt; 100000).show()\ndf.filter(( col(“Team”) == “Finance” ) & (col(“Salary”) &gt;= 100000 )).show()\ndf.filter((col(“Team”) == “Finance”) | (col(“Team”) == “Legal”) | (col(“Team”) == “Sales”)).show()"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html",
+    "href": "posts/Ice Cream/icecream.html",
+    "title": "Ice Cream",
+    "section": "",
+    "text": "#Ben & Jerry’s Ice Cream"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#section",
+    "href": "posts/Ice Cream/icecream.html#section",
+    "title": "Ice Cream",
+    "section": "",
+    "text": "#Ben & Jerry’s Ice Cream"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#load-necessary-library",
+    "href": "posts/Ice Cream/icecream.html#load-necessary-library",
+    "title": "Ice Cream",
+    "section": "Load Necessary Library",
+    "text": "Load Necessary Library\n\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(scales)"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#loading-the-data",
+    "href": "posts/Ice Cream/icecream.html#loading-the-data",
+    "title": "Ice Cream",
+    "section": "Loading the Data",
+    "text": "Loading the Data\n\nice_cream &lt;- read_csv('https://bcdanl.github.io/data/ben-and-jerry-cleaned.csv')\n\nprint(ice_cream)\n\n# A tibble: 21,974 × 17\n   priceper1 flavor_descr        size1_descr household_id household_income\n       &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;              &lt;dbl&gt;            &lt;dbl&gt;\n 1      3.41 CAKE BATTER         16.0 MLOZ        2001456           130000\n 2      3.5  VAN CARAMEL FUDGE   16.0 MLOZ        2001456           130000\n 3      3.5  VAN CARAMEL FUDGE   16.0 MLOZ        2001456           130000\n 4      3    W-N-C-P-C           16.0 MLOZ        2001637            70000\n 5      3.99 AMERICONE DREAM     16.0 MLOZ        2002791           130000\n 6      3.89 ONE CSK BROWNIE     16.0 MLOZ        2002791           130000\n 7      3.89 PUMPKIN CSK         16.0 MLOZ        2002791           130000\n 8      2.14 CHC ALMOND NOUGAT   16.0 MLOZ        2001878           110000\n 9      3.5  PISTACHIO PISTACHIO 16.0 MLOZ        2002721           210000\n10      3    PISTACHIO PISTACHIO 16.0 MLOZ        2002721           210000\n# ℹ 21,964 more rows\n# ℹ 12 more variables: household_size &lt;dbl&gt;, usecoup &lt;lgl&gt;, couponper1 &lt;dbl&gt;,\n#   region &lt;chr&gt;, married &lt;lgl&gt;, race &lt;chr&gt;, hispanic_origin &lt;lgl&gt;,\n#   microwave &lt;lgl&gt;, dishwasher &lt;lgl&gt;, sfh &lt;lgl&gt;, internet &lt;lgl&gt;, tvcable &lt;lgl&gt;"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#summary-statistics-for-key-variables",
+    "href": "posts/Ice Cream/icecream.html#summary-statistics-for-key-variables",
+    "title": "Ice Cream",
+    "section": "Summary Statistics For Key Variables",
+    "text": "Summary Statistics For Key Variables\n\nsummary(ice_cream %&gt;% select(priceper1, household_income, household_size))\n\n   priceper1     household_income household_size \n Min.   :0.000   Min.   : 40000   Min.   :1.000  \n 1st Qu.:3.000   1st Qu.: 80000   1st Qu.:2.000  \n Median :3.340   Median :110000   Median :2.000  \n Mean   :3.315   Mean   :125291   Mean   :2.456  \n 3rd Qu.:3.590   3rd Qu.:170000   3rd Qu.:3.000  \n Max.   :9.480   Max.   :310000   Max.   :9.000"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#price-analysis-across-flavors",
+    "href": "posts/Ice Cream/icecream.html#price-analysis-across-flavors",
+    "title": "Ice Cream",
+    "section": "Price Analysis Across Flavors",
+    "text": "Price Analysis Across Flavors\n\n# Calculate average price and count for each flavor\nflavor_analysis &lt;- ice_cream %&gt;%\n  group_by(flavor_descr) %&gt;%\n  summarize(\n    avg_price = mean(priceper1, na.rm = TRUE),\n    count = n(),\n    sd_price = sd(priceper1, na.rm = TRUE)\n  ) %&gt;%\n  filter(count &gt; 50) %&gt;%  # Focus on flavors with sufficient data\n  arrange(desc(count))\n\n# Display top flavors by purchase count\nhead(flavor_analysis, 10)\n\n# A tibble: 10 × 4\n   flavor_descr               avg_price count sd_price\n   &lt;chr&gt;                          &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n 1 CHERRY GRCA                     3.44  2097    0.833\n 2 CHC FUDGE BROWNIE               3.34  1235    0.672\n 3 CHC CHIP C-DH                   3.47  1070    0.796\n 4 HEATH COFFEE CRUNCH             3.32  1070    0.625\n 5 CHUNKY MONKEY                   3.26  1064    0.662\n 6 PHISH FOOD                      3.33   968    0.638\n 7 NEW YORK SUPER FUDGE CHUNK      3.29   932    0.718\n 8 AMERICONE DREAM                 3.31   865    0.690\n 9 PB CUP                          3.29   828    0.631\n10 KARAMEL SUTRA                   3.28   738    0.649"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#plot-1-price-vs.-popularity-of-top-flavors",
+    "href": "posts/Ice Cream/icecream.html#plot-1-price-vs.-popularity-of-top-flavors",
+    "title": "Ice Cream",
+    "section": "Plot 1: Price vs. Popularity of Top Flavors",
+    "text": "Plot 1: Price vs. Popularity of Top Flavors\n\n# Create plot for top 15 flavors showing price vs popularity\nflavor_analysis %&gt;%\n  top_n(15, count) %&gt;%\n  ggplot(aes(x = reorder(flavor_descr, count), y = avg_price, fill = count)) +\n  geom_col() +\n  geom_errorbar(aes(ymin = avg_price - sd_price, ymax = avg_price + sd_price), \n                width = 0.2, color = \"darkred\", alpha = 0.7) +\n  coord_flip() +\n  scale_fill_gradient(low = \"lightblue\", high = \"darkblue\") +\n  scale_y_continuous(labels = dollar_format()) +\n  labs(\n    title = \"Average Price vs. Popularity of Ben & Jerry's Flavors\",\n    subtitle = \"Top 15 flavors by purchase frequency with price variation\",\n    x = NULL,\n    y = \"Average Price per Unit ($)\",\n    fill = \"Purchase\\nCount\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(face = \"bold\", size = 16),\n    plot.subtitle = element_text(size = 12, color = \"darkgrey\"),\n    axis.text.y = element_text(size = 11),\n    panel.grid.major.y = element_blank(),\n    legend.position = \"right\",\n    legend.title = element_text(face = \"bold\")\n  ) +\n  guides(fill = guide_colorbar(barwidth = 1, barheight = 10))\n\n\n\n\n\n\n\n\n\nThis visualization reveals both the popularity and pricing strategy of Ben & Jerry’s top flavors.\n\nCHERRY GRCA and CHC CHIP C-DH appear to be among the most purchased flavors, though there’s significant price variation as shown by the error bars."
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#regional-preferences-analysis",
+    "href": "posts/Ice Cream/icecream.html#regional-preferences-analysis",
+    "title": "Ice Cream",
+    "section": "Regional Preferences Analysis",
+    "text": "Regional Preferences Analysis\n\n# Calculate regional preferences\nregional_preferences &lt;- ice_cream %&gt;%\n  filter(!is.na(region)) %&gt;%\n  group_by(region, flavor_descr) %&gt;%\n  summarize(count = n(), .groups = \"drop\") %&gt;%\n  group_by(region) %&gt;%\n  mutate(proportion = count / sum(count),\n         rank_in_region = rank(-count, ties.method = \"min\")) %&gt;%\n  filter(rank_in_region &lt;= 5) %&gt;%\n  arrange(region, rank_in_region)\n\n# Display regional top flavors\nregional_preferences %&gt;%\n  select(region, flavor_descr, count, proportion, rank_in_region) %&gt;%\n  mutate(proportion = scales::percent(proportion, accuracy = 0.1))\n\n# A tibble: 20 × 5\n# Groups:   region [4]\n   region  flavor_descr               count proportion rank_in_region\n   &lt;chr&gt;   &lt;chr&gt;                      &lt;int&gt; &lt;chr&gt;               &lt;int&gt;\n 1 Central CHERRY GRCA                  403 8.2%                    1\n 2 Central CHC FUDGE BROWNIE            297 6.1%                    2\n 3 Central CHUNKY MONKEY                261 5.3%                    3\n 4 Central CHC CHIP C-DH                249 5.1%                    4\n 5 Central AMERICONE DREAM              236 4.8%                    5\n 6 East    CHERRY GRCA                  405 8.9%                    1\n 7 East    PHISH FOOD                   267 5.9%                    2\n 8 East    HEATH COFFEE CRUNCH          241 5.3%                    3\n 9 East    CHC FUDGE BROWNIE            207 4.5%                    4\n10 East    CHC CHIP C-DH                201 4.4%                    5\n11 South   CHERRY GRCA                  693 10.3%                   1\n12 South   CHC FUDGE BROWNIE            496 7.4%                    2\n13 South   CHUNKY MONKEY                368 5.5%                    3\n14 South   NEW YORK SUPER FUDGE CHUNK   332 4.9%                    4\n15 South   HEATH COFFEE CRUNCH          318 4.7%                    5\n16 West    CHERRY GRCA                  596 10.3%                   1\n17 West    CHC CHIP C-DH                322 5.5%                    2\n18 West    HEATH COFFEE CRUNCH          315 5.4%                    3\n19 West    NEW YORK SUPER FUDGE CHUNK   255 4.4%                    4\n20 West    CHUNKY MONKEY                240 4.1%                    5"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#plot2-regional-flavor-preferences",
+    "href": "posts/Ice Cream/icecream.html#plot2-regional-flavor-preferences",
+    "title": "Ice Cream",
+    "section": "Plot2: Regional Flavor Preferences",
+    "text": "Plot2: Regional Flavor Preferences\n\n# Select top 3 flavors per region for visualization\ntop_regional &lt;- ice_cream %&gt;%\n  filter(!is.na(region)) %&gt;%\n  count(region, flavor_descr) %&gt;%\n  group_by(region) %&gt;%\n  mutate(prop = n / sum(n)) %&gt;%\n  top_n(3, prop) %&gt;%\n  ungroup()\n\n# Create regional preferences plot\nggplot(top_regional, aes(x = reorder(flavor_descr, prop), y = prop, fill = region)) +\n  geom_col() +\n  facet_wrap(~ region, scales = \"free_y\", ncol = 2) +\n  coord_flip() +\n  scale_fill_brewer(palette = \"Set2\") +\n  scale_y_continuous(labels = percent_format(accuracy = 1)) +\n  labs(\n    title = \"Regional Preferences for Ben & Jerry's Flavors\",\n    subtitle = \"Top 3 flavors by proportion of purchases in each region\",\n    x = NULL,\n    y = \"Proportion of Regional Purchases\",\n    fill = \"Region\"\n  ) +\n  theme_light() +\n  theme(\n    strip.background = element_rect(fill = \"skyblue\"),\n    strip.text = element_text(face = \"bold\"),\n    legend.position = \"bottom\",\n    panel.grid.major.y = element_blank(),\n    axis.text.y = element_text(size = 10),\n    plot.title = element_text(face = \"bold\", size = 16),\n    plot.subtitle = element_text(size = 12, color = \"darkgrey\")\n  ) +\n  guides(fill = guide_legend(nrow = 1))\n\n\n\n\n\n\n\n\n\nThis visualization shows how flavor preferences vary by region.\n\nInterestingly, while some flavors like CHERRY GRCA have broad appeal across regions, others show distinct regional popularity patterns."
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#demographics-and-purchasing-behavior",
+    "href": "posts/Ice Cream/icecream.html#demographics-and-purchasing-behavior",
+    "title": "Ice Cream",
+    "section": "Demographics and Purchasing Behavior",
+    "text": "Demographics and Purchasing Behavior\n\n# Income group and average price analysis\nincome_price &lt;- ice_cream %&gt;%\n  filter(!is.na(household_income)) %&gt;%\n  mutate(income_group = case_when(\n    household_income &lt; 30000 ~ \"Low\",\n    household_income &lt; 70000 ~ \"Middle\",\n    TRUE ~ \"High\"\n  )) %&gt;%\n  group_by(income_group) %&gt;%\n  summarize(\n    avg_price = mean(priceper1, na.rm = TRUE),\n    median_price = median(priceper1, na.rm = TRUE),\n    count = n(),\n    coupon_usage_rate = mean(usecoup == TRUE, na.rm = TRUE)\n  )\n\n# Display income group summary\nincome_price %&gt;%\n  mutate(coupon_usage_rate = percent(coupon_usage_rate, accuracy = 0.1))\n\n# A tibble: 2 × 5\n  income_group avg_price median_price count coupon_usage_rate\n  &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;            \n1 High              3.31         3.34 20211 10.5%            \n2 Middle            3.39         3.39  1763 12.5%"
+  },
+  {
+    "objectID": "posts/Ice Cream/icecream.html#plot-3-demographic-factors-and-purchase-behavior",
+    "href": "posts/Ice Cream/icecream.html#plot-3-demographic-factors-and-purchase-behavior",
+    "title": "Ice Cream",
+    "section": "Plot 3: Demographic Factors and Purchase Behavior",
+    "text": "Plot 3: Demographic Factors and Purchase Behavior\n\n# Create demographic factors plot\nice_cream %&gt;%\n  filter(!is.na(household_income), !is.na(household_size), !is.na(priceper1)) %&gt;%\n  mutate(\n    income_group = case_when(\n      household_income &lt; 30000 ~ \"Low\",\n      household_income &lt; 70000 ~ \"Middle\",\n      TRUE ~ \"High\"\n    ),\n    household_size = as.factor(household_size),\n    coupon_used = ifelse(usecoup == TRUE, \"Used Coupon\", \"No Coupon\")\n  ) %&gt;%\n  ggplot(aes(x = income_group, y = priceper1, fill = household_size)) +\n  geom_boxplot(alpha = 0.7, outlier.shape = NA) +\n  facet_wrap(~ coupon_used) +\n  scale_y_continuous(\n    limits = c(0, 6),\n    labels = dollar_format(),\n    name = \"Price per Unit ($)\"\n  ) +\n  scale_fill_brewer(\n    palette = \"YlOrRd\",\n    name = \"Household\\nSize\"\n  ) +\n  labs(\n    title = \"Ice Cream Pricing by Income Group, Household Size, and Coupon Usage\",\n    subtitle = \"How demographics affect Ben & Jerry's purchasing patterns\",\n    x = \"Household Income Group\",\n    caption = \"Note: Outliers beyond $6 are not shown\"\n  ) +\n  theme_bw() +\n  theme(\n    plot.title = element_text(face = \"bold\", size = 16),\n    plot.subtitle = element_text(size = 12, color = \"darkgrey\"),\n    legend.position = \"right\",\n    strip.background = element_rect(fill = \"lightpink\"),\n    strip.text = element_text(face = \"bold\"),\n    panel.grid.minor = element_blank(),\n    axis.title = element_text(face = \"bold\")\n  ) +\n  guides(fill = guide_legend(override.aes = list(alpha = 0.9)))\n\n\n\n\n\n\n\n\n\nHigher income households tend to pay more for Ben & Jerry’s ice cream, regardless of coupon usage\nLarger households (4+ members) in the middle-income bracket show the widest price variation\nCoupon usage appears to effectively reduce prices across all income groups, but especially for middle-income households"
   }
 ]
