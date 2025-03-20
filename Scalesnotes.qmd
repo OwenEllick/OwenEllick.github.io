@@ -29,7 +29,9 @@ organdata <- socviz::organdata
 
 DT::datatable(organdata)
 ```
+
 ## Classwork 5 q2d
+
 ```{r}
 ggplot(organdata, aes(x = roads, y = donors, color = world)) +
   geom_point(alpha = 1) +
@@ -41,87 +43,19 @@ ggplot(organdata, aes(x = roads, y = donors, color = world)) +
 ```
 
 ## Classwork 5 q2g
-```{r}
-organdata %>% 
-  ggplot(aes(x = roads,
-         y = donors, color = consent_law)) +
-  geom_point(show.legend = F) +
-  labs(title = "By Consent Law", 
-        x = "Road Deaths",
-        y = "Donor Procurment",
-        color = "Legal Regime:") +
-  scale_color_manual = c("steelblue", "darkorange") +
-  theme(plot.title = element_text(color = "brown", size = rel(2)))
-```
+
 
 
 ## Add labels and make notes
-```{r}
-p <- ggplot(data = by_country,
-            mapping = 
-              aes(x = roads_mean, 
-                  y = donors_mean))
-p + geom_point() + 
-  geom_text(mapping = 
-              aes(label = country))
-```
 
-```{r}
-p + geom_point() + 
-  geom_text(mapping = 
-              aes(label = country), 
-            hjust = 0)
-```
 
-```{r}
-install.packages("ggrepel")
-library(ggrepel)
-```
 
-```{r}
-socviz::elections_historic |> select(2:7) 
-```
 
-```{r}
-p <- ggplot(elections_historic, aes(x = popular_pct, y = ec_pct,
-                                    label = winner_label))
-```
 
-```{r}
-p <- p + 
-    geom_hline(yintercept = 0.5, 
-               linewidth = 1.4, 
-               color = "gray80") +
-    geom_vline(xintercept = 0.5, 
-               linewidth = 1.4, 
-               color = "gray80") +
-    geom_point() +
-    geom_text_repel()
-p
-```
 
-```{r}
-p <- p + 
-     scale_x_continuous(
-       labels = scales::percent) +
-     scale_y_continuous(
-       labels = scales::percent) 
-p
-```
 
-```{r}
-p_title <- "Presidential Elections: Popular & Electoral College Margins"
-p_subtitle <- "1824-2016"
-p_caption <- "Data for 2016 are provisional."
-x_label <- "Winner's share of Popular Vote"
-y_label <- "Winner's share of Electoral College Votes"
 
-p + labs(x = x_label, 
-         y = y_label, 
-         title = p_title, 
-         subtitle = p_subtitle,
-         caption = p_caption)
-```
+
 
 ```{r}
 # creating a dummy variable for labels
@@ -192,6 +126,7 @@ p +
            label = "subaru", 
            hjust = "left")
 ```
+
 ```{r}
 p + 
   annotate(
@@ -215,13 +150,13 @@ p +
 gapminder <- gapminder::gapminder
 ```
 
-
-
 ```{r}
 electricity <- read_csv(
   'https://bcdanl.github.io/data/electricity-usa-chn.csv')
 ```
+
 # Classwork 6 Question 2a
+
 ```{r}
 electricity %>% 
   ggplot(aes(x = year,
@@ -237,7 +172,9 @@ electricity %>%
         legend.position = "top")
         
 ```
+
 #Question 2b
+
 ```{r}
 electricity_new <- electricity %>% 
   arrange(iso3c, energy) %>% 
@@ -247,6 +184,7 @@ electricity_new <- electricity %>%
 
 
 ```
+
 ```{r}
 electricity_new %>% 
   ggplot(aes(x = year,
@@ -262,13 +200,16 @@ electricity_new %>%
         legend.position = "top")
         
 ```
+
 # Notes
+
 ```{r}
 # install.pacakges("RColorBrewer")
 library(RColorBrewer)
 ```
 
 ##Scale_color_brewer with palette
+
 ```{r}
 p <- ggplot(data = organdata,
             mapping = 
@@ -312,4 +253,3 @@ geom_point(size = .5,
   geom_text(data = hdi_corruption[hdi_corruption$country %>% c("Argentina", "China", "Egypt", "South Africa", "Senegal", "Greece", "United States", "Germany", "Norway", "Singapore"),], aes(label = country), color = "black") +
   theme(legend.position = "top")
 ```
-

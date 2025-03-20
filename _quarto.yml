@@ -11,6 +11,8 @@ website:
         href: project.qmd
       - text: Blog
         href: blog-listing.qmd
+        menu: 
+          - Icecream.ipynb 
       - text: Project DANL 210
         href: Project210.qmd
       - text: Project IPYNB

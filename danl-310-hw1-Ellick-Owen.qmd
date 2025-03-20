@@ -50,7 +50,6 @@ theme_set(theme_ipsum()+
           )
 ```
 
-
 ```{r}
 library(tidyverse)
 ncdc_temp <- read_csv(
@@ -185,9 +184,10 @@ ggplot(male_Aus, aes (x = height, y = pcBfat, shape = sport, color = sport)) +
 
 ## Question 7
 
-
 ```{r}
-
+library(tidyverse)
+titanic <- read_csv(
+  'https://bcdanl.github.io/data/titanic_cleaned.csv')
 titanic_female <- titanic %>% 
   mutate(gender = "female", gender_new = "all passengers")
 

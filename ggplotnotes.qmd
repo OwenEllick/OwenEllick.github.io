@@ -2,6 +2,7 @@
 title: "Notes"
 editor: visual
 ---
+
 ```{r}
 library(tidyverse)
 data = mpg
@@ -43,6 +44,7 @@ ggplot(data = mpg) +
                    y = hwy, 
                    alpha = class) )
 ```
+
 #Specifying aes property manually
 
 ```{r}
@@ -50,7 +52,9 @@ ggplot(mpg,
        aes(x = displ, y =hwy)) +
   geom_point(alpha = 0.3)
 ```
+
 #Facets
+
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = 
@@ -60,7 +64,6 @@ ggplot(data = mpg) +
   facet_wrap( . ~ class, nrow = 2)
 ```
 
-
 ```{r}
 ggplot(data = mpg,
        mapping = aes (x =displ, y = hwy,
@@ -68,6 +71,7 @@ ggplot(data = mpg,
   geom_point() +
   geom_smooth()
 ```
+
 ```{r}
 #to facet the plot on. combo of two varibale add facet_grid (var_row ~ Var_ col)
 
@@ -78,6 +82,7 @@ ggplot(data = mpg) +
              alpha = .5) + 
   facet_grid(drv ~ cyl)
 ```
+
 ```{r}
 #option scales in facet is whether scales is: fixed (default), free in one dimenstion ( free_x, free_y), or free in two dimensions (free)
 ggplot(data = mpg) + 
@@ -88,6 +93,7 @@ ggplot(data = mpg) +
   facet_grid(drv ~ cyl, 
              scales = "free_x")
 ```
+
 ```{r}
 #A geom_*() is the geometrical object that a plot uses to represent data.
 #Bar charts use geom_bar();
@@ -98,6 +104,7 @@ ggplot(data = mpg) +
 #and many more!
 #We can use different geom_*() to plot the same data.
 ```
+
 #Geom Plots
 
 ```{r}
@@ -141,6 +148,7 @@ ggplot( data = mpg ) +
                       y = hwy),
                method = lm)
 ```
+
 ```{r}
 #We can set the group aesthetic to a categorical variable to draw multiple objects.
 #ggplot2 will draw a separate object for each unique value of the grouping variable.
@@ -188,18 +196,16 @@ ggplot(diamonds) +
   geom_freqpoly(aes(x = price), 
                  bins = 200)
 ```
+
 #The use of. log()
+
 ```{r}
 library(tidyverse)
 sale_df <- read_csv(
   "https://bcdanl.github.io/data/home_sales_nyc.csv")
 ```
-```{r}
-ggplot(sale_df, 
-       aes(x = sale.price), 
-       bins = 500) +
-  geom_histogram()
-```
+
+
 
 ```{r}
 ggplot(data = diamonds) + 
@@ -224,7 +230,9 @@ ggplot(data = diamonds) +
     fun = median
   )
 ```
+
 #Position Adjustment
+
 ```{r}
 ggplot(data = diamonds) + 
   geom_bar(mapping = 
@@ -246,6 +254,7 @@ ggplot(data = diamonds) +
                  fill = clarity),
            position = "stack")
 ```
+
 ```{r}
 ggplot(data = diamonds) + 
   geom_bar(mapping = 
@@ -253,6 +262,7 @@ ggplot(data = diamonds) +
                  fill = clarity), 
            position = "fill")
 ```
+
 ```{r}
 ggplot(data = diamonds) + 
   geom_bar(mapping = 
@@ -269,6 +279,7 @@ ggplot(data = mpg,
   geom_point() + 
   geom_abline() # math: y = ax + b
 ```
+
 ```{r}
 ggplot(data = mpg, 
        mapping = 
@@ -302,6 +313,7 @@ ggplot(data = mpg) +
                 aes(x = displ, 
                     y = hwy))
 ```
+
 ```{r}
 ggplot(data=mpg, mapping=aes(x=displ, y=hwy)) + 
   geom_point(shape=19, alpha=0.4) +
@@ -321,4 +333,3 @@ ggplot(mpg, aes(x=displ, y=hwy, color=drv)) +
   geom_point(alpha=0.4, shape=19) +
   geom_smooth(se=FALSE)
 ```
-
