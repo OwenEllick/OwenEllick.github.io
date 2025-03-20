@@ -7,10 +7,10 @@ editor: visual
 gapminder <- gapminder::gapminder
 ```
 
-#CW 6
-## Question 1
+#CW 6 \## Question 1
 
 ```{r}
+library(tidyverse)
 gapminder <- gapminder::gapminder
 
 
@@ -31,11 +31,14 @@ gapminder |>
 ```
 
 ## Question 2
+
 ```{r}
 electricity <- read_csv(
   'https://bcdanl.github.io/data/electricity-usa-chn.csv')
 ```
+
 ### (a)
+
 ```{r}
 library(hrbrthemes)
 electricity |> 
@@ -91,4 +94,3 @@ electricity_new |>
         legend.position = "top")
 
 ```
-
