@@ -13,7 +13,7 @@ website:
         href: blog-listing.qmd
       - text: "Jupyter Notebook Blogging"
         menu: 
-          - text: "Icecream Analysis"
+          - text: "Ice Cream Analysis"
             href: Icecream.ipynb 
       - text: Project DANL 210
         href: Project210.qmd
