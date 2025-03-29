@@ -6,7 +6,8 @@ editor: visual
 # Part 1. ggplot visualization
 
 ## Question 1
-- Use the following data.frame for Question 1.
+
+-   Use the following data.frame for Question 1.
 
 ```{r}
 hdi_corruption <- read.csv(
@@ -72,6 +73,7 @@ labor_force_data$NCHLT5 <- factor(labor_force_data$NCHLT5, levels = c(1, 0), lab
 labor_force_data <- labor_force_data %>% filter(!is.na(NCHLT5))
 
 ```
+
 ```{r}
 ggplot(labor_force_data, aes(x = YEAR, y = participation_rate, color = SEX)) +
   geom_line(linewidth = 1) +
@@ -114,10 +116,11 @@ starbucks <- read.csv(
 ```
 
 ### Q3a.
-- Add the following two variables to starbucks data.frame
-  - caffeine_mgml: Caffeine in milligrams per mL
-  - calories_kcml: Calories KCal per mL
-  
+
+-   Add the following two variables to starbucks data.frame
+    -   caffeine_mgml: Caffeine in milligrams per mL
+    -   calories_kcml: Calories KCal per mL
+
 ```{r}
 library(readr)
 library(dplyr)
@@ -130,8 +133,9 @@ starbucks <- starbucks %>%
 head(starbucks)
 ```
 
-### Q3b. 
-- Calculate a mean caffeine_mgml and a mean calories_kcml for each product name
+### Q3b.
+
+-   Calculate a mean caffeine_mgml and a mean calories_kcml for each product name
 
 ```{r}
 product_means <- starbucks %>%
@@ -144,8 +148,9 @@ product_means <- starbucks %>%
 print(product_means)
 ```
 
-### Q3c. 
-- Plotting
+### Q3c.
+
+-   Plotting
 
 ```{r}
 library(tidyverse)
@@ -222,5 +227,3 @@ ggplot(top_products, aes(x = mean_calories_kcml, y = mean_caffeine_mgml)) +
     axis.title = element_text(size = 12)
   )
 ```
-
-

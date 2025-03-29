@@ -1,0 +1,141 @@
+---
+title: "Homework 3"
+editor: visual
+---
+
+# Part 1. Map Visualization
+
+## Question 1
+
+- The following data set is for Question 1:
+```{r}
+nyc_dog_license <- read.csv(
+  'https://bcdanl.github.io/data/nyc_dog_license.csv')
+
+print(nyc_dog_license)
+```
+
+```{r}
+nyc_zips_coord <- read.csv(
+  'https://bcdanl.github.io/data/nyc_zips_coord.csv')
+
+print(nyc_zips_coord)
+```
+
+```{r}
+nyc_zips_df <- read.csv(
+  'https://bcdanl.github.io/data/nyc_zips_df.csv')
+
+print(nyc_zips_df)
+```
+
+## Q1a
+
+- Replicate the following ggplot.
+
+  - You should calculate the proportion of Pit Bull (or Mix) for each zip code.
+  - You should join data.frames properly.
+  - Choose the color palette from the viridis scales
+    - https://ggplot2.tidyverse.org/reference/scale_viridis.html.
+  - Use coord_map(projection = "albers", lat0 = 39, lat1 = 45).
+  - To insert the image, use the following annotate():
+
+```{r}
+# install.packages("ggtext")
+library(ggtext)
+
+annotate("richtext", 
+         x =  , 
+         y =  , 
+         label = "<img src='https://bcdanl.github.io/lec_figs/pitbull.png' width='750'/>", 
+         fill = NA,
+         color = NA) 
+```
+
+
+```{r}
+install.packages("ggtext")
+```
+```{r}
+#| fig-width: 6.18
+#| fig-height: 6.84
+
+
+library(tidyverse)
+library(ggtext)
+library(ggthemes)
+library(ggplot2)
+library(viridis)
+
+nyc_dog_license_cleaned <- nyc_dog_license %>%
+  filter(!is.na(breed_rc))
+
+pit_bull_proportion <- nyc_dog_license_cleaned %>%
+  group_by(zip_code) %>%
+  summarise(
+    total_dogs = n(),
+    pitbull_dogs = sum(breed_rc == "Pit Bull (or Mix)"),
+    pitbull_proportion = (pitbull_dogs / total_dogs) * 100
+  )
+
+merged_data <- nyc_zips_df %>%
+  left_join(pit_bull_proportion, by = "zip_code") %>%
+  left_join(nyc_zips_coord, by = "objectid")
+
+x_percentile <- quantile(merged_data$X, 0.075, na.rm = TRUE)
+y_percentile <- quantile(merged_data$Y, 0.60, na.rm = TRUE)
+
+ggplot(merged_data, aes(x = X, y = Y, fill = pitbull_proportion)) +
+  annotate("richtext",
+           x = x_percentile,  
+           y = y_percentile,  
+           label = "<img src='https://bcdanl.github.io/lec_figs/pitbull.png' width='750'/>",
+           fill = NA,
+           color = NA,
+           ) +
+  geom_polygon(aes(group = zip_code), color = "black", size = 0.1) +
+  scale_fill_viridis(name = "Percent of All Licensed Pit Bull", option = "magma", direction = 1, breaks = c(2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20, 22.5), limits = c(0,22.5),
+                     na.value = "transparent") +
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  labs(title = "New York City's Pit Bull", subtitle = "By Zip Code. Based on Licensing Data") +
+  theme_void() +
+  guides(fill = guide_legend(barwidth = 2.5, nrow = 1, label.position = "bottom")) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 20),
+        plot.subtitle = element_text(hjust = 0.5), size = 14,
+        legend.position = "top",
+        legend.justification = c(0.2,1),
+        legend.key.width = unit(2, "cm"),
+        legend.title.position = "top")
+
+
+```
+
+## Q1b
+- Which zip_code has the highest proportion of Pit Bull (or Mix)?
+
+```{r}
+max_proportion <- max(pit_bull_proportion$pitbull_proportion, na.rm = TRUE)
+
+highest_proportion_zips <- pit_bull_proportion %>%
+  filter(pitbull_proportion == max_proportion)
+
+print(highest_proportion_zips)
+```
+- There are 22 zip codes that all are tied for the highest proportion of Pit Bull (or Mix)
+
+## Question 2
+- The following data is for Question 2:
+
+```{r}
+election_panel <- read_csv(
+  'https://bcdanl.github.io/data/election_panel.csv')
+print(election_panel)
+```
+
+```{r}
+```
+
+```{r}
+
+```
+
