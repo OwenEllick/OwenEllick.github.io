@@ -11,7 +11,6 @@ library(tidyverse)
 library(skimr)
 library(ggthemes)
 library(socviz)
-install.packages("geofacet")
 library(geofacet)
 ```
 
@@ -106,7 +105,7 @@ unemp_house_prices <- read_csv(
 - Use geom_area(), geom_line(), and facet_geo(~state, labeller = adjust_labels) to replicate the following figure
 
 ```{r}
-library(tid)
+library(tidyverse)
 adjust_labels <- as_labeller(
   function(x) {
     case_when(

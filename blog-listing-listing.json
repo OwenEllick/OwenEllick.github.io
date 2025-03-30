@@ -1,0 +1,15 @@
+{
+  "listing": "/blog-listing.html",
+  "items": [
+    "/posts/Ice Cream/icecream.html",
+    "/posts/PySpark Basics/PySparkbasics.html",
+    "/posts/ggplot Basics/ggplotbasics.html",
+    "/posts/Spotify Favorite Artists/favoriteartists.html",
+    "/posts/Python Basics/PythonBasics.html",
+    "/posts/Spotify All/SpotifyAll.html",
+    "/posts/NFL in 2022/NFLin2022.html",
+    "/posts/Beer Markets/BeerMarkets.html",
+    "/posts/Restaurant Inspection/RestaurantInspection.html",
+    "/posts/welcome/Welcome.html"
+  ]
+}
