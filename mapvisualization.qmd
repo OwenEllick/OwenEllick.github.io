@@ -300,7 +300,6 @@ NY_socioecon_geo_poverty <- read_csv(
 ```
 
 ```{r}
-install.packages("viridis")
 library(viridis)
 ```
 ```{r}
