@@ -112,11 +112,6 @@ p2 + theme_map()
 ```
 ap U.S. state-level data
 To the fill aethetic, let’s try a continuous measure, such as the percentage of the vote received by Donald Trump (pct_trump).
-```{r}
-p2 <- p1 + scale_fill_gradient(low = "white", high = "#CB454A") +
-        labs(title = "Trump vote") 
-p2 + theme_map() + labs(fill = "Percent")
-```
 
 ## Scale gradient 2
 

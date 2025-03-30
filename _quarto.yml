@@ -15,6 +15,8 @@ website:
         menu: 
           - text: "Ice Cream Analysis"
             href: Icecream.ipynb 
+          - text: "Beer Market Analysis"
+            href: Beermarkets.ipynb
       - text: Project DANL 210
         href: Project210.qmd
       - text: Project IPYNB
