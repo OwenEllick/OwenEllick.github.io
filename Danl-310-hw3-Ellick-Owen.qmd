@@ -38,24 +38,7 @@ print(nyc_zips_df)
   - Choose the color palette from the viridis scales
     - https://ggplot2.tidyverse.org/reference/scale_viridis.html.
   - Use coord_map(projection = "albers", lat0 = 39, lat1 = 45).
-  - To insert the image, use the following annotate():
-
-```{r}
-# install.packages("ggtext")
-library(ggtext)
-
-annotate("richtext", 
-         x =  , 
-         y =  , 
-         label = "<img src='https://bcdanl.github.io/lec_figs/pitbull.png' width='750'/>", 
-         fill = NA,
-         color = NA) 
-```
-
-
-```{r}
-install.packages("ggtext")
-```
+ 
 ```{r}
 #| fig-width: 6.18
 #| fig-height: 6.84
@@ -133,9 +116,69 @@ print(election_panel)
 ```
 
 ```{r}
+library(tidyverse)
+library(ggtext)
+library(ggthemes)
+library(ggplot2)
+library(viridis)
+library(RColorBrewer)
+county_map <- socviz::county_map
+
+county_map <- county_map %>% 
+  mutate(id = as.integer(id))
+
+election_panel <- election_panel %>% 
+  mutate(id = as.integer(id))
+
+county_full <- county_map %>%
+  left_join(election_panel, by = c("id"))
 ```
 
 ```{r}
+qtiles <- quantile(election_panel$pct_DEMOCRAT,
+                   probs = c(0, 0.25, 0.5, 0.75, 1),
+                   na.rm = TRUE)
+
+brk <- as.numeric(qtiles)
+
+lab <- paste0(round(qtiles,1),
+              "\n(",
+              c("Min", "25th", "50th", "75th", "Max"), ")")
+
+blues_pal <- brewer.pal(9, "Blues")
+
+p1 <- ggplot(data = county_full) +
+  geom_polygon(mapping = aes(x = long, y = lat, group = group, fill = pct_DEMOCRAT),
+               color = "grey60",
+               linewidth = 0.1) +
+  facet_wrap(~year, nrow =2)
+p2 <- p1 + scale_fill_gradient(
+  low = "white",
+  high = blues_pal[7],
+  na.value = "grey80",
+  breaks = brk,
+  labels = lab,
+  guide = guide_colorbar(direction = "horizontal",
+                         barwidth = 20,
+                         title.vjust = 1))
+
+p <- p2 + labs(fill = "Percent Democrat", title = "U.S. Presidential Election, 2000-2020") +
+theme_map() +
+theme(plot.margin = unit( c(1,1,3.85, 0.5), "cm"),
+      plot.title = element_text(size = 10,
+                                hjust = .5),
+      legend.position = c(0.5, -.15),
+      legend.justification = c(.5,.5),
+      aspect.ratio = .8,
+      strip.background = element_rect( colour = "black",
+                                       fill = "white",
+                                       color = "grey80")) +
+guides(fill = guide_colourbar(direction = "horizontal",
+                              barwidth = 20,
+                              title.vjust = 1)) 
+p
+  
 
 ```
+
 
