@@ -327,7 +327,6 @@ p2 + facet_wrap(~ year, ncol = 3) +
 - As an alternative to state-level choropleths, we can consider statebins.
 
 ```{r}
-install.packages("statebins")
 library(statebins)
 p <- ggplot(election, aes( state = state, fill = pct_trump ) )
 p1 <- p +  geom_statebins(lbl_size = 5,
