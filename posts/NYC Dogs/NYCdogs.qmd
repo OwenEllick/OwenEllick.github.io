@@ -26,6 +26,7 @@ library(viridis)
 ```
 
 ## Loading The Data
+
 ```{r}
 nyc_dog_license <- read_csv(
   'https://bcdanl.github.io/data/nyc_dog_license.csv')
@@ -43,6 +44,7 @@ nyc_zips_df <- read_csv(
   'https://bcdanl.github.io/data/nyc_zips_df.csv')
 print(nyc_zips_df)
 ```
+
 ## Important Visualization
 
 ```{r}
@@ -93,10 +95,11 @@ ggplot(merged_data, aes(x = X, y = Y, fill = pitbull_proportion)) +
 
 ```
 
-- Geographic Distribution: The map highlights variations in Licensed Pit Bull ownership across different zip codes. Darker areas indicate a lower percentage of licensed Pit Bulls, while lighter areas suggest a higher percentage.
+-   Geographic Distribution: The map highlights variations in Licensed Pit Bull ownership across different zip codes. Darker areas indicate a lower percentage of licensed Pit Bulls, while lighter areas suggest a higher percentage.
 
 ## Follow Up Question
-- Which Zip Code has the highest proportion of Pit Bull (or Mix)?
+
+-   Which Zip Code has the highest proportion of Pit Bull (or Mix)?
 
 ```{r}
 max_proportion <- max(pit_bull_proportion$pitbull_proportion, na.rm = TRUE)
@@ -106,4 +109,5 @@ highest_proportion_zips <- pit_bull_proportion %>%
 
 print(highest_proportion_zips)
 ```
-- There are 22 zip codes that all are tied for the highest proportion of Pit Bull (or Mix), the zip code that is shown at the top is 1009.
+
+-   There are 22 zip codes that all are tied for the highest proportion of Pit Bull (or Mix), the zip code that is shown at the top is 1009.
