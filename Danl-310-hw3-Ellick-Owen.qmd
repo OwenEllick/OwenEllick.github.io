@@ -104,13 +104,13 @@ highest_proportion_zips <- pit_bull_proportion %>%
 
 print(highest_proportion_zips)
 ```
-- There are 22 zip codes that all are tied for the highest proportion of Pit Bull (or Mix)
+- There are 22 zip codes that all are tied for the highest proportion of Pit Bull (or Mix), the zip code that is shown at the top is 1009.
 
 ## Question 2
 - The following data is for Question 2:
 
 ```{r}
-election_panel <- read_csv(
+election_panel <- read.csv(
   'https://bcdanl.github.io/data/election_panel.csv')
 print(election_panel)
 ```
@@ -132,7 +132,30 @@ election_panel <- election_panel %>%
 
 county_full <- county_map %>%
   left_join(election_panel, by = c("id"))
+
+
+alaska_na <- county_full %>% 
+  filter(is.na(year))
 ```
+
+```{r}
+alaska_by_year <- data.frame()
+for(yr in unique(na.omit(county_full$year))) {
+  temp_alaska <- alaska_na %>%
+    mutate(year = yr)
+   alaska_by_year <- rbind(alaska_by_year, temp_alaska)
+}
+
+```
+
+```{r}
+complete_data <- rbind(
+  filter(county_full, !is.na(year)),
+  alaska_by_year
+)
+```
+
+
 
 ```{r}
 qtiles <- quantile(election_panel$pct_DEMOCRAT,
@@ -147,11 +170,10 @@ lab <- paste0(round(qtiles,1),
 
 blues_pal <- brewer.pal(9, "Blues")
 
-p1 <- ggplot(data = county_full) +
+p1 <- ggplot(data = complete_data) +
   geom_polygon(mapping = aes(x = long, y = lat, group = group, fill = pct_DEMOCRAT),
-               color = "grey60",
                linewidth = 0.1) +
-  facet_wrap(~year, nrow =2)
+  facet_wrap(~year, nrow =3)
 p2 <- p1 + scale_fill_gradient(
   low = "white",
   high = blues_pal[7],
@@ -170,8 +192,8 @@ theme(plot.margin = unit( c(1,1,3.85, 0.5), "cm"),
       legend.position = c(0.5, -.15),
       legend.justification = c(.5,.5),
       aspect.ratio = .8,
-      strip.background = element_rect( colour = "black",
-                                       fill = "white",
+      strip.background = element_rect(
+                                       fill = blues_pal[2],
                                        color = "grey80")) +
 guides(fill = guide_colourbar(direction = "horizontal",
                               barwidth = 20,
