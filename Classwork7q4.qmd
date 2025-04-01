@@ -8,6 +8,7 @@ editor: visual
 ## Question 4
 
 ```{r}
+library(tidyverse)
 holiday_movies <- read.csv("https://bcdanl.github.io/data/holiday_movies.csv")
 holiday_movie_genres <- read.csv("https://bcdanl.github.io/data/holiday_movie_genres.csv")
 ```
