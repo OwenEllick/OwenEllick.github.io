@@ -229,13 +229,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 6
-  state                total_vote r_points pct_trump party      census 
-  &lt;chr&gt;                     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  
-1 District of Columbia     311268   -86.8       4.09 Democratic South  
-2 Nevada                  1125385    -2.42     45.5  Democratic West   
-3 North Dakota             344360    35.7      63.0  Republican Midwest
-4 Alaska                   318608    14.7      51.3  Republican West   
-5 Wyoming                  255849    46.3      68.2  Republican West   </code></pre>
+  state       total_vote r_points pct_trump party      census 
+  &lt;chr&gt;            &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  
+1 Ohio           5536547    8.07       51.3 Republican Midwest
+2 New Mexico      798319   -8.22       40.0 Democratic West   
+3 Mississippi    1211088   17.8        57.9 Republican South  
+4 Michigan       4824542    0.220      47.2 Republican Midwest
+5 Minnesota      2945233   -1.51       44.9 Democratic Midwest</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -16020,12 +16020,12 @@ of ggplot2 3.3.4.</code></pre>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, name, state, pop_dens, pct_black) <span class="sc">|&gt;</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     id            name state      pop_dens   pct_black
-1 30033 Garfield County    MT [    0,   10) [ 0.0, 2.0)
-2 28001    Adams County    MS [   50,  100) [50.0,85.3]
-3 20021 Cherokee County    KS [   10,   50) [ 0.0, 2.0)
-4 12075     Levy County    FL [   10,   50) [ 5.0,10.0)
-5 48291  Liberty County    TX [   50,  100) [10.0,15.0)</code></pre>
+<pre><code>     id           name state      pop_dens   pct_black
+1 37079  Greene County    NC [   50,  100) [25.0,50.0)
+2 54053   Mason County    WV [   50,  100) [ 0.0, 2.0)
+3 27001  Aitkin County    MN [    0,   10) [ 0.0, 2.0)
+4 36069 Ontario County    NY [  100,  500) [ 2.0, 5.0)
+5 51115 Mathews County    VA [  100,  500) [ 5.0,10.0)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>county_full <span class="ot">&lt;-</span> </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(county_map, county_data, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
