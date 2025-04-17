@@ -17,6 +17,8 @@ website:
             href: Icecream.ipynb 
           - text: "Beer Market Analysis"
             href: Beermarkets.ipynb
+          - text: "Housing Analysis"
+            href: Housing.ipynb
       - text: Project DANL 210
         href: Project210.qmd
       - text: Project IPYNB
