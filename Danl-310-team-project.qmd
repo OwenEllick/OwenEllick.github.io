@@ -1,5 +1,5 @@
 ---
-title: "Project 310"
+title: "Shooting for Success: Analyzing NBA Player Performance and Value 🏀"
 editor: visual
 author: "Owen Ellick"
 collaborators: 
@@ -15,7 +15,6 @@ collaborators:
 </div>
 ```
 
-# Shooting for Success: Analyzing NBA Player Performance and Value 🏀
 
 ## Introduction
 
@@ -144,8 +143,6 @@ heatmap_plot +
   theme_minimal(base_size = 14) +
   theme(aspect.ratio = 1,
         axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
-
-print(heatmap_plot)
 ```
 
 **Findings**: Strong correlations between salary and metrics like **PTS** **PER**, **WS**, and **AST** suggest these are key drivers of player compensation.
