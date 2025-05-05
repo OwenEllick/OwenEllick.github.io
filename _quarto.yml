@@ -8,9 +8,11 @@ website:
     pinned: true
     left:
       - text: Project
-        href: project.qmd
+        href: Danl-310-team-project.qmd
       - text: Blog
         href: blog-listing.qmd
+      - text: Dashboard
+        href: dashboard.qmd
       - text: "Jupyter Notebook Blogging"
         menu: 
           - text: "Ice Cream Analysis"

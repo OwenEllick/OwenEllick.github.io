@@ -1,0 +1,42 @@
+--- 
+title: My Dashboard
+author: Owen Ellick
+format: 
+  dashboard:
+    logo: .png
+    nav-buttons: [github]
+    github: https://github.com/OwenEllick/OwenEllick.github.io
+
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+spam <- 99
+```
+
+```{r}
+#| title: GDP and Life Expectancy
+
+library(gapminder)
+library(tidyverse)
+ggplot(gapminder, 
+       aes(x = gdpPercap, 
+           y = lifeExp, 
+           color = continent)) +
+  geom_point()
+```
+
+```{r}
+#| content: valuebox
+#| title: "Spam per day"
+
+list(
+  icon = "trash",
+  color = "danger",
+  value = spam
+)
+```
+
+
