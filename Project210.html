@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-the-data" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Load the Data</h1>
-<div id="423804c6" class="cell" data-execution_count="1">
+<div id="e6fc036e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -284,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.1" class="anchored" data-anchor-id="descriptive-statistics-for-yfinance-history"><span class="header-section-number">3.1</span> Descriptive Statistics for Yfinance History</h2>
 <section id="ungrouped" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="ungrouped"><span class="header-section-number">3.1.1</span> Ungrouped</h3>
-<div id="faa35ec2" class="cell" data-execution_count="2">
+<div id="54bb664b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Yfinance History Data Descriptive Statistics:"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(finance_history.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -314,7 +314,7 @@ max    3.160112e+08      15.000000       4.000000  </code></pre>
 </section>
 <section id="groupedselected" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="groupedselected"><span class="header-section-number">3.1.2</span> Grouped/Selected</h3>
-<div id="2e268945" class="cell" data-execution_count="3">
+<div id="a50198f3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>finance_history[<span class="st">'Volume'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>count    1.977960e+05
@@ -334,7 +334,7 @@ Name: Volume, dtype: float64</code></pre>
 <h2 data-number="3.2" class="anchored" data-anchor-id="descriptive-statistics-for-balance-sheets"><span class="header-section-number">3.2</span> Descriptive Statistics for Balance Sheets</h2>
 <section id="ungrouped-1" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="ungrouped-1"><span class="header-section-number">3.2.1</span> Ungrouped</h3>
-<div id="a93e2b66" class="cell" data-execution_count="4">
+<div id="1696a84c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Finance Balance Sheets Data Descriptive Statistics:"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(finance_balance_sheets.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -426,7 +426,7 @@ max                     4.260000e+08                   -2000000.0
 </section>
 <section id="groupedselected-1" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="groupedselected-1"><span class="header-section-number">3.2.2</span> Grouped/Selected</h3>
-<div id="cea58da6" class="cell" data-execution_count="5">
+<div id="1a23ced4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>finance_balance_sheets[[<span class="st">'Total Assets'</span>,<span class="st">'Total Debt'</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -495,7 +495,7 @@ max                     4.260000e+08                   -2000000.0
 <h2 data-number="3.3" class="anchored" data-anchor-id="descriptive-statistics-income-statements"><span class="header-section-number">3.3</span> Descriptive Statistics Income Statements</h2>
 <section id="ungrouped-2" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="ungrouped-2"><span class="header-section-number">3.3.1</span> Ungrouped</h3>
-<div id="0a480f44" class="cell" data-execution_count="6">
+<div id="062a058e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Finance Income Statement Data Descriptive Statistics:"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(finance_income_statement.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -597,7 +597,7 @@ max               5.591400e+07
 </section>
 <section id="groupedselected-2" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="groupedselected-2"><span class="header-section-number">3.3.2</span> Grouped/Selected</h3>
-<div id="9a41c184" class="cell" data-execution_count="7">
+<div id="7fe83ab6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>finance_income_statement[<span class="st">'Net Income'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>count    2.659000e+03
@@ -617,7 +617,7 @@ Name: Net Income, dtype: float64</code></pre>
 <h2 data-number="3.4" class="anchored" data-anchor-id="descriptive-statistics-esg-project-data"><span class="header-section-number">3.4</span> Descriptive Statistics ESG Project Data</h2>
 <section id="ungrouped-3" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="ungrouped-3"><span class="header-section-number">3.4.1</span> Ungrouped</h3>
-<div id="9cea9175" class="cell" data-execution_count="8">
+<div id="129d8590" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">ESG Data Descriptive Statistics:"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(esg_proj_data.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -647,7 +647,7 @@ max                19.400000           5.000000  </code></pre>
 </section>
 <section id="groupedselected-3" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="groupedselected-3"><span class="header-section-number">3.4.2</span> Grouped/Selected</h3>
-<div id="39f8bbb0" class="cell" data-execution_count="9">
+<div id="1462542e" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>esg_proj_data[<span class="st">'Total ESG Risk Score'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>count    635.000000
@@ -661,7 +661,7 @@ max       52.000000
 Name: Total ESG Risk Score, dtype: float64</code></pre>
 </div>
 </div>
-<div id="1686784f" class="cell" data-execution_count="10">
+<div id="82fd1a25" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>esg_proj_data[<span class="st">'Controversy Level'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>count    577.000000
@@ -681,7 +681,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <h2 data-number="3.5" class="anchored" data-anchor-id="distribution-plots"><span class="header-section-number">3.5</span> Distribution Plots</h2>
 <section id="esg-project-data" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="esg-project-data"><span class="header-section-number">3.5.1</span> ESG Project Data</h3>
-<div id="6e000ff8" class="cell" data-execution_count="11">
+<div id="6f0b9841" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_distributions(df, title_prefix):</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col <span class="kw">in</span> df.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>]).columns:</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -732,7 +732,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 </section>
 <section id="yfinance-balance-sheet-data" class="level3" data-number="3.5.2">
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="yfinance-balance-sheet-data"><span class="header-section-number">3.5.2</span> Yfinance Balance Sheet Data</h3>
-<div id="953d7aef" class="cell" data-execution_count="12">
+<div id="d290e993" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>balance_sheet_columns <span class="op">=</span> [<span class="st">'Total Assets'</span>, <span class="st">'Common Stock'</span>, <span class="st">'Current Liabilities'</span>, <span class="st">'Accounts Payable'</span>, <span class="st">'Total Debt'</span>]</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to plot distributions for specified columns</span></span>
@@ -786,7 +786,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 </section>
 <section id="yfinance-income-statement-data" class="level3" data-number="3.5.3">
 <h3 data-number="3.5.3" class="anchored" data-anchor-id="yfinance-income-statement-data"><span class="header-section-number">3.5.3</span> Yfinance Income Statement Data</h3>
-<div id="466f7599" class="cell" data-execution_count="13">
+<div id="2ed5e6d4" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>income_statement_columns <span class="op">=</span> [<span class="st">'Net Income'</span>, <span class="st">'Total Revenue'</span>, <span class="st">'Gross Profit'</span>, <span class="st">'Total Expenses'</span>]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to plot distributions for specified columns</span></span>
@@ -833,7 +833,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 </section>
 <section id="yfinance-history-data" class="level3" data-number="3.5.4">
 <h3 data-number="3.5.4" class="anchored" data-anchor-id="yfinance-history-data"><span class="header-section-number">3.5.4</span> Yfinance History Data</h3>
-<div id="87fb4668" class="cell" data-execution_count="14">
+<div id="1ee6e89b" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>history_columns <span class="op">=</span> [<span class="st">'Open'</span>, <span class="st">'High'</span>, <span class="st">'Low'</span>, <span class="st">'Close'</span>]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to plot distributions for specified columns</span></span>
@@ -883,7 +883,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <h2 data-number="3.6" class="anchored" data-anchor-id="correlation-heat-maps"><span class="header-section-number">3.6</span> Correlation Heat Maps</h2>
 <section id="esg-project-data-heatmap" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="esg-project-data-heatmap"><span class="header-section-number">3.6.1</span> ESG Project Data Heatmap</h3>
-<div id="78d92493" class="cell" data-execution_count="15">
+<div id="f5454a47" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>numeric_data <span class="op">=</span> esg_proj_data.select_dtypes(include<span class="op">=</span><span class="st">'number'</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> numeric_data.corr()</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -906,7 +906,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 </section>
 <section id="yfinance-historical-data-heatmap" class="level3" data-number="3.6.2">
 <h3 data-number="3.6.2" class="anchored" data-anchor-id="yfinance-historical-data-heatmap"><span class="header-section-number">3.6.2</span> Yfinance Historical Data Heatmap</h3>
-<div id="69b198df" class="cell" data-execution_count="16">
+<div id="93fc5c14" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>numeric_data <span class="op">=</span> finance_history.select_dtypes(include<span class="op">=</span><span class="st">'number'</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> numeric_data.corr()</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -936,7 +936,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <ul>
 <li>Find the top 10 companies by Total ESG Risk Score</li>
 </ul>
-<div id="fdec337c" class="cell" data-execution_count="17">
+<div id="a0c84ee4" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>top_10_companies <span class="op">=</span> esg_proj_data.sort_values(by<span class="op">=</span><span class="st">'Total ESG Risk Score'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_10_companies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -985,7 +985,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 </ul></li>
 <li>Create a plot to visualize the Total ESG Risk Scores for the top 10 companies</li>
 </ul>
-<div id="3b1836de" class="cell" data-execution_count="18">
+<div id="d5df8082" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>top_10_companies, x<span class="op">=</span><span class="st">'Comapny Name'</span>, y<span class="op">=</span><span class="st">'Total ESG Risk Score'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
@@ -1014,7 +1014,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <ul>
 <li>What is the distribution of net income across a small subset of 5 companies within the data frame finance_income_statement?</li>
 </ul>
-<div id="4004f934" class="cell" data-execution_count="19">
+<div id="c9dc9602" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>subset_companies <span class="op">=</span> finance_income_statement[<span class="st">'Company Name'</span>].unique()[:<span class="dv">5</span>] </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>subset_data <span class="op">=</span> finance_income_statement[finance_income_statement[<span class="st">'Company Name'</span>].isin(subset_companies)]</span>
@@ -1055,7 +1055,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <ul>
 <li>What is the average daily trading volume for a specific company over the given time period spanning from January 1,2023, to March 31, 2024?</li>
 </ul>
-<div id="28ad194a" class="cell" data-execution_count="20">
+<div id="ff4e425f" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>company_name <span class="op">=</span> <span class="st">'Tesla, Inc.'</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>company_data <span class="op">=</span> finance_history[finance_history[<span class="st">'Company Name'</span>] <span class="op">==</span> company_name]</span>
@@ -1068,7 +1068,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <ul>
 <li>How does the closing price of Zillow Group, Inc.&nbsp;vary over time?</li>
 </ul>
-<div id="94850419" class="cell" data-execution_count="21">
+<div id="bb9d349b" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>company_name <span class="op">=</span> <span class="st">'Zillow Group, Inc.'</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>company_data <span class="op">=</span> finance_history[finance_history[<span class="st">'Company Name'</span>] <span class="op">==</span> company_name]</span>
@@ -1105,7 +1105,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <ul>
 <li>Find the top 15 companies in the finance_balance_sheets Data Frame by Inventory</li>
 </ul>
-<div id="c812e3b0" class="cell" data-execution_count="22">
+<div id="3ed01521" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>grouped_inventory <span class="op">=</span> finance_balance_sheets.groupby(<span class="st">'Company Name'</span>)[<span class="st">'Inventory'</span>].<span class="bu">sum</span>().reset_index()</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>top_companies_inventory <span class="op">=</span> grouped_inventory.sort_values(by<span class="op">=</span><span class="st">'Inventory'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -1139,7 +1139,7 @@ Name: Controversy Level, dtype: float64</code></pre>
 <li><p>Comment: These are the top 15 companies in the data frame by inventory</p></li>
 <li><p>How does total assets value vary across different companies?</p></li>
 </ul>
-<div id="88a30bef" class="cell" data-execution_count="23">
+<div id="d4ec16c4" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>grouped_assets <span class="op">=</span> finance_balance_sheets.groupby(<span class="st">'Company Name'</span>)[<span class="st">'Total Assets'</span>].<span class="bu">sum</span>().reset_index()</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>top_companies_assets <span class="op">=</span> grouped_assets.sort_values(by<span class="op">=</span><span class="st">'Total Assets'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
