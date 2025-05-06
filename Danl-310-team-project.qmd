@@ -15,7 +15,6 @@ collaborators:
 </div>
 ```
 
-
 ## Introduction
 
 ### Background 💻
@@ -411,7 +410,17 @@ The insights uncovered in this project go beyond basketball and can be applied t
 
 ### AI Assistance
 
-This project benefited from the use of **GitHub Copilot**, a code-generation and AI assistant tool. GitHub Copilot was employed to: - Refine code aesthetics, such as improving themes, scales, and formatting for better presentation. - Provide insights and guidance on implementing project-specific requirements (e.g., filtering datasets, embedding interactive visualizations). - Answer technical questions and suggest best practices for reproducible and professional code. - Help to refine errors and troubleshoot incorrect code.
+This project benefited from the use of **GitHub Copilot**, a code-generation and AI assistant tool.
+
+GitHub Copilot was employed to:
+
+-   Refine code aesthetics, such as improving themes, scales, and formatting for better presentation.
+
+-   Provide insights and guidance on implementing project-specific requirements (e.g., filtering datasets, embedding interactive visualizations).
+
+-   Answer technical questions and suggest best practices for reproducible and professional code.
+
+-   Help to refine errors and troubleshoot incorrect code.
 
 GitHub Copilot facilitated faster implementation and enhanced the overall quality of the project by offering suggestions and reducing development time.
 
