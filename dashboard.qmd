@@ -3,7 +3,7 @@ title: "NBA Player Dashboard"
 author: Owen Ellick
 format: 
   dashboard:
-    page-layout: full
+    theme: darkly
     logo: nba.png
     nav-buttons: [github]
     github: https://github.com/OwenEllick/OwenEllick.github.io
@@ -11,7 +11,7 @@ format:
 ---
 # Overview
 
-This dashboard provides an interactive overview of NBA player visualizations, and a summary table.
+This dashboard provides an interactive overview of NBA player visualizations and a summary table.
 
 ```{r setup}
 #| include: false
@@ -38,8 +38,6 @@ nba_avg_points_position <- nba_players %>%
 
 
 ```
----
-
 ## Value Boxes
 ```{r}
 #| content: valuebox
@@ -86,26 +84,23 @@ list(
 
 ```
 ## Row {.tabset}
-### Visualization: Distribution of Points
+
+### Distribution of Points Per Game
 ```{r}
-#| title: Points Distribution
 ggplot(nba_players, aes(x = PTS)) +
   geom_histogram(binwidth = 2, fill = "blue", color = "black") +
   labs(
-    title = "Distribution of Points per Game",
     x = "Points",
     y = "Frequency"
   ) +
   theme_minimal()
 
 ```
-### Visualization: Points Per Game vs. Player Efficiency Rating (PER)
-
+### Points Per Game vs. Player Efficiency Rating (PER)
 ```{r}
-#| title: Points Per Game vs. PER
 ggplot(nba_players, aes(x = PTS, y = PER, color = Position)) +
   geom_point(alpha = 0.7) +
-  labs(title = "Points per Game vs. Player Efficiency Rating",
+  labs(
        x = "Points Per Game",
        y = "Player Efficiency Rating (PER)",
        color = "Position") +
@@ -114,48 +109,41 @@ ggplot(nba_players, aes(x = PTS, y = PER, color = Position)) +
 
 # Visualizations and Data Table
 
-## {.row}
-
+## {.column, width=50%}
 ### Bar Chart: Average Points by Position
-
 ```{r}
 #| title: Average Points by Position
 ggplot(nba_avg_points_position, aes(x = Position, y = Average_Points)) +
   geom_bar(stat = "identity", fill = "steelblue") +
-  labs(title = "Average Points per Game by Position",
+  labs(
        x = "Position",
        y = "Average Points Per Game") +
   theme_minimal()
 ```
 ### Box Plot: Salary by Position
-
 ```{r}
 #| title: Salary by Position
 ggplot(nba_players, aes(x = Position, y = Salary)) +
   geom_boxplot(fill = "tomato", alpha = 0.6, outlier.color = "black") +
-  labs(title = "Salary Distribution by Position",
+  labs(
        x = "Position",
        y = "Salary (USD)") +
   theme_minimal()
 ```
-## {.row}
-
+## {.column, width=50%}
 ### Scatter Plot: Salary vs. Win Shares
-
 ```{r}
 #| title: Salary vs. Win Shares
 ggplot(nba_players, aes(x = Salary, y = WS, color = Position)) +
   geom_point(alpha = 0.7) +
   geom_smooth(method = "lm", se = FALSE, color = "black", linetype = "dashed") +
-  labs(title = "Salary vs. Win Shares",
+  labs(
        x = "Salary (USD)",
        y = "Win Shares",
        color = "Position") +
   theme_minimal()
 
 ```
-## {.row}
-
 ### Team-Wise Stats Table
 ```{r}
 #| title: Team-Wise Stats Table
