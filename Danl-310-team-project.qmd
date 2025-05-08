@@ -33,7 +33,7 @@ The goal of this project is to analyze the relationship between player performan
 2.  **Are there any undervalued players based on performance statistics?**
 3.  **How do offensive and defensive metrics compare in their influence on salary?**
 4.  **What patterns emerge among players with high Player Efficiency Ratings (PER) and Win Shares (WS)?**
-5.  **How does a player's. scoring efficiency (True Shooting Percentage) compare to their salary?**
+5.  **How does a player's scoring efficiency (True Shooting Percentage) compare to their salary?**
 
 ------------------------------------------------------------------------
 
@@ -270,7 +270,9 @@ print(grouped_bar_chart)
 
 ```
 
-**Findings** 1. Offesive Metrics Dominate (PTS and AST)
+**Findings**
+
+1.  Offensive Metrics Dominate (PTS and AST)
 
 -   Points (PTS): The PTS (light blue bars) are significantly higher for all players compared to other metrics. This suggests that scoring ability is a major factor contributing to high salaries.
     -   For example, Giannis Antetokounmpo, Stephen Curry, and Damian Lillard have extremely high PTS values, indicating their scoring dominance.
@@ -302,7 +304,7 @@ Key Conclusions:
 
 -   Defensive metrics, while still important are less impactful on salary for these top players, due to the heightened difficulty to achieve higher defensive statistics although balanced players like Giannis and LeBron are exceptions.
 
-This analysis ties the metrics back to salary by showing that offensive capabilities are the primary drivers of high compensation. - In the NBA, while being a great defensive player is important, todays fast paced, high scoring game favors players who can score a lot of points, hence the top 10 paid players all having high offensive statistics.
+This analysis ties the metrics back to salary by showing that offensive capabilities are the primary drivers of high compensation. - In the NBA, while being a great defensive player is important, today's fast paced, high scoring game favors players who can score a lot of points, hence the top 10 paid players all having high offensive statistics.
 
 ------------------------------------------------------------------------
 
