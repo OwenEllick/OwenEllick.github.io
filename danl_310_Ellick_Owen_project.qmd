@@ -78,7 +78,12 @@ summary_stats <- nba_players_clean %>%
 print(summary_stats)
 ```
 
-**Findings**: The calculated averages provide a baseline for comparing individual players. For example: - Average salary: **\$9.55 million** - Average points per game: **9.96 points**
+**Findings**: The calculated averages provide a baseline for comparing individual players.
+
+-   For example:
+    -   Average salary: **\$9.55 million**
+
+    -   Average points per game: **9.96 points**
 
 These values help identify outliers and standout players.
 
@@ -144,7 +149,7 @@ heatmap_plot +
         axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
 
-**Findings**: Strong correlations between salary and metrics like **PTS** **PER**, **WS**, and **AST** suggest these are key drivers of player compensation.
+**Findings**: Strong correlations between salary and metrics like **PTS**, **PER**, **WS**, and **AST** suggest these are key drivers of player compensation.
 
 ------------------------------------------------------------------------
 
@@ -304,7 +309,9 @@ Key Conclusions:
 
 -   Defensive metrics, while still important are less impactful on salary for these top players, due to the heightened difficulty to achieve higher defensive statistics although balanced players like Giannis and LeBron are exceptions.
 
-This analysis ties the metrics back to salary by showing that offensive capabilities are the primary drivers of high compensation. - In the NBA, while being a great defensive player is important, today's fast paced, high scoring game favors players who can score a lot of points, hence the top 10 paid players all having high offensive statistics.
+This analysis ties the metrics back to salary by showing that offensive capabilities are the primary drivers of high compensation.
+
+-   In the NBA, while being a great defensive player is important, today's fast paced, high scoring game favors players who can score a lot of points, hence the top 10 paid players all having high offensive statistics.
 
 ------------------------------------------------------------------------
 
