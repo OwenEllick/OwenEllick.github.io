@@ -10,7 +10,7 @@ website:
       - text: Projects
         menu: 
           - text: "DANL 310"          
-          - href: Danl_310_ellick_owen_project.qmd
+          - href: danl_310_ellick_owen_project.qmd
           - text: "DANL 310 Dashboard"
           - href: dashboard.qmd
           - text: "DANL 210"
