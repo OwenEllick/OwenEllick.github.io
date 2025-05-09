@@ -257,7 +257,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="questions-and-objectives" class="level3">
 <h3 class="anchored" data-anchor-id="questions-and-objectives">Questions and Objectives</h3>
 <p>The primary goal of this project is to analyze how various player performance metrics relate to NBA player salaries. By using salary as the outcome variable in regression and machine learning models, we aim to identify the key factors that influence salaries and quantify their impact.</p>
-<p>This analysis will focus on: 1. Building and interpreting regression models with salary as the outcome variable to understand its relationship with performance metrics. 2. Applying machine learning models to explore complex relationships and evaluate their performance in explaining salary variance. 3. Using clustering and dimensionality reduction techniques to uncover hidden patterns in player performance and salary data.</p>
+<p>This analysis will focus on:</p>
+<ol type="1">
+<li><p>Building and interpreting regression models with salary as the outcome variable to understand its relationship with performance metrics.</p></li>
+<li><p>Applying machine learning models to explore complex relationships and evaluate their performance in explaining salary variance.</p></li>
+<li><p>Using clustering and dimensionality reduction techniques to uncover hidden patterns in player performance and salary data.</p></li>
+</ol>
 <p>By taking a data-driven approach, we aim to provide insights into the factors that drive NBA player salaries and demonstrate the utility of advanced analytics in sports management.</p>
 </section>
 <section id="data-transformation-and-descriptive-statistics" class="level3">
@@ -2387,7 +2392,23 @@ Test MSE: 55.191</code></pre>
 </div>
 </div>
 </div>
-<p>Insights from This Tree - We used a max depth constraint for this tree. 1. Key Thresholds: - The regression tree splits the data based on various predictors. 2. Key Observations: - The first split is on PTS (Points Scored), which indicates that PTS is the single most important variable for predicting salary in this model. This makes sense as scoring is often a key determinant of player value. - Additional splits occur on variables like TOV (Turnovers), TRB (Total Rebounds), DRB (Defensive Rebounds), and FG (Field Goals), showing that both offensive and defensive metrics influence salary predictions.</p>
+<p>Insights from This Tree</p>
+<ul>
+<li>We used a max depth constraint for this tree.</li>
+</ul>
+<ol type="1">
+<li>Key Thresholds:</li>
+</ol>
+<ul>
+<li>The regression tree splits the data based on various predictors.</li>
+</ul>
+<ol start="2" type="1">
+<li>Key Observations:</li>
+</ol>
+<ul>
+<li><p>The first split is on PTS (Points Scored), which indicates that PTS is the single most important variable for predicting salary in this model. This makes sense as scoring is often a key determinant of player value.</p></li>
+<li><p>Additional splits occur on variables like TOV (Turnovers), TRB (Total Rebounds), DRB (Defensive Rebounds), and FG (Field Goals), showing that both offensive and defensive metrics influence salary predictions.</p></li>
+</ul>
 </section>
 <section id="pruned-tree" class="level4">
 <h4 class="anchored" data-anchor-id="pruned-tree">Pruned Tree</h4>
@@ -2594,7 +2615,13 @@ Test MSE: 47.01993693271793</code></pre>
 </div>
 </div>
 </div>
-<p>Key Results 1. Out-of-Bag (OOB) Score: 0.519 - An OOB score of 0.519 suggests that the model explains around 52% of the salary variance, which is decent but leaves room for improvement.</p>
+<p>Key Results</p>
+<ol type="1">
+<li>Out-of-Bag (OOB) Score: 0.519</li>
+</ol>
+<ul>
+<li>An OOB score of 0.519 suggests that the model explains around 52% of the salary variance, which is decent but leaves room for improvement.</li>
+</ul>
 <ol start="2" type="1">
 <li>Train Mean Squared Error (MSE): 8.229</li>
 </ol>
@@ -2607,7 +2634,10 @@ Test MSE: 47.01993693271793</code></pre>
 <ul>
 <li>The test MSE is significantly higher than the training MSE, which indicates that the model is struggling to generalize to unseen data. This could be a sign of overfitting.</li>
 </ul>
-<p>Plot - The points near the origin are closely aligned along the red line, indicating that the model performs well for players with lower salaries.</p>
+<p>Plot</p>
+<ul>
+<li>The points near the origin are closely aligned along the red line, indicating that the model performs well for players with lower salaries.</li>
+</ul>
 <div id="cell-62" class="cell" data-outputid="f1a5af7e-5d45-4104-e892-37b8505bae3c" data-execution_count="153">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get feature importances from the model (equivalent to importance(bag.boston) in R)</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> rf.feature_importances_</span>
@@ -2730,11 +2760,17 @@ Best parameters: {'colsample_bytree': 1, 'gamma': 0, 'learning_rate': 0.05, 'max
 </div>
 </div>
 </div>
-<p>Model Performance: - Train MSE: 26.260373365921154 - Test MSE: 43.52851752630915 - The Test MSE is higher than the Train MSE, indicating that the model may still be slightly overfitting, despite using gradient boosting. However, the gap is much narrower compared to the Random Forest model, suggesting that XGBoost is better at generalizing to the test data.</p>
+<p>Model Performance:</p>
 <ul>
-<li>AST and PTS dominate as the most important features.</li>
-<li>PF, BLK, and TRB are moderately important features reflecting their role in evaluating player efficiency and defensive capabilities.</li>
-<li>The dominance of assists suggest that playmaking ability is highly valued in determining salary.</li>
+<li><p>Train MSE: 26.260373365921154</p></li>
+<li><p>Test MSE: 43.52851752630915</p>
+<ul>
+<li><p>The Test MSE is higher than the Train MSE, indicating that the model may still be slightly overfitting, despite using gradient boosting.</p></li>
+<li><p>However, the gap is much narrower compared to the Random Forest model, suggesting that XGBoost is better at generalizing to the test data.</p></li>
+</ul></li>
+<li><p>AST and PTS dominate as the most important features.</p></li>
+<li><p>PF, BLK, and TRB are moderately important features reflecting their role in evaluating player efficiency and defensive capabilities.</p></li>
+<li><p>The dominance of assists suggest that playmaking ability is highly valued in determining salary.</p></li>
 </ul>
 <div id="cell-68" class="cell" data-outputid="0b075145-ff9b-4faa-c7b3-3e0c1c802736" data-execution_count="156">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> filtered_nba_data.drop(columns<span class="op">=</span>[<span class="st">"Salary_Millions"</span>]).columns.tolist()</span>
@@ -2751,8 +2787,12 @@ Best parameters: {'colsample_bytree': 1, 'gamma': 0, 'learning_rate': 0.05, 'max
 </div>
 </div>
 </div>
-<p>Behavior of the Curve: - For players with 0–2 assists, the predicted salary remains relatively constant ($8 million). - This suggests that players with very few assists do not see a significant impact on their salary based on this metric alone.</p>
+<p>Behavior of the Curve:</p>
 <ul>
+<li><p>For players with 0–2 assists, the predicted salary remains relatively constant ($8 million).</p>
+<ul>
+<li>This suggests that players with very few assists do not see a significant impact on their salary based on this metric alone.</li>
+</ul></li>
 <li><p>Between 2 and 6 assists, there is a noticeable upward trend in partial dependence, indicating that an increase in assists strongly correlates with higher predicted salaries.</p>
 <ul>
 <li>Predicted salary rises from 8 million to 14 million in this range.</li>
