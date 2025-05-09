@@ -10,13 +10,13 @@ website:
       - text: Projects
         menu: 
           - text: "DANL 310"          
-          - href: Danl-310-team-project.qmd
+          - href: Danl_310_ellick_owen_project.qmd
           - text: "DANL 310 Dashboard"
           - href: dashboard.qmd
           - text: "DANL 210"
           - href: Project210.qmd
           - text: "DANL 320"
-          - href: danl_320_project.ipynb
+          - href: danl_320_ellick_owen_project.ipynb
           - text: "Sample IPYNB"
           - href: danl_proj_nba.ipynb
       - text: Blog
